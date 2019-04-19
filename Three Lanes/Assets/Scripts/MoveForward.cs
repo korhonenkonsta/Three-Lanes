@@ -6,7 +6,7 @@ public class MoveForward : MonoBehaviour
 {
 
     Rigidbody rb;
-    public float factor;
+    public float factor; //0.2
 
     void Start()
     {

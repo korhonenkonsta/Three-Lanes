@@ -2,25 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class SpawnOnDeath : MonoBehaviour
 {
     public GameObject prefabToSpawn;
-    public bool doSpawn = true;
-    public float spawnInterval = 1;
-
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(ContinuousSpawn());
+        
     }
 
-    IEnumerator ContinuousSpawn()
+    void OnDestroy()
     {
-        while (doSpawn)
-        {
-            Spawn(prefabToSpawn);
-            yield return new WaitForSeconds(spawnInterval);
-        }
+        Spawn(prefabToSpawn);
     }
 
     public void Spawn(GameObject prefab)
