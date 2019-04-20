@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
     public int health;
     public int damage;
+
     AudioSource audioSource;
 
     void Start()
@@ -19,8 +20,17 @@ public class Health : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            OnDeath();
         }
+    }
+
+    public void OnDeath()
+    {
+        if (GetComponent<Base>()!= null)
+        {
+            GetComponent<Base>().OnDeath();
+        }
+        Destroy(gameObject);
     }
 
     void OnCollisionEnter(Collision col)

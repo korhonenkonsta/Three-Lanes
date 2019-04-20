@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnOnDeath : MonoBehaviour
 {
+    private bool isQuitting = false;
     public GameObject prefabToSpawn;
     // Start is called before the first frame update
     void Start()
@@ -11,9 +12,17 @@ public class SpawnOnDeath : MonoBehaviour
         
     }
 
+    void OnApplicationQuit()
+    {
+        isQuitting = true;
+    }
+
     void OnDestroy()
     {
-        Spawn(prefabToSpawn);
+        if (!isQuitting)
+        {
+            Spawn(prefabToSpawn);
+        }
     }
 
     public void Spawn(GameObject prefab)
@@ -24,6 +33,6 @@ public class SpawnOnDeath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        print(isQuitting);
     }
 }

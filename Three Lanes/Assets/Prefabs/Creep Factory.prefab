@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5931524123125513847}
   m_Layer: 0
   m_Name: Creep Factory
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,3 +107,4 @@ MonoBehaviour:
   prefabToSpawn: {fileID: 1502950728977524122, guid: c60b8dab3dfb9cf4ea34ce41b356a2c4,
     type: 3}
   doSpawn: 1
+  spawnInterval: 1
