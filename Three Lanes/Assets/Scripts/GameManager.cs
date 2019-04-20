@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public Player player1;
     public Player player2;
+
+    public TextMeshProUGUI player1ScoreText;
+    public TextMeshProUGUI player2ScoreText;
 
     public GameObject basePrefab;
 
@@ -16,6 +20,7 @@ public class GameManager : MonoBehaviour
     public Transform player2Base1;
     public Transform player2Base2;
     public Transform player2Base3;
+
 
     void Start()
     {
@@ -36,10 +41,9 @@ public class GameManager : MonoBehaviour
 
     public void SearchAndDestroyTag()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Respawn");
-        foreach (GameObject enemy in enemies)
-            GameObject.Destroy(enemy);
-
+        GameObject[] units = GameObject.FindGameObjectsWithTag("Respawn");
+        foreach (GameObject unit in units)
+            Destroy(unit);
     }
 
     public void CreateBases()
@@ -62,5 +66,10 @@ public class GameManager : MonoBehaviour
         {
             ResetRound();
         }
+
+        player1ScoreText.text = player1.roundScore.ToString();
+        player2ScoreText.text = player2.roundScore.ToString();
+
+
     }
 }

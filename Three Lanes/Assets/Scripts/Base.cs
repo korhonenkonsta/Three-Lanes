@@ -5,7 +5,6 @@ using UnityEngine;
 public class Base : MonoBehaviour
 {
     public Player owner;
-    protected bool isQuitting = false;
     public GameObject mainBasePrefab;
 
     void Start()
@@ -13,25 +12,16 @@ public class Base : MonoBehaviour
         
     }
 
-    void OnApplicationQuit()
-    {
-        isQuitting = true;
-    }
-
     public void OnDeath()
     {
         SpawnMainBase(mainBasePrefab);
         owner.baseCount--;
-    }
 
-    //void OnDestroy()
-    //{
-    //    if (!isQuitting)
-    //    {
-            
-            
-    //    }
-    //}
+        if (owner.baseCount < 2)
+        {
+            owner.LoseRound();
+        }
+    }
 
     public void SpawnMainBase(GameObject prefab)
     {
