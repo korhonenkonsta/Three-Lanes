@@ -18,7 +18,15 @@ public class Player : MonoBehaviour
     public void LoseRound()
     {
         opponent.roundScore++;
-        gm.ResetRound();
+
+        if (opponent.roundScore >= 2)
+        {
+            gm.GameOver();
+        }
+        else
+        {
+            gm.ResetRound();
+        }
     }
 
     void Update()

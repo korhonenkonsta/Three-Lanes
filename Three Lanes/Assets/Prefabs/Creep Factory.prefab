@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5931524123125513801}
   - component: {fileID: 5931524123125513800}
   - component: {fileID: 5931524123125513847}
+  - component: {fileID: 2824578546200590445}
   m_Layer: 0
   m_Name: Creep Factory
   m_TagString: Respawn
@@ -108,3 +109,15 @@ MonoBehaviour:
     type: 3}
   doSpawn: 1
   spawnInterval: 1
+--- !u!114 &2824578546200590445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5931524123125513846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294e85054a33d83489f8e79e82aab72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

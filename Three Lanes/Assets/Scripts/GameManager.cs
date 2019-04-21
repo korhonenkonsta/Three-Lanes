@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,10 +23,21 @@ public class GameManager : MonoBehaviour
     public Transform player2Base2;
     public Transform player2Base3;
 
+    public GameObject gameOverPanel;
 
     void Start()
     {
         CreateBases();
+    }
+
+    public void GameOver()
+    {
+        gameOverPanel.SetActive(true);
+    }
+
+    public void RestartMatch()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     /// <summary>
@@ -67,6 +80,7 @@ public class GameManager : MonoBehaviour
             ResetRound();
         }
 
+        //Need to set players on match start, instantiate at least player2
         player1ScoreText.text = player1.roundScore.ToString();
         player2ScoreText.text = player2.roundScore.ToString();
 
