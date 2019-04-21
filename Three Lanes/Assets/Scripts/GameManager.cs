@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public Player player1;
     public Player player2;
 
+    public GameObject player2Prefab;
+
     public TextMeshProUGUI player1ScoreText;
     public TextMeshProUGUI player2ScoreText;
 
@@ -27,7 +29,23 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        StartMatch();
+    }
+
+    public void StartMatch()
+    {
+        CreatePlayer2();
+        player1.opponent = player2;
+        player1.roundScore = 0;
+        UpdateScoreTexts();
         CreateBases();
+    }
+
+    public void CreatePlayer2()
+    {
+        player2 = Instantiate(player2Prefab, transform.position, transform.rotation).GetComponent<Player>();
+        player2.opponent = player1;
+        player2.gm = this;
     }
 
     public void GameOver()
@@ -38,6 +56,7 @@ public class GameManager : MonoBehaviour
     public void RestartMatch()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        StartMatch();
     }
 
     /// <summary>
@@ -61,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void CreateBases()
     {
+        print("bases created");
         player1.baseCount = 3;
         player2.baseCount = 3;
 
@@ -73,17 +93,19 @@ public class GameManager : MonoBehaviour
         Instantiate(basePrefab, player2Base3.position, player2Base3.rotation).GetComponent<Base>().owner = player2;
     }
 
+    public void UpdateScoreTexts()
+    {
+        //Need to set players on match start, instantiate at least player2
+        player1ScoreText.text = player1.roundScore.ToString();
+        player2ScoreText.text = player2.roundScore.ToString();
+    }
+
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
             ResetRound();
         }
-
-        //Need to set players on match start, instantiate at least player2
-        player1ScoreText.text = player1.roundScore.ToString();
-        player2ScoreText.text = player2.roundScore.ToString();
-
 
     }
 }

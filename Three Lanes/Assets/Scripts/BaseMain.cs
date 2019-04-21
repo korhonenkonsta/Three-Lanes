@@ -2,22 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseMain : MonoBehaviour
+public class BaseMain : Base
 {
-    protected bool isQuitting = false;
-    public Player owner;
-
     void Start()
     {
         
     }
 
-    void OnDestroy()
+    public override void OnDeath()
     {
-        if (!isQuitting)
-        {
-            owner.baseCount -= 2;
-        }
+        owner.LoseRound();
     }
 
     void Update()

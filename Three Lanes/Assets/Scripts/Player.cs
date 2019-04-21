@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public void LoseRound()
     {
         opponent.roundScore++;
+        gm.UpdateScoreTexts();
 
         if (opponent.roundScore >= 2)
         {
