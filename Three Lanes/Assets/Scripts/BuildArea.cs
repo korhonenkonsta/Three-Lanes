@@ -12,11 +12,16 @@ public class BuildArea : MonoBehaviour
         
     }
 
-    void OnMouseDown()
+    public void Build(GameObject building)
     {
-        Instantiate(buildingPrefab, transform.position, transform.rotation).GetComponent<Building>().owner = owner;
-        // this object was clicked - do something
+        Instantiate(building, transform.position, transform.rotation).GetComponent<Building>().owner = owner;
     }
+
+    //void OnMouseDown()
+    //{
+    //    Build(buildingPrefab);
+    //    // this object was clicked - do something
+    //}
 
     void Update()
     {

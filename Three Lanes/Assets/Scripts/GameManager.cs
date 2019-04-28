@@ -27,6 +27,24 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverPanel;
 
+    public GameObject buildingToBuild;
+
+    //Singleton
+    public static GameManager Instance { get; private set; }
+
+    //Make sure that only one GameManager exists
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
     void Start()
     {
         StartMatch();
