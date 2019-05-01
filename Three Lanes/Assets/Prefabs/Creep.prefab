@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1502950728977524124}
   - component: {fileID: 1502950728977524123}
   - component: {fileID: 3757239484670792408}
+  - component: {fileID: 2703752721756324955}
   m_Layer: 0
   m_Name: Creep
   m_TagString: Respawn
@@ -136,4 +137,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  damage: 1
+--- !u!114 &2703752721756324955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502950728977524122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab8f8ddb58719f42bbd30fa569924d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
+  health: {fileID: 3757239484670792408}
   damage: 1

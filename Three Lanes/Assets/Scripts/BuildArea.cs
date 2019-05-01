@@ -14,7 +14,9 @@ public class BuildArea : MonoBehaviour
 
     public void Build(GameObject building)
     {
-        Instantiate(building, transform.position, transform.rotation).GetComponent<Building>().owner = owner;
+        GameObject buildingTemp = Instantiate(building, transform.position, transform.rotation);
+        buildingTemp.GetComponent<Spawner>().owner = owner;
+        buildingTemp.GetComponent<Building>().owner = owner;
     }
 
     //void OnMouseDown()

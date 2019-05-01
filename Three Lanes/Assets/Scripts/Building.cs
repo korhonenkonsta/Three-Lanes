@@ -6,6 +6,11 @@ public class Building : MonoBehaviour
 {
     public Player owner;
 
+    private void Awake()
+    {
+
+    }
+
     void Start()
     {
         

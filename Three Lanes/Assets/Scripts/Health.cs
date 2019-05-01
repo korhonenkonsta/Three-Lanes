@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
-        health -= amount;
+        health += amount;
 
         if (health <= 0)
         {
@@ -26,22 +26,35 @@ public class Health : MonoBehaviour
 
     public void OnDeath()
     {
-        if (GetComponent<Base>()!= null)
+        if (GetComponent<Base>())
         {
             GetComponent<Base>().OnDeath();
         }
         Destroy(gameObject);
     }
 
-    void OnCollisionEnter(Collision col)
-    {
-        if (col.gameObject.GetComponent<Health>())
-        {
-            col.gameObject.GetComponent<Health>().ChangeHealth(damage);
-        }
+    //void OnCollisionEnter(Collision col)
+    //{
+    //    if (col.gameObject.GetComponent<Health>())
+    //    {
+    //        //Units
+    //        if (GetComponent<Unit>() && col.gameObject.GetComponent<Unit>())
+    //        {
+    //            if (GetComponent<Unit>().owner != col.gameObject.GetComponent<Unit>().owner)
+    //            {
+    //                col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
+    //                print("units from dif owners collided");
+    //            }
+    //        }
+    //        else
+    //        {
+    //            print("non-unit health changed");
+    //            col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
+    //        }
+    //    }
 
-        //audioSource.Play();
-    }
+    //    //audioSource.Play();
+    //}
 
     void Update()
     {

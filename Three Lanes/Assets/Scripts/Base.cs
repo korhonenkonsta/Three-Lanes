@@ -25,7 +25,9 @@ public class Base : MonoBehaviour
 
     public void SpawnMainBase(GameObject prefab)
     {
-        Instantiate(prefab, transform.position, transform.rotation).GetComponent<BaseMain>().owner = owner;
+        GameObject baseTemp = Instantiate(prefab, transform.position, transform.rotation);
+        baseTemp.GetComponent<BaseMain>().owner = owner;
+        baseTemp.layer = 2;
     }
 
     void Update()

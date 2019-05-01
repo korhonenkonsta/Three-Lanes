@@ -7,11 +7,18 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	
 	public Transform parentToReturnTo = null;
 	public Transform placeholderParent = null;
+    public new Camera camera;
 
-	GameObject placeholder = null;
-	
-	public void OnBeginDrag(PointerEventData eventData) {
-		Debug.Log ("OnBeginDrag");
+
+    GameObject placeholder = null;
+
+    public void Start()
+    {
+        camera = Camera.main;
+    }
+
+    public void OnBeginDrag(PointerEventData eventData) {
+		//Debug.Log ("OnBeginDrag");
 		
 		placeholder = new GameObject();
 		placeholder.transform.SetParent( this.transform.parent );
@@ -38,7 +45,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         }
         else
         {
-            Debug.Log("Mouse Over: " + eventData.pointerCurrentRaycast.gameObject.name);
+            //Debug.Log("Mouse Over: " + eventData.pointerCurrentRaycast.gameObject.name);
+            //Debug.Log("Layer: " + eventData.pointerCurrentRaycast.gameObject.layer);
             if (eventData.pointerCurrentRaycast.gameObject.layer != 5)
             {
                 GetComponent<RectTransform>().localScale = new Vector3(0.2f, 0.2f);
@@ -49,10 +57,10 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             }
         }
         //Debug.Log ("OnDrag");
-        if (GetComponent<Card>())
-        {
-            GameManager.Instance.buildingToBuild = GetComponent<Card>().buildingPrefab;
-        }
+        //if (GetComponent<Card>())
+        //{
+        //    GameManager.Instance.buildingToBuild = GetComponent<Card>().buildingPrefab;
+        //}
 		
 		this.transform.position = eventData.position;
 
@@ -79,19 +87,34 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	
 	public void OnEndDrag(PointerEventData eventData) {
 
-        if (eventData.pointerCurrentRaycast.gameObject != null)
-        {
-            Debug.Log("Mouse Over: " + eventData.pointerCurrentRaycast.gameObject.name);
-            if (eventData.pointerCurrentRaycast.gameObject.GetComponent<BuildArea>() && GetComponent<Card>())
-            {
-                eventData.pointerCurrentRaycast.gameObject.GetComponent<BuildArea>().Build(GetComponent<Card>().buildingPrefab);
-            }
+        //if (eventData.pointerCurrentRaycast.gameObject != null)
+        //{
+        //    //Debug.Log("Mouse Over: " + eventData.pointerCurrentRaycast.gameObject.name);
+        //    if (eventData.pointerCurrentRaycast.gameObject.GetComponent<BuildArea>() && GetComponent<Card>())
+        //    {
+        //        eventData.pointerCurrentRaycast.gameObject.GetComponent<BuildArea>().Build(GetComponent<Card>().buildingPrefab);
+        //    }
             
+        //}
+
+        RaycastHit hit;
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            GameObject objectHit = hit.transform.gameObject;
+            print(objectHit.name);
+            if (objectHit.GetComponent<BuildArea>() && GetComponent<Card>())
+            {
+                objectHit.GetComponent<BuildArea>().Build(GetComponent<Card>().buildingPrefab);
+            }
+
+            // Do something with the object that was hit by the raycast.
         }
         //print("Object: "+eventData.pointerCurrentRaycast.gameObject.name);
 
-        Debug.Log ("OnEndDrag");
-		this.transform.SetParent( parentToReturnTo );
+        //Debug.Log ("OnEndDrag");
+        this.transform.SetParent( parentToReturnTo );
 		this.transform.SetSiblingIndex( placeholder.transform.GetSiblingIndex() );
 		GetComponent<CanvasGroup>().blocksRaycasts = true;
 

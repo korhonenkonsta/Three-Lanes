@@ -25,9 +25,13 @@ public class GameManager : MonoBehaviour
     public Transform player2Base2;
     public Transform player2Base3;
 
+    public GameObject buildAreaPrefab;
+    public Transform player1BuildAreaRef;
+    public Transform player2BuildAreaRef;
+
     public GameObject gameOverPanel;
 
-    public GameObject buildingToBuild;
+    //public GameObject buildingToBuild;
 
     //Singleton
     public static GameManager Instance { get; private set; }
@@ -37,7 +41,7 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         else
         {
@@ -57,6 +61,7 @@ public class GameManager : MonoBehaviour
         player1.roundScore = 0;
         UpdateScoreTexts();
         CreateBases();
+        CreateBuildAreas(15);
     }
 
     public void CreatePlayer2()
@@ -87,6 +92,7 @@ public class GameManager : MonoBehaviour
     {
         SearchAndDestroyTag();
         CreateBases();
+        //CreateBuildAreas(15);
     }
 
     public void SearchAndDestroyTag()
@@ -102,13 +108,50 @@ public class GameManager : MonoBehaviour
         player1.baseCount = 3;
         player2.baseCount = 3;
 
-        Instantiate(basePrefab, player1Base1.position, player1Base1.rotation).GetComponent<Base>().owner = player1;
-        Instantiate(basePrefab, player1Base2.position, player1Base2.rotation).GetComponent<Base>().owner = player1;
-        Instantiate(basePrefab, player1Base3.position, player1Base3.rotation).GetComponent<Base>().owner = player1;
+        //Base tempBase = Instantiate(basePrefab, player1Base1.position, player1Base1.rotation).GetComponent<Base>();
+        //tempBase.owner = player1;
+        //tempBase.gameObject.layer = 2;
 
-        Instantiate(basePrefab, player2Base1.position, player2Base1.rotation).GetComponent<Base>().owner = player2;
-        Instantiate(basePrefab, player2Base2.position, player2Base2.rotation).GetComponent<Base>().owner = player2;
-        Instantiate(basePrefab, player2Base3.position, player2Base3.rotation).GetComponent<Base>().owner = player2;
+        //Instantiate(basePrefab, player1Base2.position, player1Base2.rotation).GetComponent<Base>().owner = player1;
+        //Instantiate(basePrefab, player1Base3.position, player1Base3.rotation).GetComponent<Base>().owner = player1;
+
+        //Instantiate(basePrefab, player2Base1.position, player2Base1.rotation).GetComponent<Base>().owner = player2;
+        //Instantiate(basePrefab, player2Base2.position, player2Base2.rotation).GetComponent<Base>().owner = player2;
+        //Instantiate(basePrefab, player2Base3.position, player2Base3.rotation).GetComponent<Base>().owner = player2;
+
+        float laneGap = 2f;
+
+        for (int i = 0; i < 3; i++)
+        {
+            Base tempBase = Instantiate(basePrefab, player1Base1.position + new Vector3(i * laneGap, 0f, 0f), player1Base1.rotation).GetComponent<Base>();
+            tempBase.owner = player1;
+            tempBase.gameObject.layer = 2;
+            tempBase = Instantiate(basePrefab, player2Base1.position + new Vector3(i * laneGap, 0f, 0f), player2Base1.rotation).GetComponent<Base>();
+            tempBase.owner = player2;
+            tempBase.gameObject.layer = 2;
+        }
+    }
+
+    public void CreateBuildAreas(int countPerSide)
+    {
+        float buildAreaWidth = 0.2f + 0.1f;
+        float laneGap = 0.5f;
+        int gapCount = 0;
+        int buildAreasPerLane = 5;
+
+        int j = 0;
+
+        for (int i = 0; i < countPerSide; i++)
+        {
+            if (j >= buildAreasPerLane)
+            {
+                gapCount++;
+                j = 0;
+            }
+            Instantiate(buildAreaPrefab, player1BuildAreaRef.position + new Vector3(i * buildAreaWidth + gapCount * laneGap, 0f, 0f), player1BuildAreaRef.rotation).GetComponent<BuildArea>().owner = player1;
+            Instantiate(buildAreaPrefab, player2BuildAreaRef.position + new Vector3(i * buildAreaWidth + gapCount * laneGap, 0f, 0f), player2BuildAreaRef.rotation).GetComponent<BuildArea>().owner = player2;
+            j++;
+        }
     }
 
     public void UpdateScoreTexts()
