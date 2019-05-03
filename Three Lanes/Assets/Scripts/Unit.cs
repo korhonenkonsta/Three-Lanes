@@ -36,7 +36,7 @@ public class Unit : MonoBehaviour
                         print("owner other:" + col.gameObject.GetComponent<Base>().owner);
                         col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
                         //print("units from dif owners collided");
-                        Destroy(gameObject);
+                        GetComponent<Health>().OnDeath();
                     }
                     else
                     {

@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
     public int health;
     public int damage;
+    public Player owner;
 
     AudioSource audioSource;
 
@@ -30,6 +31,11 @@ public class Health : MonoBehaviour
         {
             GetComponent<Base>().OnDeath();
         }
+        else
+        {
+            owner.opponent.enemyUnits.Remove(transform);
+        }
+        
         Destroy(gameObject);
     }
 

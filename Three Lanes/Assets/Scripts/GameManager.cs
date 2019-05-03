@@ -92,6 +92,8 @@ public class GameManager : MonoBehaviour
     {
         SearchAndDestroyTag();
         CreateBases();
+        player1.enemyUnits.Clear();
+        player2.enemyUnits.Clear();
         //CreateBuildAreas(15);
     }
 
@@ -107,17 +109,6 @@ public class GameManager : MonoBehaviour
         print("bases created");
         player1.baseCount = 3;
         player2.baseCount = 3;
-
-        //Base tempBase = Instantiate(basePrefab, player1Base1.position, player1Base1.rotation).GetComponent<Base>();
-        //tempBase.owner = player1;
-        //tempBase.gameObject.layer = 2;
-
-        //Instantiate(basePrefab, player1Base2.position, player1Base2.rotation).GetComponent<Base>().owner = player1;
-        //Instantiate(basePrefab, player1Base3.position, player1Base3.rotation).GetComponent<Base>().owner = player1;
-
-        //Instantiate(basePrefab, player2Base1.position, player2Base1.rotation).GetComponent<Base>().owner = player2;
-        //Instantiate(basePrefab, player2Base2.position, player2Base2.rotation).GetComponent<Base>().owner = player2;
-        //Instantiate(basePrefab, player2Base3.position, player2Base3.rotation).GetComponent<Base>().owner = player2;
 
         float laneGap = 2f;
 
@@ -148,8 +139,13 @@ public class GameManager : MonoBehaviour
                 gapCount++;
                 j = 0;
             }
-            Instantiate(buildAreaPrefab, player1BuildAreaRef.position + new Vector3(i * buildAreaWidth + gapCount * laneGap, 0f, 0f), player1BuildAreaRef.rotation).GetComponent<BuildArea>().owner = player1;
-            Instantiate(buildAreaPrefab, player2BuildAreaRef.position + new Vector3(i * buildAreaWidth + gapCount * laneGap, 0f, 0f), player2BuildAreaRef.rotation).GetComponent<BuildArea>().owner = player2;
+            BuildArea tempArea = Instantiate(buildAreaPrefab, player1BuildAreaRef.position + new Vector3(i * buildAreaWidth + gapCount * laneGap, 0f, 0f), player1BuildAreaRef.rotation).GetComponent<BuildArea>();
+            tempArea.owner = player1;
+            tempArea.laneNumber = gapCount + 1;
+
+            tempArea = Instantiate(buildAreaPrefab, player2BuildAreaRef.position + new Vector3(i * buildAreaWidth + gapCount * laneGap, 0f, 0f), player2BuildAreaRef.rotation).GetComponent<BuildArea>();
+            tempArea.owner = player2;
+            tempArea.laneNumber = gapCount + 1;
             j++;
         }
     }

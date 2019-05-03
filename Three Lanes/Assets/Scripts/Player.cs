@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public Player opponent;
     public GameManager gm;
 
+    public List<Transform> enemyUnits = new List<Transform>();
+
     void Start()
     {
         

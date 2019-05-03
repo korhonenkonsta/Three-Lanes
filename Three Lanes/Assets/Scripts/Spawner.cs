@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     public bool doSpawn = true;
     public float spawnInterval = 1;
     public Player owner;
+    public int laneNumber;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,10 @@ public class Spawner : MonoBehaviour
     {
         if (prefab.gameObject.GetComponent<Unit>())
         {
-            Instantiate(prefab, transform.position, transform.rotation).GetComponent<Unit>().owner = owner;
+            Unit tempUnit = Instantiate(prefab, transform.position, transform.rotation).GetComponent<Unit>();
+            tempUnit.owner = owner;
+            tempUnit.gameObject.GetComponent<Health>().owner = owner;
+            owner.opponent.enemyUnits.Add(tempUnit.transform);
         }
         else
         {
