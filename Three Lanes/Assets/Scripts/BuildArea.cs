@@ -6,7 +6,7 @@ public class BuildArea : MonoBehaviour
 {
     public GameObject buildingPrefab;
     public Player owner;
-    public int laneNumber;
+    public Lane currentLane;
 
     void Start()
     {
@@ -18,8 +18,8 @@ public class BuildArea : MonoBehaviour
         GameObject buildingTemp = Instantiate(building, transform.position, transform.rotation);
         buildingTemp.GetComponent<Spawner>().owner = owner;
         buildingTemp.GetComponent<Building>().owner = owner;
-        buildingTemp.GetComponent<Building>().laneNumber = laneNumber;
-        buildingTemp.GetComponent<Spawner>().laneNumber = laneNumber;
+        buildingTemp.GetComponent<Building>().currentLane = currentLane;
+        buildingTemp.GetComponent<Spawner>().currentLane = currentLane;
     }
 
     //void OnMouseDown()

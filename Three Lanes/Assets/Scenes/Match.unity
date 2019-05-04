@@ -718,6 +718,7 @@ GameObject:
   - component: {fileID: 263312943}
   - component: {fileID: 263312942}
   - component: {fileID: 263312941}
+  - component: {fileID: 263312945}
   m_Layer: 0
   m_Name: Lane 1
   m_TagString: Untagged
@@ -797,6 +798,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &263312945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263312940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf0120446fc318428a34dfe0ebced10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laneNumber: 1
 --- !u!1 &388200785 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7192916869546518366, guid: 4e710320abba1054faa3db57088ad76a,
@@ -1664,6 +1678,9 @@ MonoBehaviour:
   player2Base1: {fileID: 224514686}
   player2Base2: {fileID: 0}
   player2Base3: {fileID: 0}
+  lane1: {fileID: 263312945}
+  lane2: {fileID: 1839084970}
+  lane3: {fileID: 1662692369}
   buildAreaPrefab: {fileID: 1863839746416969469, guid: 58126669f2f78be4f8da8f13e519defd,
     type: 3}
   player1BuildAreaRef: {fileID: 1353138126}
@@ -1956,6 +1973,7 @@ GameObject:
   - component: {fileID: 1662692367}
   - component: {fileID: 1662692366}
   - component: {fileID: 1662692365}
+  - component: {fileID: 1662692369}
   m_Layer: 0
   m_Name: Lane 3
   m_TagString: Untagged
@@ -2035,6 +2053,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1662692369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662692364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf0120446fc318428a34dfe0ebced10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laneNumber: 3
 --- !u!1001 &1793855533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2194,6 +2225,7 @@ GameObject:
   - component: {fileID: 1839084968}
   - component: {fileID: 1839084967}
   - component: {fileID: 1839084966}
+  - component: {fileID: 1839084970}
   m_Layer: 0
   m_Name: Lane 2
   m_TagString: Untagged
@@ -2273,6 +2305,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1839084970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839084965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf0120446fc318428a34dfe0ebced10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laneNumber: 2
 --- !u!1 &1856268071
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
     public Transform player2Base2;
     public Transform player2Base3;
 
+    public Lane lane1;
+    public Lane lane2;
+    public Lane lane3;
+
     public GameObject buildAreaPrefab;
     public Transform player1BuildAreaRef;
     public Transform player2BuildAreaRef;
@@ -84,16 +88,16 @@ public class GameManager : MonoBehaviour
 
     /// <summary>
     /// Reset the round, which includes:
-    ///     -Bases
-    ///     -Non-permanent buildings
-    ///     -Units
+    ///     Bases,
+    ///     Non-permanent buildings,
+    ///     Units
     /// </summary>
     public void ResetRound()
     {
         SearchAndDestroyTag();
         CreateBases();
-        player1.enemyUnits.Clear();
-        player2.enemyUnits.Clear();
+        player1.ClearEnemyLists();
+        player2.ClearEnemyLists();
         //CreateBuildAreas(15);
     }
 
@@ -141,11 +145,35 @@ public class GameManager : MonoBehaviour
             }
             BuildArea tempArea = Instantiate(buildAreaPrefab, player1BuildAreaRef.position + new Vector3(i * buildAreaWidth + gapCount * laneGap, 0f, 0f), player1BuildAreaRef.rotation).GetComponent<BuildArea>();
             tempArea.owner = player1;
-            tempArea.laneNumber = gapCount + 1;
+
+            if (gapCount + 1 == 1)
+            {
+                tempArea.currentLane = lane1;
+            }
+            else if (gapCount + 1 == 2)
+            {
+                tempArea.currentLane = lane2;
+            }
+            else
+            {
+                tempArea.currentLane = lane3;
+            }
 
             tempArea = Instantiate(buildAreaPrefab, player2BuildAreaRef.position + new Vector3(i * buildAreaWidth + gapCount * laneGap, 0f, 0f), player2BuildAreaRef.rotation).GetComponent<BuildArea>();
             tempArea.owner = player2;
-            tempArea.laneNumber = gapCount + 1;
+
+            if (gapCount + 1 == 1)
+            {
+                tempArea.currentLane = lane1;
+            }
+            else if (gapCount + 1 == 2)
+            {
+                tempArea.currentLane = lane2;
+            }
+            else
+            {
+                tempArea.currentLane = lane3;
+            }
             j++;
         }
     }

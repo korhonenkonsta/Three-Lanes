@@ -7,6 +7,9 @@ public class Unit : MonoBehaviour
     public Player owner;
     public Health health;
     public int damage;
+    public Lane currentLane;
+
+    public bool multiLaneTargetSearch;
 
     void Start()
     {

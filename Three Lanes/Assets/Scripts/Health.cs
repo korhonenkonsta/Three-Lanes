@@ -33,7 +33,7 @@ public class Health : MonoBehaviour
         }
         else
         {
-            owner.opponent.enemyUnits.Remove(transform);
+            owner.opponent.RemoveUnitFromTargetLists(transform);
         }
         
         Destroy(gameObject);

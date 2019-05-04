@@ -10,11 +10,34 @@ public class Player : MonoBehaviour
     public Player opponent;
     public GameManager gm;
 
-    public List<Transform> enemyUnits = new List<Transform>();
+    public List<Transform> enemyUnitsAll = new List<Transform>();
+    public List<Transform> enemyUnits1 = new List<Transform>();
+    public List<Transform> enemyUnits2 = new List<Transform>();
+    public List<Transform> enemyUnits3 = new List<Transform>();
+
+    //public Lane lane1;
+    //public Lane lane2;
+    //public Lane lane3;
 
     void Start()
     {
         
+    }
+
+    public void ClearEnemyLists()
+    {
+        enemyUnitsAll.Clear();
+        enemyUnits1.Clear();
+        enemyUnits2.Clear();
+        enemyUnits3.Clear();
+    }
+
+    public void RemoveUnitFromTargetLists(Transform t)
+    {
+        enemyUnitsAll.Remove(t);
+        enemyUnits1.Remove(t);
+        enemyUnits2.Remove(t);
+        enemyUnits3.Remove(t);
     }
 
     public void LoseRound()

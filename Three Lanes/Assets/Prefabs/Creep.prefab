@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b709bff6073fcb7409846269552047bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  factor: 2
+  speedFactor: 0.1
 --- !u!114 &3757239484670792408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,3 +154,5 @@ MonoBehaviour:
   owner: {fileID: 0}
   health: {fileID: 3757239484670792408}
   damage: 1
+  currentLane: {fileID: 0}
+  multiLaneTargetSearch: 0

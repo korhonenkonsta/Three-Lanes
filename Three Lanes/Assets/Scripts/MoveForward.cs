@@ -6,7 +6,7 @@ public class MoveForward : MonoBehaviour
 {
 
     Rigidbody rb;
-    public float factor; //0.2
+    public float speedFactor; //0.2
     Quaternion startingRotation;
 
     //1. Set lane
@@ -38,18 +38,18 @@ public class MoveForward : MonoBehaviour
         return bestTarget;
     }
 
-    void FollowTargetWithRotation(Transform target, float speed)
+    void FollowTargetWithRotation(Transform target)
     {
         if (target)
         {
             transform.LookAt(target);
             //rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);
-            rb.MovePosition(transform.position + transform.forward * Time.deltaTime * factor);
+            rb.MovePosition(transform.position + transform.forward * Time.deltaTime * speedFactor);
         }
         else
         {
             transform.rotation = startingRotation;
-            rb.MovePosition(transform.position + transform.forward * Time.deltaTime * factor);
+            rb.MovePosition(transform.position + transform.forward * Time.deltaTime * speedFactor);
         }
     }
 
@@ -60,6 +60,25 @@ public class MoveForward : MonoBehaviour
 
     void FixedUpdate()
     {
-        FollowTargetWithRotation(GetClosestEnemy(GetComponent<Unit>().owner.enemyUnits, transform), 10f);
+        Unit u = GetComponent<Unit>();
+        if (u.multiLaneTargetSearch)
+        {
+            FollowTargetWithRotation(GetClosestEnemy(u.owner.enemyUnitsAll, transform));
+        }
+        else
+        {
+            if (u.currentLane.laneNumber == 1)
+            {
+                FollowTargetWithRotation(GetClosestEnemy(u.owner.enemyUnits1, transform));
+            }
+            else if (u.currentLane.laneNumber == 2)
+            {
+                FollowTargetWithRotation(GetClosestEnemy(u.owner.enemyUnits2, transform));
+            }
+            else
+            {
+                FollowTargetWithRotation(GetClosestEnemy(u.owner.enemyUnits3, transform));
+            }
+        }
     }
 }
