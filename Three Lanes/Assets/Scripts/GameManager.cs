@@ -12,8 +12,17 @@ public class GameManager : MonoBehaviour
 
     public GameObject player2Prefab;
 
+    public Deck player1Deck;
+    public Deck player2Deck;
+
+    public DiscardPile player1DiscardPile;
+    public DiscardPile player2DiscardPile;
+
     public TextMeshProUGUI player1ScoreText;
     public TextMeshProUGUI player2ScoreText;
+
+    public TextMeshProUGUI player1ResourcesText;
+    public TextMeshProUGUI player2ResourcesText;
 
     public GameObject basePrefab;
 
@@ -71,6 +80,7 @@ public class GameManager : MonoBehaviour
     public void CreatePlayer2()
     {
         player2 = Instantiate(player2Prefab, transform.position, transform.rotation).GetComponent<Player>();
+        player2.resources = 10;
         player2.opponent = player1;
         player2.gm = this;
     }
@@ -192,5 +202,12 @@ public class GameManager : MonoBehaviour
             ResetRound();
         }
 
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            player1.hand.DrawHand(3);
+        }
+
+        player1ResourcesText.text = "Mana: " + player1.resources.ToString();
+        player2ResourcesText.text = "Mana: " + player2.resources.ToString();
     }
 }

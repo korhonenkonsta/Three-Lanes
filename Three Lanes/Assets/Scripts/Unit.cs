@@ -26,7 +26,7 @@ public class Unit : MonoBehaviour
                 if (owner != col.gameObject.GetComponent<Unit>().owner)
                 {
                     col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
-                    print("units from dif owners collided");
+                    //print("units from dif owners collided");
                 }
             }
             else
@@ -35,15 +35,15 @@ public class Unit : MonoBehaviour
                 {
                     if (owner && owner != col.gameObject.GetComponent<Base>().owner)
                     {
-                        print("owner:" + owner);
-                        print("owner other:" + col.gameObject.GetComponent<Base>().owner);
+                        //print("owner:" + owner);
+                        //print("owner other:" + col.gameObject.GetComponent<Base>().owner);
                         col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
                         //print("units from dif owners collided");
                         GetComponent<Health>().OnDeath();
                     }
                     else
                     {
-                        print("no owner, or same owner");
+                        //print("no owner, or same owner");
                     }
                 }
                 else
@@ -55,7 +55,7 @@ public class Unit : MonoBehaviour
         }
         else
         {
-            print("no health");
+            //print("no health");
         }
 
         //audioSource.Play();

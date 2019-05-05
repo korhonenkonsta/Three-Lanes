@@ -6,6 +6,7 @@ using TMPro;
 public class Card : MonoBehaviour
 {
     public GameObject buildingPrefab;
+    public Player owner;
 
     void Start()
     {

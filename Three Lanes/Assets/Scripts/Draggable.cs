@@ -87,26 +87,17 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	
 	public void OnEndDrag(PointerEventData eventData) {
 
-        //if (eventData.pointerCurrentRaycast.gameObject != null)
-        //{
-        //    //Debug.Log("Mouse Over: " + eventData.pointerCurrentRaycast.gameObject.name);
-        //    if (eventData.pointerCurrentRaycast.gameObject.GetComponent<BuildArea>() && GetComponent<Card>())
-        //    {
-        //        eventData.pointerCurrentRaycast.gameObject.GetComponent<BuildArea>().Build(GetComponent<Card>().buildingPrefab);
-        //    }
-            
-        //}
-
         RaycastHit hit;
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out hit))
         {
             GameObject objectHit = hit.transform.gameObject;
-            print(objectHit.name);
-            if (objectHit.GetComponent<BuildArea>() && GetComponent<Card>())
+            //print(objectHit.name);
+            Card c = GetComponent<Card>();
+            if (objectHit.GetComponent<BuildArea>() && c)
             {
-                objectHit.GetComponent<BuildArea>().Build(GetComponent<Card>().buildingPrefab);
+                objectHit.GetComponent<BuildArea>().Build(c.buildingPrefab, c.buildingPrefab.GetComponent<Building>().cost, this, c);
             }
 
             // Do something with the object that was hit by the raycast.

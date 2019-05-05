@@ -108,8 +108,9 @@ MonoBehaviour:
   prefabToSpawn: {fileID: 1502950728977524122, guid: c60b8dab3dfb9cf4ea34ce41b356a2c4,
     type: 3}
   doSpawn: 1
-  spawnInterval: 1
+  spawnInterval: 5
   owner: {fileID: 0}
+  currentLane: {fileID: 0}
 --- !u!114 &2824578546200590445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,4 +124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
-  description: Spawns 1 creep per second.
+  description: Spawns x creeps per second.
+  currentLane: {fileID: 0}
+  cost: 1

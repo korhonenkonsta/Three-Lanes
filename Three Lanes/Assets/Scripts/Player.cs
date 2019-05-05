@@ -15,6 +15,12 @@ public class Player : MonoBehaviour
     public List<Transform> enemyUnits2 = new List<Transform>();
     public List<Transform> enemyUnits3 = new List<Transform>();
 
+    public Deck deck;
+    public DiscardPile discardPile;
+    public Hand hand;
+
+    public int resources;
+
     //public Lane lane1;
     //public Lane lane2;
     //public Lane lane3;

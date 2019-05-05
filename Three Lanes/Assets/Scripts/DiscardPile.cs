@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Building : MonoBehaviour
+public class DiscardPile : MonoBehaviour
 {
     public Player owner;
-    public string description;
-    public Lane currentLane;
-    public int cost;
-
-    private void Awake()
-    {
-
-    }
+    public List<GameObject> cards = new List<GameObject>();
 
     void Start()
     {

@@ -13,13 +13,28 @@ public class BuildArea : MonoBehaviour
         
     }
 
-    public void Build(GameObject building)
+    public void Build(GameObject building, int cost, Draggable d, Card c)
     {
-        GameObject buildingTemp = Instantiate(building, transform.position, transform.rotation);
-        buildingTemp.GetComponent<Spawner>().owner = owner;
-        buildingTemp.GetComponent<Building>().owner = owner;
-        buildingTemp.GetComponent<Building>().currentLane = currentLane;
-        buildingTemp.GetComponent<Spawner>().currentLane = currentLane;
+        if (owner.resources >= cost)
+        {
+            GameObject buildingTemp = Instantiate(building, transform.position, transform.rotation);
+            Building b = buildingTemp.GetComponent<Building>();
+
+            buildingTemp.GetComponent<Spawner>().owner = owner;
+            b.owner = owner;
+            buildingTemp.GetComponent<Spawner>().currentLane = currentLane;
+            b.currentLane = currentLane;
+
+            d.parentToReturnTo = owner.discardPile.transform;
+            owner.discardPile.cards.Add(c.gameObject);
+
+            owner.resources -= b.cost;
+        }
+        else
+        {
+            print("Not enough resources!");
+        }
+        
     }
 
     //void OnMouseDown()
