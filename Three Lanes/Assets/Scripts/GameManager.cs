@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject player2Prefab;
 
+    public Hand player1Hand;
+    public Hand player2Hand;
+
     public Deck player1Deck;
     public Deck player2Deck;
 
@@ -83,6 +86,13 @@ public class GameManager : MonoBehaviour
         player2.resources = 10;
         player2.opponent = player1;
         player2.gm = this;
+        player2.discardPile = player2DiscardPile;
+        player2.discardPile.owner = player2;
+        player2.hand = player2Hand;
+        player2.hand.owner = player2;
+        player2.deck = player2Deck;
+        player2.deck.owner = player2;
+        player2.gameObject.AddComponent<AI>().p = player2;
     }
 
     public void GameOver()
@@ -155,6 +165,7 @@ public class GameManager : MonoBehaviour
             }
             BuildArea tempArea = Instantiate(buildAreaPrefab, player1BuildAreaRef.position + new Vector3(i * buildAreaWidth + gapCount * laneGap, 0f, 0f), player1BuildAreaRef.rotation).GetComponent<BuildArea>();
             tempArea.owner = player1;
+            player1.buildAreas.Add(tempArea);
 
             if (gapCount + 1 == 1)
             {
@@ -171,6 +182,7 @@ public class GameManager : MonoBehaviour
 
             tempArea = Instantiate(buildAreaPrefab, player2BuildAreaRef.position + new Vector3(i * buildAreaWidth + gapCount * laneGap, 0f, 0f), player2BuildAreaRef.rotation).GetComponent<BuildArea>();
             tempArea.owner = player2;
+            player2.buildAreas.Add(tempArea);
 
             if (gapCount + 1 == 1)
             {
@@ -205,6 +217,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.R))
         {
             player1.hand.DrawHand(3);
+            player2.hand.DrawHand(3);
         }
 
         player1ResourcesText.text = "Mana: " + player1.resources.ToString();

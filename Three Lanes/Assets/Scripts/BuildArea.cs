@@ -25,8 +25,10 @@ public class BuildArea : MonoBehaviour
             buildingTemp.GetComponent<Spawner>().currentLane = currentLane;
             b.currentLane = currentLane;
 
-            d.parentToReturnTo = owner.discardPile.transform;
+            d.transform.SetParent(owner.discardPile.transform);
+            //d.parentToReturnTo = owner.discardPile.transform;
             owner.discardPile.cards.Add(c.gameObject);
+            owner.hand.cards.Remove(c.gameObject);
 
             owner.resources -= b.cost;
         }

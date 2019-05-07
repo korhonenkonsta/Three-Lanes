@@ -47,6 +47,21 @@ public class Hand : MonoBehaviour
         }
     }
 
+    public GameObject SelectRandomCard()
+    {
+        //Add card type as parameter
+        if (cards.Count > 0)
+        {
+            int index = Random.Range(0, cards.Count - 1);
+            return cards[index];
+        }
+        else
+        {
+            return null;
+        }
+        
+    }
+
     void Start()
     {
         
