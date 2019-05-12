@@ -8,6 +8,7 @@ public class Building : MonoBehaviour
     public string description;
     public Lane currentLane;
     public int cost;
+    public bool permanent;
 
     private void Awake()
     {

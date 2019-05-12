@@ -15,13 +15,15 @@ public class Player : MonoBehaviour
     public List<Transform> enemyUnits2 = new List<Transform>();
     public List<Transform> enemyUnits3 = new List<Transform>();
 
-    public List<BuildArea> buildAreas = new List<BuildArea>();
+    public List<BuildArea> availableBuildAreas = new List<BuildArea>();
 
     public Deck deck;
     public DiscardPile discardPile;
     public Hand hand;
 
     public int resources;
+    public int startingResources;
+    public int roundExtraResources;
 
     //public Lane lane1;
     //public Lane lane2;
@@ -30,6 +32,21 @@ public class Player : MonoBehaviour
     void Start()
     {
         
+    }
+
+    public void ResetBuildAreas()
+    {
+        foreach (BuildArea BA in availableBuildAreas)
+        {
+            if (BA.b)
+            {
+                if (!BA.b.permanent)
+                {
+                    BA.b = null;
+                    availableBuildAreas.Remove(BA);
+                }
+            }
+        }
     }
 
     public void ClearEnemyLists()

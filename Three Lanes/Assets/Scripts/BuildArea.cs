@@ -7,6 +7,7 @@ public class BuildArea : MonoBehaviour
     public GameObject buildingPrefab;
     public Player owner;
     public Lane currentLane;
+    public Building b;
 
     void Start()
     {
@@ -15,22 +16,42 @@ public class BuildArea : MonoBehaviour
 
     public void Build(GameObject building, int cost, Draggable d, Card c)
     {
-        if (owner.resources >= cost)
+        if (owner.resources + owner.roundExtraResources >= cost)
         {
             GameObject buildingTemp = Instantiate(building, transform.position, transform.rotation);
-            Building b = buildingTemp.GetComponent<Building>();
+            b = buildingTemp.GetComponent<Building>();
 
-            buildingTemp.GetComponent<Spawner>().owner = owner;
+            if (buildingTemp.GetComponent<Spawner>())
+            {
+                buildingTemp.GetComponent<Spawner>().owner = owner;
+                buildingTemp.GetComponent<Spawner>().currentLane = currentLane;
+            }
+            
             b.owner = owner;
-            buildingTemp.GetComponent<Spawner>().currentLane = currentLane;
             b.currentLane = currentLane;
+
+            if (buildingTemp.GetComponent<ResourceGenerator>())
+            {
+                buildingTemp.GetComponent<ResourceGenerator>().Init(owner, b);
+            }
 
             d.transform.SetParent(owner.discardPile.transform);
             d.parentToReturnTo = owner.discardPile.transform;
             owner.discardPile.cards.Add(c.gameObject);
             owner.hand.cards.Remove(c.gameObject);
 
-            owner.resources -= b.cost;
+            if (owner.roundExtraResources >= b.cost)
+            {
+                owner.roundExtraResources -= b.cost;
+            }
+            else
+            {
+                int remainder = b.cost - owner.roundExtraResources;
+                owner.resources -= remainder;
+                owner.roundExtraResources = 0;
+            }
+
+            owner.availableBuildAreas.Remove(this);
         }
         else
         {

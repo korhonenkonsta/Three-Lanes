@@ -10,7 +10,6 @@ public class Spawner : MonoBehaviour
     public Player owner;
     public Lane currentLane;
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(ContinuousSpawn());

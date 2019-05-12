@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
     {
         player2 = Instantiate(player2Prefab, transform.position, transform.rotation).GetComponent<Player>();
         player2.resources = 10;
+        player2.startingResources = player2.resources;
         player2.opponent = player1;
         player2.gm = this;
         player2.discardPile = player2DiscardPile;
@@ -101,7 +102,7 @@ public class GameManager : MonoBehaviour
         player1.deck.AddChildCardsToList();
         player1.hand.DrawHand(5);
         player1.hand.StartDrawing();
-        //player1.hand.StartCoroutine(player1.hand.ContinuousDraw());
+        player1.startingResources = player1.resources;
 
     }
 
@@ -128,7 +129,11 @@ public class GameManager : MonoBehaviour
         CreateBases();
         player1.ClearEnemyLists();
         player2.ClearEnemyLists();
-        //CreateBuildAreas(15);
+        player1.ResetBuildAreas();
+        player2.ResetBuildAreas();
+
+        player1.roundExtraResources = 0;
+        player2.roundExtraResources = 0;
     }
 
     public void SearchAndDestroyTag()
@@ -175,7 +180,7 @@ public class GameManager : MonoBehaviour
             }
             BuildArea tempArea = Instantiate(buildAreaPrefab, player1BuildAreaRef.position + new Vector3(i * buildAreaWidth + gapCount * laneGap, 0f, 0f), player1BuildAreaRef.rotation).GetComponent<BuildArea>();
             tempArea.owner = player1;
-            player1.buildAreas.Add(tempArea);
+            player1.availableBuildAreas.Add(tempArea);
 
             if (gapCount + 1 == 1)
             {
@@ -192,7 +197,7 @@ public class GameManager : MonoBehaviour
 
             tempArea = Instantiate(buildAreaPrefab, player2BuildAreaRef.position + new Vector3(i * buildAreaWidth + gapCount * laneGap, 0f, 0f), player2BuildAreaRef.rotation).GetComponent<BuildArea>();
             tempArea.owner = player2;
-            player2.buildAreas.Add(tempArea);
+            player2.availableBuildAreas.Add(tempArea);
 
             if (gapCount + 1 == 1)
             {
@@ -219,6 +224,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            player1.LoseRound();
+        }
+
         if (Input.GetKeyUp(KeyCode.Space))
         {
             ResetRound();
@@ -230,7 +240,7 @@ public class GameManager : MonoBehaviour
             player2.hand.DrawHand(3);
         }
 
-        player1ResourcesText.text = "Mana: " + player1.resources.ToString();
-        player2ResourcesText.text = "Mana: " + player2.resources.ToString();
+        player1ResourcesText.text = "Mana: " + player1.resources.ToString() + " + " + player1.roundExtraResources.ToString();
+        player2ResourcesText.text = "Mana: " + player2.resources.ToString() + " + " + player2.roundExtraResources.ToString();
     }
 }

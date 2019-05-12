@@ -17,7 +17,18 @@ public class AI : MonoBehaviour
     {
         while (doBuild)
         {
-            BuildRandom();
+            if (p.roundScore < 1)
+            {
+                if (p.resources > p.startingResources / 2)
+                {
+                    BuildRandom();
+                }
+            }
+            else
+            {
+                BuildRandom();
+            }
+            
             yield return new WaitForSeconds(buildInterval);
         }
     }
@@ -35,7 +46,7 @@ public class AI : MonoBehaviour
         //!!!!
         //Need to check if building on build area already exists
         //!!!!
-        p.buildAreas[Random.Range(0, p.buildAreas.Count)].Build(c.buildingPrefab, c.buildingPrefab.GetComponent<Building>().cost, c.GetComponent<Draggable>(), c);
+        p.availableBuildAreas[Random.Range(0, p.availableBuildAreas.Count)].Build(c.buildingPrefab, c.buildingPrefab.GetComponent<Building>().cost, c.GetComponent<Draggable>(), c);
     }
 
     void Update()
