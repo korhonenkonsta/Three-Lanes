@@ -92,7 +92,17 @@ public class GameManager : MonoBehaviour
         player2.hand.owner = player2;
         player2.deck = player2Deck;
         player2.deck.owner = player2;
+        player2.deck.AddChildCardsToList();
         player2.gameObject.AddComponent<AI>().p = player2;
+
+        player2.hand.DrawHand(5);
+        player2.hand.StartDrawing();
+
+        player1.deck.AddChildCardsToList();
+        player1.hand.DrawHand(5);
+        player1.hand.StartDrawing();
+        //player1.hand.StartCoroutine(player1.hand.ContinuousDraw());
+
     }
 
     public void GameOver()

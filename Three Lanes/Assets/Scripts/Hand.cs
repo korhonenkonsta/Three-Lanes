@@ -7,6 +7,48 @@ public class Hand : MonoBehaviour
     public Player owner;
     public List<GameObject> cards = new List<GameObject>();
 
+    public int handSize = 5;
+    public float drawInterval = 5;
+
+    void Start()
+    {
+    }
+
+    public void StartDrawing()
+    {
+        StartCoroutine(ContinuousDraw());
+    }
+
+    private IEnumerator ContinuousDraw()
+    {
+        while (gameObject)
+        {
+            DiscardMarkedAndDrawReplacements();
+            yield return new WaitForSeconds(drawInterval);
+        }
+    }
+
+    public void DiscardMarkedAndDrawReplacements()
+    {
+        int discardCount = 0;
+        int cardCount = cards.Count;
+        for (int i = cardCount - 1; i >= 0; i--)
+        {
+            if (cards[i].GetComponent<Card>().selectedForDiscard)
+            {
+                discardCount++;
+                cards[i].transform.SetParent(owner.discardPile.transform);
+                cards[i].GetComponent<Card>().ToggleDiscard();
+                owner.discardPile.cards.Add(cards[i]);
+
+                cards.Remove(cards[i]);
+            }
+        }
+
+        DrawHand(discardCount);
+        DrawHand(handSize - cards.Count);
+    }
+
     public void DrawHand(int amount)
     {
         if (owner.deck.transform.childCount >= amount)
@@ -30,13 +72,18 @@ public class Hand : MonoBehaviour
             }
             else
             {
-                DrawAmountOfCards(owner.deck.transform.childCount);
+                DrawAmountOfCards(owner.deck.cards.Count);
             }
         }
     }
 
     void DrawAmountOfCards(int amount)
     {
+        if (amount == 0)
+        {
+            return;
+        }
+
         int index;
         for (int i = 0; i < amount; i++)
         {
@@ -59,11 +106,6 @@ public class Hand : MonoBehaviour
         {
             return null;
         }
-        
-    }
-
-    void Start()
-    {
         
     }
 

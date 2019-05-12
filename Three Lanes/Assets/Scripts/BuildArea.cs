@@ -26,7 +26,7 @@ public class BuildArea : MonoBehaviour
             b.currentLane = currentLane;
 
             d.transform.SetParent(owner.discardPile.transform);
-            //d.parentToReturnTo = owner.discardPile.transform;
+            d.parentToReturnTo = owner.discardPile.transform;
             owner.discardPile.cards.Add(c.gameObject);
             owner.hand.cards.Remove(c.gameObject);
 

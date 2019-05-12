@@ -9,7 +9,15 @@ public class Deck : MonoBehaviour
 
     void Start()
     {
-        
+
+    }
+
+    public void AddChildCardsToList()
+    {
+        foreach (Transform child in transform)
+        {
+            cards.Add(child.gameObject);
+        }
     }
 
     void Update()
