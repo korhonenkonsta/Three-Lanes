@@ -181,6 +181,7 @@ public class GameManager : MonoBehaviour
             BuildArea tempArea = Instantiate(buildAreaPrefab, player1BuildAreaRef.position + new Vector3(i * buildAreaWidth + gapCount * laneGap, 0f, 0f), player1BuildAreaRef.rotation).GetComponent<BuildArea>();
             tempArea.owner = player1;
             player1.availableBuildAreas.Add(tempArea);
+            player1.allBuildAreas.Add(tempArea);
 
             if (gapCount + 1 == 1)
             {
@@ -198,6 +199,7 @@ public class GameManager : MonoBehaviour
             tempArea = Instantiate(buildAreaPrefab, player2BuildAreaRef.position + new Vector3(i * buildAreaWidth + gapCount * laneGap, 0f, 0f), player2BuildAreaRef.rotation).GetComponent<BuildArea>();
             tempArea.owner = player2;
             player2.availableBuildAreas.Add(tempArea);
+            player2.allBuildAreas.Add(tempArea);
 
             if (gapCount + 1 == 1)
             {

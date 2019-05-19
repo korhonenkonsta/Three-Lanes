@@ -43,10 +43,10 @@ public class AI : MonoBehaviour
             return;
         }
         Card c = cardObj.GetComponent<Card>();
-        //!!!!
-        //Need to check if building on build area already exists
-        //!!!!
-        p.availableBuildAreas[Random.Range(0, p.availableBuildAreas.Count)].Build(c.buildingPrefab, c.buildingPrefab.GetComponent<Building>().cost, c.GetComponent<Draggable>(), c);
+        if (p.availableBuildAreas.Count > 0)
+        {
+            p.availableBuildAreas[Random.Range(0, p.availableBuildAreas.Count)].Build(c.buildingPrefab, c.buildingPrefab.GetComponent<Building>().cost, c.GetComponent<Draggable>(), c);
+        }
     }
 
     void Update()

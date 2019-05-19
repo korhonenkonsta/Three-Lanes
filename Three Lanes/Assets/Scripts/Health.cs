@@ -33,6 +33,10 @@ public class Health : MonoBehaviour
         }
         else
         {
+            if (GetComponent<Deathrattle>())
+            {
+                GetComponent<Deathrattle>().OnDeath();
+            }
             owner.opponent.RemoveUnitFromTargetLists(transform);
         }
         

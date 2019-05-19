@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResourceGenerator : MonoBehaviour
 {
     public float resourceInterval = 5;
-    public bool doSpawn = true;
+    public bool doGenerate = true;
     public Player owner;
     public Building b;
 
@@ -23,9 +23,8 @@ public class ResourceGenerator : MonoBehaviour
 
     IEnumerator ContinuousGenerate()
     {
-        while (doSpawn)
+        while (doGenerate)
         {
-            
             yield return new WaitForSeconds(resourceInterval);
             owner.roundExtraResources++;
         }

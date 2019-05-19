@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 22544432}
   - component: {fileID: 7462253428403042960}
   m_Layer: 5
-  m_Name: Card Creep Factory 2
+  m_Name: Card Creep Factory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,8 +140,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f695b04b5abd474d935a0b43c4f58df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 5931524123125513846, guid: dc1d6f1be930f5645a62ddccc8e16f4d,
+  buildingPrefab: {fileID: 5931524123125513846, guid: 9d15e0d73a423cd4eaea2efd80df952e,
     type: 3}
+  owner: {fileID: 0}
+  selectedForDiscard: 0
+  onLeft:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onRight:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onMiddle:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &115016
 GameObject:
   m_ObjectHideFlags: 0

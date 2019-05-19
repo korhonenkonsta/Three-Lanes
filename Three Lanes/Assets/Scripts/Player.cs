@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public List<Transform> enemyUnits2 = new List<Transform>();
     public List<Transform> enemyUnits3 = new List<Transform>();
 
+    public List<BuildArea> allBuildAreas = new List<BuildArea>();
     public List<BuildArea> availableBuildAreas = new List<BuildArea>();
 
     public Deck deck;
@@ -36,14 +37,14 @@ public class Player : MonoBehaviour
 
     public void ResetBuildAreas()
     {
-        foreach (BuildArea BA in availableBuildAreas)
+        foreach (BuildArea BA in allBuildAreas)
         {
             if (BA.b)
             {
                 if (!BA.b.permanent)
                 {
                     BA.b = null;
-                    availableBuildAreas.Remove(BA);
+                    availableBuildAreas.Add(BA);
                 }
             }
         }
