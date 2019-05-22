@@ -233,6 +233,8 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
+            player1.roundScore++;
+            UpdateScoreTexts();
             ResetRound();
         }
 

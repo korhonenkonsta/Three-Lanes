@@ -1,22 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &2549388208751165523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943593380421853527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4de1eaf5e38c154a8b1f2d73e75fc4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resourceInterval: 10
-  doGenerate: 1
-  owner: {fileID: 0}
-  b: {fileID: 0}
---- !u!1001 &6866108087686274849
+--- !u!1001 &6627637713702894936
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -26,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 5931524123125513846, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
       propertyPath: m_Name
-      value: Building Resource Generator
+      value: Building Creep Permanent
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931524123125513846, guid: 9d15e0d73a423cd4eaea2efd80df952e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5931524123125513803, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
@@ -83,32 +72,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5931524123125513802, guid: 9d15e0d73a423cd4eaea2efd80df952e,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 5931524123125513801, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8bda2c74ce515fa4caa843f774f3f0bd, type: 2}
+      objectReference: {fileID: 2100000, guid: ec281b0ea980c8341bad7f657fdc4df4, type: 2}
     - target: {fileID: 2824578546200590445, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
-      propertyPath: description
-      value: Generates 1 resource every x seconds.
+      propertyPath: permanent
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2824578546200590445, guid: 9d15e0d73a423cd4eaea2efd80df952e,
-        type: 3}
-      propertyPath: cost
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5931524123125513847, guid: 9d15e0d73a423cd4eaea2efd80df952e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d15e0d73a423cd4eaea2efd80df952e, type: 3}
---- !u!1 &943593380421853527 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5931524123125513846, guid: 9d15e0d73a423cd4eaea2efd80df952e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6866108087686274849}
-  m_PrefabAsset: {fileID: 0}

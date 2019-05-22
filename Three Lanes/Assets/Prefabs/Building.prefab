@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5931524123125513847}
   - component: {fileID: 2824578546200590445}
   m_Layer: 0
-  m_Name: Creep Factory
+  m_Name: Building
   m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ec281b0ea980c8341bad7f657fdc4df4, type: 2}
+  - {fileID: 2100000, guid: a29d92c0307b6274192e6416eb8dea72, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
