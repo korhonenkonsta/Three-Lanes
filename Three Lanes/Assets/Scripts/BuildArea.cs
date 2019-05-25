@@ -18,7 +18,7 @@ public class BuildArea : MonoBehaviour
     {
         if (owner.resources + owner.roundExtraResources >= cost)
         {
-            GameObject buildingTemp = Instantiate(building, transform.position, transform.rotation);
+            GameObject buildingTemp = Instantiate(building, transform.position + new Vector3(0f, 0.1f, 0f), transform.rotation);
             b = buildingTemp.GetComponent<Building>();
 
             if (buildingTemp.GetComponent<Spawner>())

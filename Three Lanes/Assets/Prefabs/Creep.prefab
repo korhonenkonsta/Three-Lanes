@@ -139,6 +139,8 @@ MonoBehaviour:
   health: 1
   damage: 1
   owner: {fileID: 0}
+  explosionEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
+    type: 3}
 --- !u!114 &2703752721756324955
 MonoBehaviour:
   m_ObjectHideFlags: 0

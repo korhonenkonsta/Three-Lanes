@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     public Player owner;
 
     AudioSource audioSource;
+    public GameObject explosionEffect;
 
     void Start()
     {
@@ -39,7 +40,10 @@ public class Health : MonoBehaviour
             }
             owner.opponent.RemoveUnitFromTargetLists(transform);
         }
-        
+        GameObject effect = Instantiate(explosionEffect, transform.position, transform.rotation);
+        ParticleSystem PS = effect.GetComponent<ParticleSystem>();
+        Destroy(effect, PS.main.duration);
+
         Destroy(gameObject);
     }
 

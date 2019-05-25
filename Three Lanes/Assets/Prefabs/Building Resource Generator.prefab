@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4de1eaf5e38c154a8b1f2d73e75fc4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceInterval: 10
+  resourceInterval: 15
   doGenerate: 1
   owner: {fileID: 0}
   b: {fileID: 0}

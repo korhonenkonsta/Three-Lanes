@@ -55,7 +55,7 @@ public class MoveForward : MonoBehaviour
 
     void Update()
     {
-        
+        //print(startingRotation.eulerAngles);
     }
 
     void FixedUpdate()

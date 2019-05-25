@@ -1426,7 +1426,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   cards: []
   handSize: 5
-  drawInterval: 5
+  drawInterval: 10
 --- !u!114 &369777903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3161,6 +3161,7 @@ MonoBehaviour:
   player1BuildAreaRef: {fileID: 1353138126}
   player2BuildAreaRef: {fileID: 836158334}
   gameOverPanel: {fileID: 2089037654}
+  timeScaleValue: 1
 --- !u!4 &1107199100
 Transform:
   m_ObjectHideFlags: 0
@@ -5189,7 +5190,7 @@ MonoBehaviour:
   owner: {fileID: 388200787}
   cards: []
   handSize: 5
-  drawInterval: 5
+  drawInterval: 10
 --- !u!1001 &2081737210
 PrefabInstance:
   m_ObjectHideFlags: 0

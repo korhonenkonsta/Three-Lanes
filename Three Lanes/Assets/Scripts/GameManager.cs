@@ -47,6 +47,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverPanel;
 
+    [Range(0.0f, 10.0f)]
+    public float timeScaleValue = 1f;
+
     //public GameObject buildingToBuild;
 
     //Singleton
@@ -246,5 +249,7 @@ public class GameManager : MonoBehaviour
 
         player1ResourcesText.text = "Mana: " + player1.resources.ToString() + " + " + player1.roundExtraResources.ToString();
         player2ResourcesText.text = "Mana: " + player2.resources.ToString() + " + " + player2.roundExtraResources.ToString();
+
+        Time.timeScale = timeScaleValue;
     }
 }

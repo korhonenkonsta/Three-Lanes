@@ -19,7 +19,7 @@ public class AI : MonoBehaviour
         {
             if (p.roundScore < 1 && p.opponent.roundScore < 1)
             {
-                if (p.resources > p.startingResources / 2)
+                if ((p.resources + p.roundExtraResources) > p.startingResources / 2)
                 {
                     BuildRandom();
                 }
