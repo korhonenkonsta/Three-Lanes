@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6192435741278281644
+--- !u!1001 &7256121734939629634
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 5931524123125513846, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
       propertyPath: m_Name
-      value: Building Creep Double
+      value: Building Creep Exploding
       objectReference: {fileID: 0}
     - target: {fileID: 5931524123125513803, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
@@ -71,16 +71,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 43e39352c495bb54b912447466f37f02, type: 2}
+      objectReference: {fileID: 2100000, guid: f905398c74d0a3a40bd0f94ee48bd9ed, type: 2}
     - target: {fileID: 5931524123125513847, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
-      propertyPath: spawnInterval
-      value: 2.5
-      objectReference: {fileID: 0}
+      propertyPath: prefabToSpawn
+      value: 
+      objectReference: {fileID: 3275101794290697687, guid: d09d436ec60ce9b45bdaabd2d7832fc3,
+        type: 3}
     - target: {fileID: 2824578546200590445, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
       propertyPath: description
-      value: Spawns 2x creeps per second.
+      value: Spawns x exploding creeps per second.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d15e0d73a423cd4eaea2efd80df952e, type: 3}

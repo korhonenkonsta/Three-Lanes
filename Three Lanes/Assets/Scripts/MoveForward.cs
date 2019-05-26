@@ -48,14 +48,15 @@ public class MoveForward : MonoBehaviour
         }
         else
         {
-            transform.rotation = startingRotation;
+            //transform.rotation = startingRotation;
+            rb.rotation = startingRotation;
             rb.MovePosition(transform.position + transform.forward * Time.deltaTime * speedFactor);
         }
     }
 
     void Update()
     {
-        //print(startingRotation.eulerAngles);
+
     }
 
     void FixedUpdate()
@@ -80,5 +81,7 @@ public class MoveForward : MonoBehaviour
                 FollowTargetWithRotation(GetClosestEnemy(u.owner.enemyUnits3, transform));
             }
         }
+
+        //print(transform.rotation.eulerAngles);
     }
 }

@@ -38,6 +38,13 @@ public class Health : MonoBehaviour
             {
                 GetComponent<Deathrattle>().OnDeath();
             }
+
+            if (GetComponent<Explosion>())
+            {
+                GetComponent<Explosion>().Explode();
+            }
+
+
             owner.opponent.RemoveUnitFromTargetLists(transform);
         }
         GameObject effect = Instantiate(explosionEffect, transform.position, transform.rotation);
