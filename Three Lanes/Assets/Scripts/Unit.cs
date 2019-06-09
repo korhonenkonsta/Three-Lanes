@@ -44,7 +44,14 @@ public class Unit : MonoBehaviour
             {
                 if (owner != col.gameObject.GetComponent<Unit>().owner)
                 {
-                    col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
+                    if (GetComponent<Explosion>())
+                    {
+                        GetComponent<Health>().OnDeath();
+                    }
+                    else
+                    {
+                        col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
+                    }
                     //print("units from dif owners collided");
                 }
             }
@@ -54,8 +61,7 @@ public class Unit : MonoBehaviour
                 {
                     if (owner && owner != col.gameObject.GetComponent<Base>().owner)
                     {
-                        //print("owner:" + owner);
-                        //print("owner other:" + col.gameObject.GetComponent<Base>().owner);
+                        
                         col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
                         //print("units from dif owners collided");
 
@@ -84,6 +90,10 @@ public class Unit : MonoBehaviour
 
     void Update()
     {
-        damage = health.hp;
+        if (!GetComponent<Shooter>())
+        {
+            damage = health.hp;
+        }
+        
     }
 }

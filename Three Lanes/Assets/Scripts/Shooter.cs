@@ -39,7 +39,7 @@ public class Shooter : MonoBehaviour
         Unit tempUnit = Instantiate(prefabToSpawn, transform.position + transform.forward * 0.2f, transform.rotation).GetComponent<Unit>();
         tempUnit.owner = u.owner;
         tempUnit.currentLane = u.currentLane;
-        tempUnit.gameObject.GetComponent<Health>().owner = u.owner;
+        tempUnit.GetComponent<Health>().owner = u.owner;
 
         StartCoroutine("Reload");
     }

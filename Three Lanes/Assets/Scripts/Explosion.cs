@@ -26,7 +26,7 @@ public class Explosion : MonoBehaviour
             //Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
             if (nearbyObject.GetComponent<Health>())
             {
-                nearbyObject.GetComponent<Health>().hp -= damage;
+                nearbyObject.GetComponent<Health>().ChangeHealth(-damage);
             }
         }
 

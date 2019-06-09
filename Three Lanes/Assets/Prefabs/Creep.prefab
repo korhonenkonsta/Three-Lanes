@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58496f5da6e09954991c70b0da663fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 2
+  hp: 3
   owner: {fileID: 0}
   explosionEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
     type: 3}
@@ -157,3 +157,4 @@ MonoBehaviour:
   damage: 1
   currentLane: {fileID: 0}
   multiLaneTargetSearch: 0
+  isBullet: 0

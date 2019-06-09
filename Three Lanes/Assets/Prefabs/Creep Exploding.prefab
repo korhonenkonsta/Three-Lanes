@@ -15,7 +15,7 @@ MonoBehaviour:
   explosionEffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c,
     type: 3}
   radius: 1
-  damage: 1
+  damage: 2
 --- !u!1001 &4154836752297599053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88,11 +88,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f905398c74d0a3a40bd0f94ee48bd9ed, type: 2}
-    - target: {fileID: 3757239484670792408, guid: c60b8dab3dfb9cf4ea34ce41b356a2c4,
-        type: 3}
-      propertyPath: hp
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c60b8dab3dfb9cf4ea34ce41b356a2c4, type: 3}
 --- !u!1 &3275101794290697687 stripped

@@ -83,5 +83,10 @@ PrefabInstance:
       propertyPath: description
       value: Spawns x creeps with deathrattle per second.
       objectReference: {fileID: 0}
+    - target: {fileID: 2824578546200590445, guid: 9d15e0d73a423cd4eaea2efd80df952e,
+        type: 3}
+      propertyPath: cost
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d15e0d73a423cd4eaea2efd80df952e, type: 3}
