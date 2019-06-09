@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     AudioSource audioSource;
     public GameObject explosionEffect;
 
+    bool isDead;
+
     void Start()
     {
         
@@ -19,8 +21,9 @@ public class Health : MonoBehaviour
     {
         hp += amount;
 
-        if (hp <= 0)
+        if (hp <= 0 && !isDead)
         {
+            isDead = true;
             OnDeath();
         }
     }

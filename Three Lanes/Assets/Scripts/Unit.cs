@@ -52,7 +52,7 @@ public class Unit : MonoBehaviour
                     {
                         col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
                     }
-                    //print("units from dif owners collided");
+                    print("units from dif owners collided");
                 }
             }
             else

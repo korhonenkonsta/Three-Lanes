@@ -23,11 +23,17 @@ public class Explosion : MonoBehaviour
 
         foreach (Collider nearbyObject in colliders)
         {
-            //Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-            if (nearbyObject.GetComponent<Health>())
+            if (nearbyObject.gameObject != this)
             {
-                nearbyObject.GetComponent<Health>().ChangeHealth(-damage);
+                //Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+
+                //Currently friendly fire is on even for bases!
+                if (nearbyObject.GetComponent<Health>())
+                {
+                    nearbyObject.GetComponent<Health>().ChangeHealth(-damage);
+                }
             }
+            
         }
 
     }
