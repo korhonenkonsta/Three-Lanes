@@ -10,10 +10,29 @@ public class Unit : MonoBehaviour
     public Lane currentLane;
 
     public bool multiLaneTargetSearch;
+    public bool isBullet;
 
     void Start()
     {
         
+    }
+
+    public Transform GetClosestEnemy(List<Transform> enemies, Transform fromThis)
+    {
+        Transform bestTarget = null;
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 currentPosition = fromThis.position;
+        foreach (Transform potentialTarget in enemies)
+        {
+            Vector3 directionToTarget = potentialTarget.position - currentPosition;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+            if (dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                bestTarget = potentialTarget;
+            }
+        }
+        return bestTarget;
     }
 
     void OnCollisionEnter(Collision col)
@@ -39,6 +58,8 @@ public class Unit : MonoBehaviour
                         //print("owner other:" + col.gameObject.GetComponent<Base>().owner);
                         col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
                         //print("units from dif owners collided");
+
+                        //Issue with exploding creeps, do dmg twice to base
                         GetComponent<Health>().OnDeath();
                     }
                     else
@@ -63,6 +84,6 @@ public class Unit : MonoBehaviour
 
     void Update()
     {
-        
+        damage = health.hp;
     }
 }

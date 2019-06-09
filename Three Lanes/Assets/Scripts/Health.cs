@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int health;
-    public int damage;
+    public int hp;
     public Player owner;
 
     AudioSource audioSource;
@@ -18,9 +17,9 @@ public class Health : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
-        health += amount;
+        hp += amount;
 
-        if (health <= 0)
+        if (hp <= 0)
         {
             OnDeath();
         }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 22544432}
   - component: {fileID: 7462253428403042960}
   m_Layer: 5
-  m_Name: Card Creep Factory
+  m_Name: Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 10
+  m_fontSizeMin: 5
   m_fontSizeMax: 16
   m_fontStyle: 0
   m_textAlignment: 257
