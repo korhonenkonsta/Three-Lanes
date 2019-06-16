@@ -29,6 +29,13 @@ public class Spawner : MonoBehaviour
         if (prefab.gameObject.GetComponent<Unit>())
         {
             Unit tempUnit = Instantiate(prefab, transform.position + transform.forward * 0.2f, transform.rotation).GetComponent<Unit>();
+
+            if (!owner && GetComponent<Unit>())
+            {
+                owner = GetComponent<Unit>().owner;
+                currentLane = GetComponent<Unit>().currentLane;
+            }
+
             tempUnit.owner = owner;
             tempUnit.currentLane = currentLane;
             tempUnit.GetComponent<Health>().owner = owner;
