@@ -43,7 +43,7 @@ public class Health : MonoBehaviour
 
             if (GetComponent<Explosion>())
             {
-                GetComponent<Explosion>().Explode();
+                GetComponent<Explosion>().Explode(GetComponent<Unit>().owner);
             }
 
 

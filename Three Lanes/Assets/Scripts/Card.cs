@@ -58,7 +58,22 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
     void Start()
     {
-        transform.Find("Card Title").GetComponent<TextMeshProUGUI>().text = buildingPrefab.name;
+        //building
+        string value = buildingPrefab.name;
+        value = value.Substring(0, 8);
+        print(value);
+        if (value == "Building")
+        {
+            value = buildingPrefab.name;
+            value = value.Remove(0, 8);
+            print(value);
+        }
+        else
+        {
+            value = buildingPrefab.name;
+        }
+
+        transform.Find("Card Title").GetComponent<TextMeshProUGUI>().text = value;
         transform.Find("Card Description").GetComponent<TextMeshProUGUI>().text = buildingPrefab.GetComponent<Building>().description;
 
         //Fetch the mesh renderer component from the GameObject

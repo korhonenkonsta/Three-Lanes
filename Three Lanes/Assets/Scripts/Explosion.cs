@@ -13,7 +13,7 @@ public class Explosion : MonoBehaviour
         
     }
 
-    public void Explode()
+    public void Explode(Player owner)
     {
         GameObject effect = Instantiate(explosionEffect, transform.position, transform.rotation);
         ParticleSystem PS = effect.GetComponent<ParticleSystem>();
@@ -27,10 +27,12 @@ public class Explosion : MonoBehaviour
             {
                 //Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
 
-                //Currently friendly fire is on even for bases!
-                if (nearbyObject.GetComponent<Health>())
+                if (nearbyObject.GetComponent<Unit>())
                 {
-                    nearbyObject.GetComponent<Health>().ChangeHealth(-damage);
+                    if (nearbyObject.GetComponent<Unit>().owner != owner)
+                    {
+                        nearbyObject.GetComponent<Health>().ChangeHealth(-damage);
+                    }
                 }
             }
             
