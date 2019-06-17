@@ -11,7 +11,6 @@ public class AdjustSaturation : MonoBehaviour
     {
         Color color = mainImage.color;
         Color.RGBToHSV(color, out float H, out float S, out float V);
-        Debug.Log("H: " + H + " S: " + S + " V: " + V);
         S *= 0.5f;
         GetComponent<Image>().color = Color.HSVToRGB(H, S, V);
     }

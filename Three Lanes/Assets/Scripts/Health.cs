@@ -31,37 +31,41 @@ public class Health : MonoBehaviour
 
         if (hp <= 0 && !isDead)
         {
-            isDead = true;
             OnDeath();
         }
     }
 
     public void OnDeath()
     {
-        if (GetComponent<Base>())
+        if (!isDead)
         {
-            GetComponent<Base>().OnDeath();
-        }
-        else
-        {
-            if (GetComponent<Deathrattle>())
+            isDead = true;
+            if (GetComponent<Base>())
             {
-                GetComponent<Deathrattle>().OnDeath();
+                GetComponent<Base>().OnDeath();
             }
-
-            if (GetComponent<Explosion>())
+            else
             {
-                GetComponent<Explosion>().Explode(GetComponent<Unit>().owner);
+                if (GetComponent<Deathrattle>())
+                {
+                    GetComponent<Deathrattle>().OnDeath();
+                }
+
+                if (GetComponent<Explosion>())
+                {
+                    print("EXPLODING");
+                    GetComponent<Explosion>().Explode(GetComponent<Unit>().owner);
+                }
+
+
+                owner.opponent.RemoveUnitFromTargetLists(transform);
             }
+            GameObject effect = Instantiate(explosionEffect, transform.position, transform.rotation);
+            ParticleSystem PS = effect.GetComponent<ParticleSystem>();
+            Destroy(effect, PS.main.duration);
 
-
-            owner.opponent.RemoveUnitFromTargetLists(transform);
+            Destroy(gameObject);
         }
-        GameObject effect = Instantiate(explosionEffect, transform.position, transform.rotation);
-        ParticleSystem PS = effect.GetComponent<ParticleSystem>();
-        Destroy(effect, PS.main.duration);
-
-        Destroy(gameObject);
     }
 
     //void OnCollisionEnter(Collision col)

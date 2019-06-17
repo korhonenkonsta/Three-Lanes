@@ -31,7 +31,9 @@ public class Explosion : MonoBehaviour
                 {
                     if (nearbyObject.GetComponent<Unit>().owner != owner)
                     {
+                        print(nearbyObject.GetComponent<Health>().hp);
                         nearbyObject.GetComponent<Health>().ChangeHealth(-damage);
+                        print(damage);
                     }
                 }
             }

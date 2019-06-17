@@ -7,6 +7,7 @@ public class Unit : MonoBehaviour
     public Player owner;
     public Health health;
     public int damage;
+    public int damageToBase;
     public Lane currentLane;
 
     public bool multiLaneTargetSearch;
@@ -62,7 +63,7 @@ public class Unit : MonoBehaviour
                     if (owner && owner != col.gameObject.GetComponent<Base>().owner)
                     {
                         
-                        col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
+                        col.gameObject.GetComponent<Health>().ChangeHealth(-damageToBase);
                         //print("units from dif owners collided");
 
                         //Issue with exploding creeps, do dmg twice to base
@@ -90,10 +91,12 @@ public class Unit : MonoBehaviour
 
     void Update()
     {
-        if (!GetComponent<Shooter>())
+        if (!GetComponent<Shooter>() && !GetComponent<Explosion>())
         {
             damage = health.hp;
         }
+
+        damageToBase = health.hp;
         
     }
 }
