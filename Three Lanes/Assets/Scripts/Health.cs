@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     public int hp;
+    public int maxHp;
+    public Image healthBarForeground;
     public Player owner;
 
     AudioSource audioSource;
@@ -14,12 +17,17 @@ public class Health : MonoBehaviour
 
     void Start()
     {
-        
+        maxHp = hp;
     }
 
     public void ChangeHealth(int amount)
     {
         hp += amount;
+
+        if (healthBarForeground)
+        {
+            healthBarForeground.fillAmount = (float)hp / (float)maxHp;
+        }
 
         if (hp <= 0 && !isDead)
         {
