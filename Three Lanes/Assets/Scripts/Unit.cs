@@ -36,7 +36,7 @@ public class Unit : MonoBehaviour
         return bestTarget;
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnCollisionStay(Collision col)
     {
         if (col.gameObject.GetComponent<Health>())
         {
@@ -66,7 +66,6 @@ public class Unit : MonoBehaviour
                         col.gameObject.GetComponent<Health>().ChangeHealth(-damageToBase);
                         //print("units from dif owners collided");
 
-                        //Issue with exploding creeps, do dmg twice to base
                         GetComponent<Health>().OnDeath();
                     }
                     else
