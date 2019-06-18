@@ -7,7 +7,7 @@ public class MoveForward : MonoBehaviour
 
     Rigidbody rb;
     public float speedFactor; //0.2
-    Quaternion startingRotation;
+    public Quaternion startingRotation;
     Unit u;
 
     //1. Set lane
@@ -18,7 +18,7 @@ public class MoveForward : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        startingRotation = transform.rotation;
+        //startingRotation = transform.rotation;
     }
 
     
@@ -71,6 +71,7 @@ public class MoveForward : MonoBehaviour
             }
         }
 
-        //print(transform.rotation.eulerAngles);
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
 }

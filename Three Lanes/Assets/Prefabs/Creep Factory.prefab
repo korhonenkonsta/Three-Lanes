@@ -15,7 +15,7 @@ MonoBehaviour:
   prefabToSpawn: {fileID: 1502950728977524122, guid: c60b8dab3dfb9cf4ea34ce41b356a2c4,
     type: 3}
   doSpawn: 1
-  spawnInterval: 5
+  spawnInterval: 3
   owner: {fileID: 0}
   currentLane: {fileID: 0}
 --- !u!1001 &48760773545226293
@@ -104,6 +104,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speedFactor
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757239484670792408, guid: c60b8dab3dfb9cf4ea34ce41b356a2c4,
+        type: 3}
+      propertyPath: hp
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c60b8dab3dfb9cf4ea34ce41b356a2c4, type: 3}

@@ -19,8 +19,8 @@ public class Spawner : MonoBehaviour
     {
         while (doSpawn)
         {
-            Spawn(prefabToSpawn);
             yield return new WaitForSeconds(spawnInterval);
+            Spawn(prefabToSpawn);
         }
     }
 
@@ -43,6 +43,19 @@ public class Spawner : MonoBehaviour
             if (tempUnit.GetComponent<Shooter>())
             {
                 tempUnit.GetComponent<Shooter>().u = tempUnit;
+            }
+
+            if (tempUnit.GetComponent<MoveForward>())
+            {
+                if (GetComponent<Unit>() && GetComponent<MoveForward>())
+                {
+                    tempUnit.GetComponent<MoveForward>().startingRotation = GetComponent<MoveForward>().startingRotation;
+                }
+                else
+                {
+                    tempUnit.GetComponent<MoveForward>().startingRotation = transform.rotation;
+                }
+                
             }
 
             owner.opponent.enemyUnitsAll.Add(tempUnit.transform);
