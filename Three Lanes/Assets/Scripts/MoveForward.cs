@@ -34,7 +34,7 @@ public class MoveForward : MonoBehaviour
         else
         {
             //transform.rotation = startingRotation;
-            rb.rotation = startingRotation;
+            rb.rotation = startingRotation.normalized;
             rb.MovePosition(transform.position + transform.forward * Time.deltaTime * speedFactor);
         }
     }
