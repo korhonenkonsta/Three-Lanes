@@ -6,7 +6,6 @@ public class MoveForward : MonoBehaviour
 {
 
     Rigidbody rb;
-    public float speedFactor; //0.2
     public Quaternion startingRotation;
     Unit u;
 
@@ -29,13 +28,13 @@ public class MoveForward : MonoBehaviour
         {
             transform.LookAt(target);
             //rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);
-            rb.MovePosition(transform.position + transform.forward * Time.deltaTime * speedFactor);
+            rb.MovePosition(transform.position + transform.forward * Time.deltaTime * u.speed);
         }
         else
         {
             //transform.rotation = startingRotation;
             rb.rotation = startingRotation.normalized;
-            rb.MovePosition(transform.position + transform.forward * Time.deltaTime * speedFactor);
+            rb.MovePosition(transform.position + transform.forward * Time.deltaTime * u.speed);
         }
     }
 

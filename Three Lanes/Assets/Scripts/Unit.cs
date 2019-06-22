@@ -8,6 +8,8 @@ public class Unit : MonoBehaviour
     public Health health;
     public int damage;
     public int damageToBase;
+    public float speed;
+
     public Lane currentLane;
 
     public bool multiLaneTargetSearch;
@@ -49,11 +51,34 @@ public class Unit : MonoBehaviour
                     {
                         GetComponent<Health>().OnDeath();
                     }
+                    //Charge bonus
+                    else if (GetComponent<Spear>() && !col.gameObject.GetComponent<Spear>())
+                    {
+                        if (col.gameObject.GetComponent<Unit>().speed < speed)
+                        {
+                            col.gameObject.GetComponent<Health>().ChangeHealth(-(damage + 1));
+                        }
+                        else
+                        {
+                            col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
+                        }
+                    }
+                    //Fast vs. spear minus
+                    else if (!GetComponent<Spear>() && col.gameObject.GetComponent<Spear>())
+                    {
+                        if (col.gameObject.GetComponent<Unit>().speed < speed)
+                        {
+                            col.gameObject.GetComponent<Health>().ChangeHealth(-(damage - 1));
+                        }
+                        else
+                        {
+                            col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
+                        }
+                    }
                     else
                     {
                         col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
                     }
-                    print("units from dif owners collided");
                 }
             }
             else

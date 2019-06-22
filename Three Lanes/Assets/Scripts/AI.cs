@@ -6,7 +6,7 @@ public class AI : MonoBehaviour
 {
     public Player p;
     public bool doBuild = true;
-    public float buildInterval = 3;
+    public float buildInterval = 5;
 
     void Start()
     {
