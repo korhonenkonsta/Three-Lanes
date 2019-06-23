@@ -70,6 +70,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -123,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b709bff6073fcb7409846269552047bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedFactor: 1
+  startingRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &4474739024960383735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
+  maxHp: 0
+  healthBarForeground: {fileID: 0}
   owner: {fileID: 0}
   explosionEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
     type: 3}
@@ -155,6 +158,8 @@ MonoBehaviour:
   owner: {fileID: 0}
   health: {fileID: 4474739024960383735}
   damage: 1
+  damageToBase: 0
+  speed: 1
   currentLane: {fileID: 0}
   multiLaneTargetSearch: 0
   isBullet: 0

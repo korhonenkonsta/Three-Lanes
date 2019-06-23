@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
     public void CreatePlayer2()
     {
         player2 = Instantiate(player2Prefab, transform.position, transform.rotation).GetComponent<Player>();
-        player2.resources = 10;
+        player2.resources = 20;
         player2.startingResources = player2.resources;
         player2.opponent = player1;
         player2.gm = this;
