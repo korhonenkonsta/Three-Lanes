@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     public int startingResources;
     public int roundExtraResources;
 
+    public int armorLevel;
+
     //public Lane lane1;
     //public Lane lane2;
     //public Lane lane3;

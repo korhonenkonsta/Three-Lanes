@@ -39,6 +39,7 @@ public class Spawner : MonoBehaviour
             tempUnit.owner = owner;
             tempUnit.currentLane = currentLane;
             tempUnit.GetComponent<Health>().owner = owner;
+            tempUnit.GetComponent<Health>().armor = owner.armorLevel;
 
             if (tempUnit.GetComponent<Shooter>())
             {

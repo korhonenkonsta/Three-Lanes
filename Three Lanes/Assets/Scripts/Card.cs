@@ -61,12 +61,10 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         //building
         string value = buildingPrefab.name;
         value = value.Substring(0, 8);
-        print(value);
         if (value == "Building")
         {
             value = buildingPrefab.name;
             value = value.Remove(0, 8);
-            print(value);
         }
         else
         {

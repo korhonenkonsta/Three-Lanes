@@ -234,11 +234,31 @@ public class GameManager : MonoBehaviour
             player1.LoseRound();
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.RightArrow))
         {
             player1.roundScore++;
             UpdateScoreTexts();
             ResetRound();
+        }
+
+        if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            foreach (GameObject c in player1.hand.cards)
+            {
+                //c.GetComponent<Card>().buildingPrefab;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            if (timeScaleValue != 0f)
+            {
+                timeScaleValue = 0f;
+            }
+            else
+            {
+                timeScaleValue = 1f;
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.R))

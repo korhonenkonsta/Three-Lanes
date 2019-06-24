@@ -7,6 +7,8 @@ public class Health : MonoBehaviour
 {
     public int hp;
     public int maxHp;
+    public int hpRegen;
+    public int armor;
     public Image healthBarForeground;
     public Player owner;
 
@@ -22,7 +24,18 @@ public class Health : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
-        hp += amount;
+        if (amount < 0)
+        {
+            print("amount + armor "); 
+            print(amount + armor);
+            hp += amount + armor;
+            print("hp " + hp);
+        }
+        else
+        {
+            hp += amount;
+        }
+        
 
         if (healthBarForeground)
         {
