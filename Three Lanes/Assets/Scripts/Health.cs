@@ -26,10 +26,7 @@ public class Health : MonoBehaviour
     {
         if (amount < 0)
         {
-            print("amount + armor "); 
-            print(amount + armor);
             hp += amount + armor;
-            print("hp " + hp);
         }
         else
         {

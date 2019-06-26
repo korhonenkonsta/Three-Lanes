@@ -49,6 +49,18 @@ public class Hand : MonoBehaviour
         DrawHand(handSize - cards.Count);
     }
 
+    public void ShuffleHandToDeck()
+    {
+        int cardCount = cards.Count;
+
+        for (int i = cardCount - 1; i >= 0; i--)
+        {
+            cards[i].transform.SetParent(owner.deck.transform);
+            owner.deck.cards.Add(cards[i]);
+            cards.Remove(cards[i]);
+        }
+    }
+
     public void DrawHand(int amount)
     {
         if (owner.deck.transform.childCount >= amount)

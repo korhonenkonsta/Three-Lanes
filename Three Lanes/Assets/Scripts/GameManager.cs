@@ -30,12 +30,12 @@ public class GameManager : MonoBehaviour
     public GameObject basePrefab;
 
     public Transform player1Base1;
-    public Transform player1Base2;
-    public Transform player1Base3;
+    //public Transform player1Base2;
+    //public Transform player1Base3;
 
     public Transform player2Base1;
-    public Transform player2Base2;
-    public Transform player2Base3;
+    //public Transform player2Base2;
+    //public Transform player2Base3;
 
     public Lane lane1;
     public Lane lane2;
@@ -70,14 +70,31 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        LoadNextScene();
+        
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        Debug.Log(mode);
         StartMatch();
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void LoadNextScene()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void StartMatch()
     {
+        print("Match starting");
         CreatePlayer2();
         player1.opponent = player2;
         player1.roundScore = 0;
+        
         UpdateScoreTexts();
         CreateBases();
         CreateBuildAreas(15);
@@ -116,8 +133,9 @@ public class GameManager : MonoBehaviour
 
     public void RestartMatch()
     {
+        player1.hand.ShuffleHandToDeck();
+        SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        StartMatch();
     }
 
     /// <summary>
@@ -267,8 +285,11 @@ public class GameManager : MonoBehaviour
             player2.hand.DrawHand(3);
         }
 
-        player1ResourcesText.text = "Mana: " + player1.resources.ToString() + " + " + player1.roundExtraResources.ToString();
-        player2ResourcesText.text = "Mana: " + player2.resources.ToString() + " + " + player2.roundExtraResources.ToString();
+        if (player1ResourcesText && player2ResourcesText && player1 && player2)
+        {
+            player1ResourcesText.text = "Mana: " + player1.resources.ToString() + " + " + player1.roundExtraResources.ToString();
+            player2ResourcesText.text = "Mana: " + player2.resources.ToString() + " + " + player2.roundExtraResources.ToString();
+        }
 
         Time.timeScale = timeScaleValue;
     }
