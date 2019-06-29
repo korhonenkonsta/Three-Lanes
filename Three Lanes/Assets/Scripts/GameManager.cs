@@ -50,6 +50,9 @@ public class GameManager : MonoBehaviour
     [Range(0.0f, 10.0f)]
     public float timeScaleValue = 1f;
 
+    public List<GameObject> allCardPrefabs = new List<GameObject>();
+    public Transform rewardsLayoutGroup;
+
     //public GameObject buildingToBuild;
 
     //Singleton
@@ -70,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        LoadNextScene();
+        //LoadNextScene();
         
     }
 
@@ -78,14 +81,35 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("OnSceneLoaded: " + scene.name);
         Debug.Log(mode);
-        StartMatch();
+        if (scene.name == "Match")
+        {
+            StartMatch();
+        }
+
+        if (scene.name == "Reward")
+        {
+            GiveReward();
+        }
+
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     public void LoadNextScene()
     {
+        player1.hand.ShuffleHandToDeck();
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void PickReward(Transform button)
+    {
+        player1.deck.cards.Add(rewardsLayoutGroup.GetChild(button.GetSiblingIndex()).gameObject);
+        rewardsLayoutGroup.GetChild(button.GetSiblingIndex()).gameObject.transform.SetParent(player1.deck.transform);
+    }
+
+    public void GiveReward()
+    {
+
     }
 
     public void StartMatch()
