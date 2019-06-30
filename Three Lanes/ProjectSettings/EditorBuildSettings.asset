@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: f0966c77423e85e4bba0e6517de8e312
   - enabled: 1
+    path: Assets/Scenes/Reward.unity
+    guid: a9899c80af6fbba4b922a4aee68d82c8
+  - enabled: 1
     path: Assets/Scenes/Match.unity
     guid: c84a48f78b629664ab75f70e50cebcde
   m_configObjects: {}

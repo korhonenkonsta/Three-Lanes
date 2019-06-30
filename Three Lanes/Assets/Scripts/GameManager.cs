@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> allCardPrefabs = new List<GameObject>();
     public Transform rewardsLayoutGroup;
+    public int rewardCount = 3;
 
     //public GameObject buildingToBuild;
 
@@ -73,14 +74,13 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //LoadNextScene();
+        LoadNextScene();
         
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("OnSceneLoaded: " + scene.name);
-        Debug.Log(mode);
         if (scene.name == "Match")
         {
             StartMatch();
@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
 
         if (scene.name == "Reward")
         {
-            GiveReward();
+            GiveRewards();
         }
 
         SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -101,15 +101,37 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void LoadPreviousScene()
+    {
+        gameOverPanel.SetActive(false);
+        player1.hand.ShuffleHandToDeck();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
     public void PickReward(Transform button)
     {
         player1.deck.cards.Add(rewardsLayoutGroup.GetChild(button.GetSiblingIndex()).gameObject);
         rewardsLayoutGroup.GetChild(button.GetSiblingIndex()).gameObject.transform.SetParent(player1.deck.transform);
+
+        for (int i = 0; i < rewardsLayoutGroup.childCount; i++)
+        {
+            Destroy(rewardsLayoutGroup.GetChild(i).gameObject);
+        }
+
+        rewardsLayoutGroup.parent.gameObject.SetActive(false);
+        LoadNextScene();
     }
 
-    public void GiveReward()
+    public void GiveRewards()
     {
+        rewardsLayoutGroup.parent.gameObject.SetActive(true);
 
+        for (int i = 0; i < rewardCount; i++)
+        {
+            GameObject reward = Instantiate(allCardPrefabs[Random.Range(0, allCardPrefabs.Count)], Vector3.zero, Quaternion.identity);
+            reward.transform.SetParent(rewardsLayoutGroup);
+        }
     }
 
     public void StartMatch()
@@ -155,12 +177,7 @@ public class GameManager : MonoBehaviour
         gameOverPanel.SetActive(true);
     }
 
-    public void RestartMatch()
-    {
-        player1.hand.ShuffleHandToDeck();
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+    
 
     /// <summary>
     /// Reset the round, which includes:
