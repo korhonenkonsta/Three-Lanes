@@ -56,7 +56,6 @@ public class Spawner : MonoBehaviour
                 {
                     tempUnit.GetComponent<MoveForward>().startingRotation = transform.rotation;
                 }
-                
             }
 
             owner.opponent.enemyUnitsAll.Add(tempUnit.transform);
@@ -73,14 +72,12 @@ public class Spawner : MonoBehaviour
             {
                 owner.opponent.enemyUnits3.Add(tempUnit.transform);
             }
-
         }
         else
         {
             print("other than unit spawned");
             Instantiate(prefab, transform.position, transform.rotation);
         }
-        
     }
 
     // Update is called once per frame

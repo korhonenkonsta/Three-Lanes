@@ -95,9 +95,26 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             GameObject objectHit = hit.transform.gameObject;
             //print(objectHit.name);
             Card c = GetComponent<Card>();
-            if (objectHit.GetComponent<BuildArea>() && c)
+            if (c)
             {
-                objectHit.GetComponent<BuildArea>().Build(c.buildingPrefab, c.buildingPrefab.GetComponent<Building>().cost, this, c);
+                if (objectHit.GetComponent<BuildArea>() && c.buildingPrefab)
+                {
+                    objectHit.GetComponent<BuildArea>().Build(c.buildingPrefab, c.buildingPrefab.GetComponent<Building>().cost, this, c);
+                }
+
+                //TODO: REPLACE THIS WITH REF TO SPAWNER SCRIPT, ADD THAT TO CARD
+                if (objectHit.GetComponent<Lane>() && c.spellPrefab)
+                {
+                    GameObject spell = Instantiate(c.spellPrefab, hit.point, Quaternion.identity);
+                    if (spell.GetComponent<Explosion>())
+                    {
+                        StartCoroutine(spell.GetComponent<Explosion>().LightFuse(GameManager.Instance.player1));
+                        
+                    }
+
+                    //hit.
+                    //objectHit.GetComponent<BuildArea>().Build(c.buildingPrefab, c.buildingPrefab.GetComponent<Building>().cost, this, c);
+                }
             }
 
             // Do something with the object that was hit by the raycast.

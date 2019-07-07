@@ -8,9 +8,18 @@ public class Explosion : MonoBehaviour
     public float radius = 1f;
     public int damage = 1;
 
+    public float fuseTime = 1f;
+
     void Start()
     {
         
+    }
+
+    public IEnumerator LightFuse(Player owner)
+    {
+        yield return new WaitForSeconds(fuseTime);
+        Explode(owner);
+        Destroy(gameObject);
     }
 
     public void Explode(Player owner)

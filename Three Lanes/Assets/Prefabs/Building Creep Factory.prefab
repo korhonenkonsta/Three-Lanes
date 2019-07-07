@@ -91,7 +91,7 @@ PrefabInstance:
         type: 3}
       propertyPath: prefabToSpawn
       value: 
-      objectReference: {fileID: 1474566124249830831, guid: dd511773df7c07046adcca837f7e7cc9,
+      objectReference: {fileID: 1474566124249830831, guid: 054c8efdd4ffdaa4299b8cfa441bcc5e,
         type: 3}
     - target: {fileID: 5931524123125513847, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}

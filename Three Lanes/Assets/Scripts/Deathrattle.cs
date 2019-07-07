@@ -22,6 +22,7 @@ public class Deathrattle : MonoBehaviour
         if (prefab.gameObject.GetComponent<Unit>())
         {
             Unit tempUnit = Instantiate(prefab, transform.position, transform.rotation).GetComponent<Unit>();
+            tempUnit.GetComponent<MoveForward>().startingRotation = GetComponent<MoveForward>().startingRotation;
             tempUnit.owner = owner;
             tempUnit.currentLane = currentLane;
             tempUnit.gameObject.GetComponent<Health>().owner = owner;

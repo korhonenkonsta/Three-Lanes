@@ -9,6 +9,7 @@ using UnityEngine.EventSystems;
 public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public GameObject buildingPrefab;
+    public GameObject spellPrefab;
     public Player owner;
 
     public bool selectedForDiscard;
@@ -58,21 +59,33 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
     void Start()
     {
-        //building
-        string value = buildingPrefab.name;
-        value = value.Substring(0, 8);
-        if (value == "Building")
+        string value = null;
+        if (buildingPrefab)
         {
             value = buildingPrefab.name;
-            value = value.Remove(0, 8);
+
+            value = value.Substring(0, 8);
+            if (value == "Building")
+            {
+                value = buildingPrefab.name;
+                value = value.Remove(0, 8);
+            }
+            else
+            {
+                value = buildingPrefab.name;
+            }
+            transform.Find("Card Description").GetComponent<TextMeshProUGUI>().text = buildingPrefab.GetComponent<Building>().description;
         }
         else
         {
-            value = buildingPrefab.name;
+            value = spellPrefab.name;
+            transform.Find("Card Description").GetComponent<TextMeshProUGUI>().text = "Spell description here";
         }
+        
+        
 
         transform.Find("Card Title").GetComponent<TextMeshProUGUI>().text = value;
-        transform.Find("Card Description").GetComponent<TextMeshProUGUI>().text = buildingPrefab.GetComponent<Building>().description;
+        
 
         //Fetch the mesh renderer component from the GameObject
         //Fetch the original color of the GameObject
