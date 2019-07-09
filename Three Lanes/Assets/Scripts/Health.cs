@@ -76,7 +76,16 @@ public class Health : MonoBehaviour
 
             if (GetComponent<Unit>())
             {
-                GameObject fracturedObj = Instantiate(GetComponent<Unit>().fracturedObject, transform.position, transform.rotation);
+                if (!GetComponent<Unit>().isBullet)
+                {
+                    GameObject fracturedObj = Instantiate(GetComponent<Unit>().fracturedObject, transform.position, transform.rotation);
+
+                    foreach (Transform child in fracturedObj.transform)
+                    {
+                        child.GetComponent<Renderer>().material.color = GetComponent<Renderer>().material.color;
+                        child.GetComponent<Renderer>().materials[1].color = GetComponent<Renderer>().material.color;
+                    }
+                }
             }
         }
     }
