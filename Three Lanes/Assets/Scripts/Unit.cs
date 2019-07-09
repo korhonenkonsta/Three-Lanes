@@ -16,6 +16,7 @@ public class Unit : MonoBehaviour
 
     public bool multiLaneTargetSearch;
     public bool isBullet;
+    public GameObject fracturedObject;
 
     void Start()
     {

@@ -125,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b709bff6073fcb7409846269552047bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedFactor: 0.2
   startingRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &3757239484670792408
 MonoBehaviour:
@@ -141,6 +140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 3
   maxHp: 0
+  hpRegen: 0
+  armor: 0
   healthBarForeground: {fileID: 3067594921929626836}
   owner: {fileID: 0}
   explosionEffect: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
@@ -161,10 +162,14 @@ MonoBehaviour:
   health: {fileID: 3757239484670792408}
   damage: 1
   damageToBase: 0
+  shield: 0
+  shieldRegen: 0
   speed: 0.2
   currentLane: {fileID: 0}
   multiLaneTargetSearch: 0
   isBullet: 0
+  fracturedObject: {fileID: 3001673611633266667, guid: adf3c1447f967b34d80f49385ba1219a,
+    type: 3}
 --- !u!1 &3775493848922174029
 GameObject:
   m_ObjectHideFlags: 0

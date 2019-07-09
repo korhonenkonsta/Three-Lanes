@@ -12,7 +12,10 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(ContinuousSpawn());
+        if (GetComponent<Building>() || GetComponent<Unit>())
+        {
+            StartCoroutine(ContinuousSpawn());
+        }
     }
 
     IEnumerator ContinuousSpawn()

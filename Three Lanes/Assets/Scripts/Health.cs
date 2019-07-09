@@ -66,7 +66,6 @@ public class Health : MonoBehaviour
                     GetComponent<Explosion>().Explode(GetComponent<Unit>().owner);
                 }
 
-
                 owner.opponent.RemoveUnitFromTargetLists(transform);
             }
             GameObject effect = Instantiate(explosionEffect, transform.position, transform.rotation);
@@ -74,6 +73,11 @@ public class Health : MonoBehaviour
             Destroy(effect, PS.main.duration);
 
             Destroy(gameObject);
+
+            if (GetComponent<Unit>())
+            {
+                GameObject fracturedObj = Instantiate(GetComponent<Unit>().fracturedObject, transform.position, transform.rotation);
+            }
         }
     }
 
