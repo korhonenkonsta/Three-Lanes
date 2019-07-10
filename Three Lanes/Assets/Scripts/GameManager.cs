@@ -174,6 +174,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        SearchAndDestroyTag();
         gameOverPanel.SetActive(true);
     }
 

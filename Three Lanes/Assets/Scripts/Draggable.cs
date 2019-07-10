@@ -102,10 +102,11 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                     objectHit.GetComponent<BuildArea>().Build(c.buildingPrefab, c.buildingPrefab.GetComponent<Building>().cost, this, c);
                 }
 
-                //TODO: REPLACE THIS WITH REF TO SPAWNER SCRIPT, ADD THAT TO CARD
-                if (objectHit.GetComponent<Lane>() && c.spellPrefab)
+                if (objectHit.GetComponent<Lane>() && c.GetComponent<Spawner>())
                 {
-                    GameObject spell = Instantiate(c.spellPrefab, hit.point, Quaternion.identity);
+
+                    //GameObject spell = Instantiate(c.spellPrefab, hit.point, Quaternion.identity);
+                    GameObject spell = c.GetComponent<Spawner>().Spawn(c.GetComponent<Spawner>().prefabToSpawn, hit.point, Quaternion.identity);
                     if (spell.GetComponent<Explosion>())
                     {
                         StartCoroutine(spell.GetComponent<Explosion>().LightFuse(GameManager.Instance.player1));

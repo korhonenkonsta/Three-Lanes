@@ -23,15 +23,15 @@ public class Spawner : MonoBehaviour
         while (doSpawn)
         {
             yield return new WaitForSeconds(spawnInterval);
-            Spawn(prefabToSpawn);
+            Spawn(prefabToSpawn, transform.position + transform.forward * 0.2f, transform.rotation);
         }
     }
 
-    public void Spawn(GameObject prefab)
+    public GameObject Spawn(GameObject prefab, Vector3 pos, Quaternion rot)
     {
         if (prefab.gameObject.GetComponent<Unit>())
         {
-            Unit tempUnit = Instantiate(prefab, transform.position + transform.forward * 0.2f, transform.rotation).GetComponent<Unit>();
+            Unit tempUnit = Instantiate(prefab, pos, rot).GetComponent<Unit>();
 
             if (!owner && GetComponent<Unit>())
             {
@@ -75,11 +75,13 @@ public class Spawner : MonoBehaviour
             {
                 owner.opponent.enemyUnits3.Add(tempUnit.transform);
             }
+            return tempUnit.gameObject;
         }
         else
         {
             print("other than unit spawned");
-            Instantiate(prefab, transform.position, transform.rotation);
+            GameObject tempObject = Instantiate(prefab, pos, rot);
+            return tempObject;
         }
     }
 
