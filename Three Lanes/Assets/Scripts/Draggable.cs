@@ -104,7 +104,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
                 if (objectHit.GetComponent<Lane>() && c.GetComponent<Spawner>())
                 {
-
+                    //Set owner for card, get it from there
                     //GameObject spell = Instantiate(c.spellPrefab, hit.point, Quaternion.identity);
                     GameObject spell = c.GetComponent<Spawner>().Spawn(c.GetComponent<Spawner>().prefabToSpawn, hit.point, Quaternion.identity);
                     if (spell.GetComponent<Explosion>())
