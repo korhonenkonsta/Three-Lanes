@@ -17,6 +17,7 @@ public class Deck : MonoBehaviour
         foreach (Transform child in transform)
         {
             cards.Add(child.gameObject);
+            child.GetComponent<Card>().owner = owner;
         }
     }
 

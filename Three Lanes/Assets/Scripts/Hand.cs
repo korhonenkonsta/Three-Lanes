@@ -12,6 +12,19 @@ public class Hand : MonoBehaviour
 
     void Start()
     {
+        if (owner)
+        {
+            AddChildCardsToList();
+        }
+    }
+
+    public void AddChildCardsToList()
+    {
+        foreach (Transform child in transform)
+        {
+            cards.Add(child.gameObject);
+            child.GetComponent<Card>().owner = owner;
+        }
     }
 
     public void StartDrawing()
@@ -65,7 +78,14 @@ public class Hand : MonoBehaviour
     {
         if (owner.deck.transform.childCount >= amount)
         {
-            DrawAmountOfCards(amount);
+            if (amount > handSize - cards.Count)
+            {
+                DrawAmountOfCards(handSize - cards.Count);
+            }
+            else
+            {
+                DrawAmountOfCards(amount);
+            }
         }
         else
         {
@@ -91,7 +111,7 @@ public class Hand : MonoBehaviour
 
     void DrawAmountOfCards(int amount)
     {
-        if (amount == 0)
+        if (amount <= 0)
         {
             return;
         }

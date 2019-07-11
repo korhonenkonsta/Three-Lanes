@@ -739,7 +739,6 @@ GameObject:
   - component: {fileID: 195896673}
   - component: {fileID: 195896672}
   - component: {fileID: 195896671}
-  - component: {fileID: 195896670}
   m_Layer: 5
   m_Name: Reward Buttons
   m_TagString: Untagged
@@ -769,22 +768,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 44.831}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &195896670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195896668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68dd1188f40ed8147a847c2aef8748c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 388200787}
-  cards: []
-  handSize: 5
-  drawInterval: 10
 --- !u!114 &195896671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7738,7 +7721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6856e9d9eb93c6d47ae3ce479c87e1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 388200787}
+  owner: {fileID: 0}
   cards: []
 --- !u!114 &1463070231
 MonoBehaviour:
@@ -11278,7 +11261,7 @@ PrefabInstance:
         type: 3}
       propertyPath: owner
       value: 
-      objectReference: {fileID: 388200787}
+      objectReference: {fileID: 0}
     - target: {fileID: 5344191509840038853, guid: 85a8aba2670404d4fa624d095b8b55db,
         type: 3}
       propertyPath: m_Name

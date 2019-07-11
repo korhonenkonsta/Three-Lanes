@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextScene()
     {
-        player1.hand.ShuffleHandToDeck();
+        //player1.hand.ShuffleHandToDeck();
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
