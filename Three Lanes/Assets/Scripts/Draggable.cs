@@ -106,10 +106,10 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 {
                     //Set owner for card, get it from there
                     //GameObject spell = Instantiate(c.spellPrefab, hit.point, Quaternion.identity);
-                    GameObject spell = c.GetComponent<Spawner>().Spawn(c.GetComponent<Spawner>().prefabToSpawn, hit.point, Quaternion.identity);
+                    GameObject spell = c.GetComponent<Spawner>().Spawn(c.GetComponent<Spawner>().prefabToSpawn, hit.point + new Vector3(0f, c.GetComponent<Spawner>().prefabToSpawn.transform.localScale.y / 2, 0f), Quaternion.identity, c.owner, objectHit.GetComponent<Lane>());
                     if (spell.GetComponent<Explosion>())
                     {
-                        StartCoroutine(spell.GetComponent<Explosion>().LightFuse(GameManager.Instance.player1));
+                        StartCoroutine(spell.GetComponent<Explosion>().LightFuse(c.owner));
                         
                     }
 

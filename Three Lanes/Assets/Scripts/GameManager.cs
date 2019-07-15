@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour
         player1.baseCount = 3;
         player2.baseCount = 3;
 
-        float laneGap = 2f;
+        float laneGap = 20f;
 
         for (int i = 0; i < 3; i++)
         {
@@ -227,8 +227,8 @@ public class GameManager : MonoBehaviour
 
     public void CreateBuildAreas(int countPerSide)
     {
-        float buildAreaWidth = 0.2f + 0.1f;
-        float laneGap = 0.5f;
+        float buildAreaWidth = 2f + 1f;
+        float laneGap = 5f;
         int gapCount = 0;
         int buildAreasPerLane = 5;
 

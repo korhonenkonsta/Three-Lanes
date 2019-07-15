@@ -23,24 +23,36 @@ public class Spawner : MonoBehaviour
         while (doSpawn)
         {
             yield return new WaitForSeconds(spawnInterval);
-            Spawn(prefabToSpawn, transform.position + transform.forward * 0.2f, transform.rotation);
+            Spawn(prefabToSpawn, transform.position + transform.forward * 0.2f, transform.rotation, owner, currentLane);
         }
     }
 
-    public GameObject Spawn(GameObject prefab, Vector3 pos, Quaternion rot)
+    public GameObject Spawn(GameObject prefab, Vector3 pos, Quaternion rot, Player ownerPlayer, Lane lane)
     {
         if (prefab.gameObject.GetComponent<Unit>())
         {
             Unit tempUnit = Instantiate(prefab, pos, rot).GetComponent<Unit>();
 
-            if (!owner && GetComponent<Unit>())
+            //if (!owner && GetComponent<Unit>())
+            //{
+            //    owner = GetComponent<Unit>().owner;
+            //    currentLane = GetComponent<Unit>().currentLane;
+            //}
+            //else
+            //{
+                owner = ownerPlayer;
+                currentLane = lane;
+            //}
+            
+            tempUnit.owner = ownerPlayer;
+            tempUnit.currentLane = lane;
+
+            if (tempUnit.GetComponent<Spawner>())
             {
-                owner = GetComponent<Unit>().owner;
-                currentLane = GetComponent<Unit>().currentLane;
+                tempUnit.GetComponent<Spawner>().owner = owner;
+                tempUnit.GetComponent<Spawner>().currentLane = currentLane;
             }
 
-            tempUnit.owner = owner;
-            tempUnit.currentLane = currentLane;
             tempUnit.GetComponent<Health>().owner = owner;
             tempUnit.GetComponent<Health>().armor = owner.armorLevel;
 
