@@ -15,7 +15,7 @@ public class PhysicsExplosion : MonoBehaviour
         {
             Rigidbody rb = t.GetComponent<Rigidbody>();
 
-            if (rb)
+            if (rb && !t.GetComponent<Unit>())
             {
                 rb.AddExplosionForce(Random.Range(minForce, maxForce), transform.position - Vector3.forward * 0.01f, radius);
             }

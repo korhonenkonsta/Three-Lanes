@@ -52,6 +52,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ClearBuildAreaLists()
+    {
+        allBuildAreas.Clear();
+        allBuildAreas.Clear();
+    }
+
     public void ClearEnemyLists()
     {
         enemyUnitsAll.Clear();

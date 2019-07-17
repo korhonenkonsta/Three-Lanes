@@ -163,7 +163,7 @@ MonoBehaviour:
   damageToBase: 0
   shield: 0
   shieldRegen: 0
-  speed: 1
+  speed: 10
   currentLane: {fileID: 0}
   multiLaneTargetSearch: 0
   isBullet: 1

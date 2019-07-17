@@ -617,7 +617,7 @@ MonoBehaviour:
   minForce: 50
   maxForce: 200
   radius: 1
-  destroyDelay: 5
+  destroyDelay: 4
 --- !u!1 &3459509298042860955
 GameObject:
   m_ObjectHideFlags: 0

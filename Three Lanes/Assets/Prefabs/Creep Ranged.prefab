@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   u: {fileID: 0}
-  range: 1
+  range: 10
   isReloading: 0
   reloadTime: 1.5
   prefabToSpawn: {fileID: 1502950728977524122, guid: 596a0e1881a5d0e479117dd92c1fb7bc,
@@ -84,6 +84,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -182,6 +183,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8bda2c74ce515fa4caa843f774f3f0bd, type: 2}
+    - target: {fileID: 9092401093622465356, guid: c60b8dab3dfb9cf4ea34ce41b356a2c4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c60b8dab3dfb9cf4ea34ce41b356a2c4, type: 3}
 --- !u!1 &6284636655571041170 stripped

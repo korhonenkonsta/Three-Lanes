@@ -363,7 +363,7 @@ MonoBehaviour:
   maxHp: 0
   hpRegen: 0
   armor: 0
-  healthBarForeground: {fileID: 0}
+  healthBarForeground: {fileID: 5993399809742102427}
   owner: {fileID: 0}
   explosionEffect: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}

@@ -140,7 +140,9 @@ public class GameManager : MonoBehaviour
         CreatePlayer2();
         player1.opponent = player2;
         player1.roundScore = 0;
-        
+
+        player1.ClearEnemyLists();
+        player1.ClearBuildAreaLists();
         UpdateScoreTexts();
         CreateBases();
         CreateBuildAreas(15);
