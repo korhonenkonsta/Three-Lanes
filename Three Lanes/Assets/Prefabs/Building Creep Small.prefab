@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 5931524123125513846, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
       propertyPath: m_Name
-      value: Building Creep Double
+      value: Building Creep Small
       objectReference: {fileID: 0}
     - target: {fileID: 5931524123125513803, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
@@ -75,12 +75,18 @@ PrefabInstance:
     - target: {fileID: 5931524123125513847, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
       propertyPath: spawnInterval
-      value: 2.5
+      value: 1.25
       objectReference: {fileID: 0}
+    - target: {fileID: 5931524123125513847, guid: 9d15e0d73a423cd4eaea2efd80df952e,
+        type: 3}
+      propertyPath: prefabToSpawn
+      value: 
+      objectReference: {fileID: 8849043614669270749, guid: c4df34af6c4253c41bba7d1d6ea34844,
+        type: 3}
     - target: {fileID: 2824578546200590445, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
       propertyPath: description
-      value: Spawns 2x creeps per second.
+      value: Spawns 4x small creeps per second.
       objectReference: {fileID: 0}
     - target: {fileID: 2824578546200590445, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
