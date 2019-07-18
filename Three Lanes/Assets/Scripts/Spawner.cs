@@ -6,7 +6,10 @@ public class Spawner : MonoBehaviour
 {
     public GameObject prefabToSpawn;
     public bool doSpawn = true;
-    public float spawnInterval = 1;
+    public float spawnInterval = 5f;
+    public float spawnIntervalStep = 1f;
+    public float spawnIntervalMin = 1f;
+    public bool hasWindup;
     public Player owner;
     public Lane currentLane;
 
@@ -23,7 +26,13 @@ public class Spawner : MonoBehaviour
         while (doSpawn)
         {
             yield return new WaitForSeconds(spawnInterval);
-            Spawn(prefabToSpawn, transform.position + transform.forward * 0.2f, transform.rotation, owner, currentLane);
+
+            if (hasWindup && spawnInterval > spawnIntervalMin)
+            {
+                spawnInterval -= spawnIntervalStep;
+            }
+
+            Spawn(prefabToSpawn, transform.position + transform.forward * 0.4f, transform.rotation, owner, currentLane);
         }
     }
 

@@ -80,6 +80,11 @@ public class Health : MonoBehaviour
                 {
                     GameObject fracturedObj = Instantiate(GetComponent<Unit>().fracturedObject, transform.position, transform.rotation);
 
+                    if (fracturedObj.transform.localScale != transform.localScale / 2f)
+                    {
+                        fracturedObj.transform.localScale = transform.localScale / 2f;
+                    }
+
                     foreach (Transform child in fracturedObj.transform)
                     {
                         child.GetComponent<Renderer>().material.color = GetComponent<Renderer>().material.color;

@@ -15,7 +15,7 @@ MonoBehaviour:
   u: {fileID: 0}
   range: 10
   isReloading: 0
-  reloadTime: 1.5
+  reloadTime: 1.6
   prefabToSpawn: {fileID: 1502950728977524122, guid: 596a0e1881a5d0e479117dd92c1fb7bc,
     type: 3}
 --- !u!1 &6560654596730858157
