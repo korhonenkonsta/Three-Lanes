@@ -5,6 +5,7 @@ using UnityEngine;
 public class Deathrattle : MonoBehaviour
 {
     public GameObject prefabToSpawn;
+    public int spawnCount = 1;
 
     void Start()
     {
@@ -13,7 +14,10 @@ public class Deathrattle : MonoBehaviour
 
     public void OnDeath()
     {
-        Spawn(prefabToSpawn, GetComponent<Unit>().owner, GetComponent<Unit>().currentLane);
+        for (int i = 0; i < spawnCount; i++)
+        {
+            Spawn(prefabToSpawn, GetComponent<Unit>().owner, GetComponent<Unit>().currentLane);
+        }
     }
 
 
