@@ -177,6 +177,8 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         SearchAndDestroyTag();
+        SearchAndDestroyTagPermanent();
+
         gameOverPanel.SetActive(true);
     }
 
@@ -204,6 +206,13 @@ public class GameManager : MonoBehaviour
     public void SearchAndDestroyTag()
     {
         GameObject[] units = GameObject.FindGameObjectsWithTag("Respawn");
+        foreach (GameObject unit in units)
+            Destroy(unit);
+    }
+
+    public void SearchAndDestroyTagPermanent()
+    {
+        GameObject[] units = GameObject.FindGameObjectsWithTag("Permanent");
         foreach (GameObject unit in units)
             Destroy(unit);
     }
