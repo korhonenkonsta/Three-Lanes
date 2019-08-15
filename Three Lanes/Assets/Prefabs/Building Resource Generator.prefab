@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4de1eaf5e38c154a8b1f2d73e75fc4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceInterval: 15
+  resourceInterval: 5
+  resourceAmount: 1
   doGenerate: 1
   owner: {fileID: 0}
   b: {fileID: 0}
+  resourcePopupPrefab: {fileID: 3164056396000635976, guid: d9a1ad786c280e74fbf3048dc5b74e60,
+    type: 3}
+  height: 2
 --- !u!1001 &6866108087686274849
 PrefabInstance:
   m_ObjectHideFlags: 0
