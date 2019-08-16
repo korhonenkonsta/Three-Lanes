@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class Spawner : MonoBehaviour
     public bool hasWindup;
     public Player owner;
     public Lane currentLane;
+
+    public float nextSpawnTime = 0;
+    public Image coolDownBarForeground;
+    public float fill;
 
     void Start()
     {
@@ -109,6 +114,18 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Time.time > nextSpawnTime)
+        {
+            nextSpawnTime = Time.time + spawnInterval;
+            fill = 0;
+        }
+
+        fill += Time.deltaTime;
+
+        if (coolDownBarForeground)
+        {
+            coolDownBarForeground.fillAmount = fill / spawnInterval;
+        }
+
     }
 }

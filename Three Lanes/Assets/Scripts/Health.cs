@@ -36,7 +36,7 @@ public class Health : MonoBehaviour
 
         if (healthBarForeground)
         {
-            healthBarForeground.fillAmount = (float)hp / (float)maxHp;
+            healthBarForeground.fillAmount = (float)hp / maxHp;
         }
 
         if (hp <= 0 && !isDead)

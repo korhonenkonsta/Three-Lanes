@@ -7,6 +7,7 @@ using TMPro;
 public class ResourceGenerator : MonoBehaviour
 {
     public float resourceInterval = 5;
+    public float nextResourceTime = 0;
     public int resourceAmount = 1;
     public bool doGenerate = true;
     public Player owner;
@@ -14,6 +15,9 @@ public class ResourceGenerator : MonoBehaviour
 
     public GameObject resourcePopupPrefab;
     public float height = 1f;
+
+    public Image coolDownBarForeground;
+    public float fill;
 
     void Start()
     {
@@ -46,6 +50,18 @@ public class ResourceGenerator : MonoBehaviour
 
     void Update()
     {
-        
+        if (Time.time > nextResourceTime)
+        {
+            nextResourceTime = Time.time + resourceInterval;
+            fill = 0;
+        }
+
+        fill += Time.deltaTime;
+
+        if (coolDownBarForeground)
+        {
+            coolDownBarForeground.fillAmount = fill / resourceInterval;
+        }
+
     }
 }
