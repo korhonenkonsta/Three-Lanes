@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public DiscardPile player1DiscardPile;
     public DiscardPile player2DiscardPile;
 
+    public GameObject playerInfoPanel;
+
     public TextMeshProUGUI player1ScoreText;
     public TextMeshProUGUI player2ScoreText;
 
@@ -88,6 +90,7 @@ public class GameManager : MonoBehaviour
 
         if (scene.name == "Reward")
         {
+            playerInfoPanel.SetActive(false);
             GiveRewards();
         }
 
@@ -136,6 +139,8 @@ public class GameManager : MonoBehaviour
 
     public void StartMatch()
     {
+        playerInfoPanel.SetActive(true);
+
         print("Match starting");
         CreatePlayer2();
         player1.opponent = player2;
@@ -174,12 +179,20 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void GameOver()
+    public void GameOver(Player loser)
     {
         SearchAndDestroyTag();
         SearchAndDestroyTagPermanent();
 
-        gameOverPanel.SetActive(true);
+        if (loser == player1)
+        {
+            gameOverPanel.SetActive(true);
+        }
+        else
+        {
+            LoadPreviousScene();
+        }
+        
     }
 
     
@@ -193,6 +206,7 @@ public class GameManager : MonoBehaviour
     public void ResetRound()
     {
         SearchAndDestroyTag();
+        SearchAndResetCooldownTagPermanent();
         CreateBases();
         player1.ClearEnemyLists();
         player2.ClearEnemyLists();
@@ -318,6 +332,11 @@ public class GameManager : MonoBehaviour
             player1.LoseRound();
         }
 
+        if (Input.GetKeyUp(KeyCode.G))
+        {
+            player2.LoseRound();
+        }
+
         if (Input.GetKeyUp(KeyCode.RightArrow))
         {
             player1.roundScore++;
@@ -353,8 +372,8 @@ public class GameManager : MonoBehaviour
 
         if (player1ResourcesText && player2ResourcesText && player1 && player2)
         {
-            player1ResourcesText.text = "Mana: " + player1.resources.ToString() + " + " + player1.roundExtraResources.ToString();
-            player2ResourcesText.text = "Mana: " + player2.resources.ToString() + " + " + player2.roundExtraResources.ToString();
+            player1ResourcesText.text = "Local: " + player1.roundExtraResources.ToString() + "\n" + "Global: " + player1.resources.ToString();
+            player2ResourcesText.text = "Global: " + player2.resources.ToString() + "\n" + "Local: " + player2.roundExtraResources.ToString();
         }
 
         Time.timeScale = timeScaleValue;

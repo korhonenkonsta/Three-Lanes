@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: 1085880888020134689
     second: bars_background
+  - first:
+      213: 3406681819534293401
+    second: bars_yellow_thin
+  - first:
+      213: -5746896942493311814
+    second: bars_background_thin
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -64,7 +70,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -75,7 +81,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -86,6 +93,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -127,6 +135,48 @@ TextureImporter:
       bones: []
       spriteID: 12093d40bc98e6d42afa05f2746f9fd1
       internalID: 1085880888020134689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bars_yellow_thin
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 259
+        width: 507
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 298c0b7eb69ad734981b1feb17b4d778
+      internalID: 3406681819534293401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bars_background_thin
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 230
+        width: 508
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 030edf0dfb955674f98670dc2aebc5e1
+      internalID: -5746896942493311814
       vertices: []
       indices: 
       edges: []

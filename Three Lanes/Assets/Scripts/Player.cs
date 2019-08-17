@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
 
         if (opponent.roundScore >= 2)
         {
-            gm.GameOver();
+            gm.GameOver(this);
         }
         else
         {

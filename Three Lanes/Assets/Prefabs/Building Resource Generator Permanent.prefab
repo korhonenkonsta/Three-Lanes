@@ -26,8 +26,7 @@ MonoBehaviour:
     type: 3}
   height: 1
   nextSpawnTime: 0
-  coolDownBarForeground: {fileID: 5789429484628255951, guid: 4504186978ecdfb43a5bebd7f60061e6,
-    type: 3}
+  coolDownBarForeground: {fileID: 5789429484628255951}
   fill: 0
   isTemporary: 0
   spawnCount: 0
@@ -135,6 +134,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 1.19
       objectReference: {fileID: 0}
+    - target: {fileID: 1085789294113242094, guid: 9d15e0d73a423cd4eaea2efd80df952e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3406681819534293401, guid: 4af3d864a1279a04fb98f3a564225869,
+        type: 3}
+    - target: {fileID: 4993731017080573777, guid: 9d15e0d73a423cd4eaea2efd80df952e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5746896942493311814, guid: 4af3d864a1279a04fb98f3a564225869,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 5931524123125513847, guid: 9d15e0d73a423cd4eaea2efd80df952e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9d15e0d73a423cd4eaea2efd80df952e, type: 3}
@@ -144,3 +155,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6866108087686274849}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5789429484628255951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1085789294113242094, guid: 9d15e0d73a423cd4eaea2efd80df952e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6866108087686274849}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
