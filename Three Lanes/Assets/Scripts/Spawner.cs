@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Spawner : MonoBehaviour
 {
+    public bool isGenerator;
+    public int resourceAmount = 1;
     public GameObject prefabToSpawn;
     public bool doSpawn = true;
     public float spawnInterval = 5f;
@@ -14,16 +17,48 @@ public class Spawner : MonoBehaviour
     public Player owner;
     public Lane currentLane;
 
+    public GameObject resourcePopupPrefab;
+    public float height = 1f;
+
     public float nextSpawnTime = 0;
     public Image coolDownBarForeground;
     public float fill;
 
+    public bool isTemporary;
+    public int spawnCount;
+    public int spawnCountBeforeDestroy = 10;
+
+    public bool isGlobal;
+
+    private IEnumerator coroutine;
+
     void Start()
+    {
+        Init();
+    }
+
+    public void Init()
     {
         if (GetComponent<Building>() || GetComponent<Unit>())
         {
-            StartCoroutine(ContinuousSpawn());
+            if (coroutine != null)
+            {
+                StopCoroutine(coroutine);
+            }
+
+            coroutine = ContinuousSpawn();
+            StartCoroutine(coroutine);
+
+            nextSpawnTime = Time.time + spawnInterval;
+            fill = 0;
         }
+    }
+
+    public void CreatePopup()
+    {
+        GameObject popup = Instantiate(resourcePopupPrefab, transform.position + new Vector3(0, height, 0), Quaternion.identity);
+        popup.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "+" + resourceAmount.ToString();
+        Destroy(popup, 3f);
     }
 
     IEnumerator ContinuousSpawn()
@@ -37,7 +72,30 @@ public class Spawner : MonoBehaviour
                 spawnInterval -= spawnIntervalStep;
             }
 
-            Spawn(prefabToSpawn, transform.position + transform.forward * 0.4f, transform.rotation, owner, currentLane);
+            if (isGenerator)
+            {
+                if (isGlobal)
+                {
+                    owner.resources += resourceAmount;
+                }
+                else
+                {
+                    owner.roundExtraResources += resourceAmount;
+                }
+
+                CreatePopup();
+            }
+            else
+            {
+                Spawn(prefabToSpawn, transform.position + transform.forward * 0.4f, transform.rotation, owner, currentLane);
+            }
+            
+            spawnCount++;
+
+            if (isTemporary && spawnCount >= spawnCountBeforeDestroy)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -47,16 +105,8 @@ public class Spawner : MonoBehaviour
         {
             Unit tempUnit = Instantiate(prefab, pos, rot).GetComponent<Unit>();
 
-            //if (!owner && GetComponent<Unit>())
-            //{
-            //    owner = GetComponent<Unit>().owner;
-            //    currentLane = GetComponent<Unit>().currentLane;
-            //}
-            //else
-            //{
-                owner = ownerPlayer;
-                currentLane = lane;
-            //}
+            owner = ownerPlayer;
+            currentLane = lane;
             
             tempUnit.owner = ownerPlayer;
             tempUnit.currentLane = lane;

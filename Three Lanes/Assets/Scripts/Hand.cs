@@ -7,7 +7,7 @@ public class Hand : MonoBehaviour
     public Player owner;
     public List<GameObject> cards = new List<GameObject>();
 
-    public int handSize = 5;
+    public int handSize = 7;
     public float drawInterval = 10;
 
     void Start()

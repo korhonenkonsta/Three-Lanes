@@ -19,6 +19,12 @@ public class ResourceGenerator : MonoBehaviour
     public Image coolDownBarForeground;
     public float fill;
 
+    public bool isTemporary;
+    public int spawnCount;
+    public int spawnCountBeforeDestroy = 10;
+
+    public bool isGlobal;
+
     void Start()
     {
         
@@ -43,7 +49,23 @@ public class ResourceGenerator : MonoBehaviour
         while (doGenerate)
         {
             yield return new WaitForSeconds(resourceInterval);
-            owner.roundExtraResources += resourceAmount;
+
+            if (isGlobal)
+            {
+                owner.resources += resourceAmount;
+            }
+            else
+            {
+                owner.roundExtraResources += resourceAmount;
+            }
+
+            spawnCount++;
+
+            if (isTemporary && spawnCount >= spawnCountBeforeDestroy)
+            {
+                Destroy(gameObject);
+            }
+
             CreatePopup();
         }
     }

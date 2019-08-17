@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8859204219261739366
+--- !u!1001 &7726382549994714549
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,13 +9,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 107266, guid: 43bd9bca3c5a51140888431876cf4997, type: 3}
       propertyPath: m_Name
-      value: Card Creep Permanent
+      value: Card Resource Generator Permanent
       objectReference: {fileID: 0}
     - target: {fileID: 7462253428403042960, guid: 43bd9bca3c5a51140888431876cf4997,
         type: 3}
       propertyPath: buildingPrefab
       value: 
-      objectReference: {fileID: 696677649924244270, guid: 2f786f3eeffb4e64fa0a44ea5db545f9,
+      objectReference: {fileID: 943593380421853527, guid: b9992b124f4d8d64988cb7c5069cf1bb,
         type: 3}
     - target: {fileID: 11437358, guid: 43bd9bca3c5a51140888431876cf4997, type: 3}
       propertyPath: m_Color.r

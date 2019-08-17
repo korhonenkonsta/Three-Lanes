@@ -1,6 +1,39 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4137244891489657114
+--- !u!114 &9027975930196835099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943593380421853527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a49475cf3ba930478fc1484a013d34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGenerator: 1
+  resourceAmount: 1
+  prefabToSpawn: {fileID: 0}
+  doSpawn: 1
+  spawnInterval: 15
+  spawnIntervalStep: 1
+  spawnIntervalMin: 5
+  hasWindup: 1
+  owner: {fileID: 0}
+  currentLane: {fileID: 0}
+  resourcePopupPrefab: {fileID: 3164056396000635976, guid: d9a1ad786c280e74fbf3048dc5b74e60,
+    type: 3}
+  height: 1
+  nextSpawnTime: 0
+  coolDownBarForeground: {fileID: 5789429484628255951, guid: 4504186978ecdfb43a5bebd7f60061e6,
+    type: 3}
+  fill: 0
+  isTemporary: 0
+  spawnCount: 0
+  spawnCountBeforeDestroy: 10
+  isGlobal: 0
+--- !u!1001 &6866108087686274849
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +43,7 @@ PrefabInstance:
     - target: {fileID: 5931524123125513846, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
       propertyPath: m_Name
-      value: Building Creep Splitter
+      value: Building Resource Generator Windup
       objectReference: {fileID: 0}
     - target: {fileID: 5931524123125513803, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
@@ -67,26 +100,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5931524123125513802, guid: 9d15e0d73a423cd4eaea2efd80df952e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 5931524123125513801, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 398e3a52774f999478bc278f7d4a9bd2, type: 2}
-    - target: {fileID: 5931524123125513847, guid: 9d15e0d73a423cd4eaea2efd80df952e,
-        type: 3}
-      propertyPath: prefabToSpawn
-      value: 
-      objectReference: {fileID: 8449857146955155714, guid: a353884702ffae64bacbdd2f0f281313,
-        type: 3}
+      objectReference: {fileID: 2100000, guid: 60adca8b8bca18d418868dfe1b57c6e8, type: 2}
     - target: {fileID: 2824578546200590445, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
       propertyPath: description
-      value: Spawns x creeps with deathrattle per second.
+      value: Generates 1 resource every x seconds.
       objectReference: {fileID: 0}
     - target: {fileID: 2824578546200590445, guid: 9d15e0d73a423cd4eaea2efd80df952e,
         type: 3}
       propertyPath: cost
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6509075200013083468, guid: 9d15e0d73a423cd4eaea2efd80df952e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.19
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5931524123125513847, guid: 9d15e0d73a423cd4eaea2efd80df952e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9d15e0d73a423cd4eaea2efd80df952e, type: 3}
+--- !u!1 &943593380421853527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5931524123125513846, guid: 9d15e0d73a423cd4eaea2efd80df952e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6866108087686274849}
+  m_PrefabAsset: {fileID: 0}

@@ -217,6 +217,19 @@ public class GameManager : MonoBehaviour
             Destroy(unit);
     }
 
+    public void SearchAndResetCooldownTagPermanent()
+    {
+        GameObject[] units = GameObject.FindGameObjectsWithTag("Permanent");
+        foreach (GameObject unit in units)
+        {
+            if (unit.GetComponent<Spawner>())
+            {
+                unit.GetComponent<Spawner>().Init();
+            }
+        }
+            
+    }
+
     public void CreateBases()
     {
         print("bases created");
