@@ -105,16 +105,30 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 if (objectHit.GetComponent<Lane>() && c.GetComponent<Spawner>())
                 {
                     //Set owner for card, get it from there
-                    //GameObject spell = Instantiate(c.spellPrefab, hit.point, Quaternion.identity);
-                    GameObject spell = c.GetComponent<Spawner>().Spawn(c.GetComponent<Spawner>().prefabToSpawn, hit.point + new Vector3(0f, c.GetComponent<Spawner>().prefabToSpawn.transform.localScale.y / 2, 0f), Quaternion.identity, c.owner, objectHit.GetComponent<Lane>());
-                    if (spell.GetComponent<Explosion>())
+                    Spawner s = c.GetComponent<Spawner>();
+                    GameObject prefab = s.prefabToSpawn;
+                    GameObject spell;
+                    if (s.prefabToSpawn.GetComponent<Unit>())
                     {
-                        StartCoroutine(spell.GetComponent<Explosion>().LightFuse(c.owner));
-                        
+                        spell = s.Spawn(prefab, hit.point + new Vector3(0f, prefab.transform.localScale.y / 2, 0f), Quaternion.identity, c.owner, objectHit.GetComponent<Lane>(), s.prefabToSpawn.GetComponent<Unit>().cost);
+                    }
+                    else
+                    {
+                        spell = s.Spawn(prefab, hit.point + new Vector3(0f, prefab.transform.localScale.y / 2, 0f), Quaternion.identity, c.owner, objectHit.GetComponent<Lane>(), s.prefabToSpawn.GetComponent<Spell>().cost);
                     }
 
-                    //hit.
-                    //objectHit.GetComponent<BuildArea>().Build(c.buildingPrefab, c.buildingPrefab.GetComponent<Building>().cost, this, c);
+                    if (spell)
+                    {
+                        if (spell.GetComponent<Explosion>())
+                        {
+                            StartCoroutine(spell.GetComponent<Explosion>().LightFuse(c.owner));
+                        }
+
+                        transform.SetParent(c.owner.discardPile.transform);
+                        parentToReturnTo = c.owner.discardPile.transform;
+                        c.owner.discardPile.cards.Add(c.gameObject);
+                        c.owner.hand.cards.Remove(c.gameObject);
+                    }
                 }
             }
 
@@ -122,7 +136,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         }
         //print("Object: "+eventData.pointerCurrentRaycast.gameObject.name);
 
-        //Debug.Log ("OnEndDrag");
         this.transform.SetParent( parentToReturnTo );
 		this.transform.SetSiblingIndex( placeholder.transform.GetSiblingIndex() );
 		GetComponent<CanvasGroup>().blocksRaycasts = true;

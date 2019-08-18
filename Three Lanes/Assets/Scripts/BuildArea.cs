@@ -18,6 +18,17 @@ public class BuildArea : MonoBehaviour
     {
         if (owner.resources + owner.roundExtraResources >= cost)
         {
+            if (owner.roundExtraResources >= cost)
+            {
+                owner.roundExtraResources -= cost;
+            }
+            else
+            {
+                int remainder = cost - owner.roundExtraResources;
+                owner.resources -= remainder;
+                owner.roundExtraResources = 0;
+            }
+
             GameObject buildingTemp = Instantiate(building, transform.position + new Vector3(0f, 1f, 0f), transform.rotation);
             b = buildingTemp.GetComponent<Building>();
 
@@ -30,26 +41,15 @@ public class BuildArea : MonoBehaviour
             b.owner = owner;
             b.currentLane = currentLane;
 
-            if (buildingTemp.GetComponent<ResourceGenerator>())
-            {
-                buildingTemp.GetComponent<ResourceGenerator>().Init(owner, b);
-            }
+            //if (buildingTemp.GetComponent<ResourceGenerator>())
+            //{
+            //    buildingTemp.GetComponent<ResourceGenerator>().Init(owner, b);
+            //}
 
             d.transform.SetParent(owner.discardPile.transform);
             d.parentToReturnTo = owner.discardPile.transform;
             owner.discardPile.cards.Add(c.gameObject);
             owner.hand.cards.Remove(c.gameObject);
-
-            if (owner.roundExtraResources >= b.cost)
-            {
-                owner.roundExtraResources -= b.cost;
-            }
-            else
-            {
-                int remainder = b.cost - owner.roundExtraResources;
-                owner.resources -= remainder;
-                owner.roundExtraResources = 0;
-            }
 
             owner.availableBuildAreas.Remove(this);
         }

@@ -74,11 +74,21 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
             {
                 value = buildingPrefab.name;
             }
+            value += " " + buildingPrefab.GetComponent<Building>().cost;
             transform.Find("Card Description").GetComponent<TextMeshProUGUI>().text = buildingPrefab.GetComponent<Building>().description;
         }
         else
         {
             value = spellPrefab.name;
+            if (spellPrefab.GetComponent<Unit>())
+            {
+                value += " " + spellPrefab.GetComponent<Unit>().cost;
+            }
+            else
+            {
+                value += " " + spellPrefab.GetComponent<Spell>().cost;
+            }
+            
             transform.Find("Card Description").GetComponent<TextMeshProUGUI>().text = "Spell description here";
         }
         

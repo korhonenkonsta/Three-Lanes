@@ -65,7 +65,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 1085880888020134689, guid: 4af3d864a1279a04fb98f3a564225869,
+  m_Sprite: {fileID: -5746896942493311814, guid: 4af3d864a1279a04fb98f3a564225869,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -4515822180617692266, guid: 4af3d864a1279a04fb98f3a564225869,
+  m_Sprite: {fileID: 3406681819534293401, guid: 4af3d864a1279a04fb98f3a564225869,
     type: 3}
   m_Type: 3
   m_PreserveAspect: 0
@@ -259,6 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a49475cf3ba930478fc1484a013d34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGenerator: 0
+  resourceAmount: 1
   prefabToSpawn: {fileID: 1502950728977524122, guid: c60b8dab3dfb9cf4ea34ce41b356a2c4,
     type: 3}
   doSpawn: 1
@@ -268,9 +270,15 @@ MonoBehaviour:
   hasWindup: 0
   owner: {fileID: 0}
   currentLane: {fileID: 0}
+  resourcePopupPrefab: {fileID: 0}
+  height: 1
   nextSpawnTime: 0
   coolDownBarForeground: {fileID: 1085789294113242094}
   fill: 0
+  isTemporary: 0
+  spawnCount: 0
+  spawnCountBeforeDestroy: 10
+  isGlobal: 0
 --- !u!114 &2824578546200590445
 MonoBehaviour:
   m_ObjectHideFlags: 0

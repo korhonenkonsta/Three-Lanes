@@ -24,6 +24,8 @@ public class Spawner : MonoBehaviour
     public Image coolDownBarForeground;
     public float fill;
 
+    public Image remainingBarForeground;
+
     public bool isTemporary;
     public int spawnCount;
     public int spawnCountBeforeDestroy = 10;
@@ -87,77 +89,106 @@ public class Spawner : MonoBehaviour
             }
             else
             {
-                Spawn(prefabToSpawn, transform.position + transform.forward * 0.4f, transform.rotation, owner, currentLane);
+                Spawn(prefabToSpawn, transform.position + transform.forward * 0.4f, transform.rotation, owner, currentLane, 0);
             }
             
             spawnCount++;
 
-            if (isTemporary && spawnCount >= spawnCountBeforeDestroy)
+            if (isTemporary)
             {
-                Destroy(gameObject);
+                remainingBarForeground.fillAmount = 1 - spawnCount / (float)spawnCountBeforeDestroy;
+
+                if (spawnCount >= spawnCountBeforeDestroy)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }
 
-    public GameObject Spawn(GameObject prefab, Vector3 pos, Quaternion rot, Player ownerPlayer, Lane lane)
+    public GameObject Spawn(GameObject prefab, Vector3 pos, Quaternion rot, Player ownerPlayer, Lane lane, int cost)
     {
-        if (prefab.gameObject.GetComponent<Unit>())
+        owner = ownerPlayer;
+
+        if (GetComponent<Unit>())
         {
-            Unit tempUnit = Instantiate(prefab, pos, rot).GetComponent<Unit>();
+            cost = 0;
+        }
 
-            owner = ownerPlayer;
-            currentLane = lane;
-            
-            tempUnit.owner = ownerPlayer;
-            tempUnit.currentLane = lane;
-
-            if (tempUnit.GetComponent<Spawner>())
+        if (owner.resources + owner.roundExtraResources >= cost)
+        {
+            if (owner.roundExtraResources >= cost)
             {
-                tempUnit.GetComponent<Spawner>().owner = owner;
-                tempUnit.GetComponent<Spawner>().currentLane = currentLane;
-            }
-
-            tempUnit.GetComponent<Health>().owner = owner;
-            tempUnit.GetComponent<Health>().armor = owner.armorLevel;
-
-            if (tempUnit.GetComponent<Shooter>())
-            {
-                tempUnit.GetComponent<Shooter>().u = tempUnit;
-            }
-
-            if (tempUnit.GetComponent<MoveForward>())
-            {
-                if (GetComponent<Unit>() && GetComponent<MoveForward>())
-                {
-                    tempUnit.GetComponent<MoveForward>().startingRotation = GetComponent<MoveForward>().startingRotation;
-                }
-                else
-                {
-                    tempUnit.GetComponent<MoveForward>().startingRotation = transform.rotation;
-                }
-            }
-
-            owner.opponent.enemyUnitsAll.Add(tempUnit.transform);
-
-            if (currentLane.laneNumber == 1)
-            {
-                owner.opponent.enemyUnits1.Add(tempUnit.transform);
-            }
-            else if (currentLane.laneNumber == 2)
-            {
-                owner.opponent.enemyUnits2.Add(tempUnit.transform);
+                owner.roundExtraResources -= cost;
             }
             else
             {
-                owner.opponent.enemyUnits3.Add(tempUnit.transform);
+                int remainder = cost - owner.roundExtraResources;
+                owner.resources -= remainder;
+                owner.roundExtraResources = 0;
             }
-            return tempUnit.gameObject;
+
+            if (prefab.gameObject.GetComponent<Unit>())
+            {
+                Unit tempUnit = Instantiate(prefab, pos, rot).GetComponent<Unit>();
+
+                currentLane = lane;
+
+                tempUnit.owner = ownerPlayer;
+                tempUnit.currentLane = lane;
+
+                if (tempUnit.GetComponent<Spawner>())
+                {
+                    tempUnit.GetComponent<Spawner>().owner = owner;
+                    tempUnit.GetComponent<Spawner>().currentLane = currentLane;
+                }
+
+                tempUnit.GetComponent<Health>().owner = owner;
+                tempUnit.GetComponent<Health>().armor = owner.armorLevel;
+
+                if (tempUnit.GetComponent<Shooter>())
+                {
+                    tempUnit.GetComponent<Shooter>().u = tempUnit;
+                }
+
+                if (tempUnit.GetComponent<MoveForward>())
+                {
+                    if (GetComponent<Unit>() && GetComponent<MoveForward>())
+                    {
+                        tempUnit.GetComponent<MoveForward>().startingRotation = GetComponent<MoveForward>().startingRotation;
+                    }
+                    else
+                    {
+                        tempUnit.GetComponent<MoveForward>().startingRotation = transform.rotation;
+                    }
+                }
+
+                owner.opponent.enemyUnitsAll.Add(tempUnit.transform);
+
+                if (currentLane.laneNumber == 1)
+                {
+                    owner.opponent.enemyUnits1.Add(tempUnit.transform);
+                }
+                else if (currentLane.laneNumber == 2)
+                {
+                    owner.opponent.enemyUnits2.Add(tempUnit.transform);
+                }
+                else
+                {
+                    owner.opponent.enemyUnits3.Add(tempUnit.transform);
+                }
+                return tempUnit.gameObject;
+            }
+            else
+            {
+                print("other than unit spawned");
+                GameObject tempObject = Instantiate(prefab, pos, rot);
+                return tempObject;
+            }
         }
         else
         {
-            print("other than unit spawned");
-            GameObject tempObject = Instantiate(prefab, pos, rot);
-            return tempObject;
+            return null;
         }
     }
 

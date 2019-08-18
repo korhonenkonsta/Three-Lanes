@@ -11,6 +11,7 @@ public class Unit : MonoBehaviour
     public int shield;
     public int shieldRegen;
     public float speed;
+    public int cost;
 
     public Lane currentLane;
 
