@@ -74,28 +74,33 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
             {
                 value = buildingPrefab.name;
             }
-            value += " " + buildingPrefab.GetComponent<Building>().cost;
+
+            transform.Find("Manacost Background").GetChild(0).GetComponent<TextMeshProUGUI>().text = buildingPrefab.GetComponent<Building>().cost.ToString();
             transform.Find("Card Description").GetComponent<TextMeshProUGUI>().text = buildingPrefab.GetComponent<Building>().description;
         }
         else
         {
             value = spellPrefab.name;
+
             if (spellPrefab.GetComponent<Unit>())
             {
-                value += " " + spellPrefab.GetComponent<Unit>().cost;
+                transform.Find("Manacost Background").GetChild(0).GetComponent<TextMeshProUGUI>().text = spellPrefab.GetComponent<Unit>().cost.ToString();
             }
             else
             {
                 value += " " + spellPrefab.GetComponent<Spell>().cost;
+                transform.Find("Manacost Background").GetChild(0).GetComponent<TextMeshProUGUI>().text = spellPrefab.GetComponent<Spell>().cost.ToString();
             }
-            
+
             transform.Find("Card Description").GetComponent<TextMeshProUGUI>().text = "Spell description here";
         }
+
         
-        
+
 
         transform.Find("Card Title").GetComponent<TextMeshProUGUI>().text = value;
         
+
 
         //Fetch the mesh renderer component from the GameObject
         //Fetch the original color of the GameObject
