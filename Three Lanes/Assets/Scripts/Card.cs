@@ -76,9 +76,17 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
             }
 
             transform.Find("Manacost Background").GetChild(0).GetComponent<TextMeshProUGUI>().text = buildingPrefab.GetComponent<Building>().cost.ToString();
-            transform.Find("Card Description").GetComponent<TextMeshProUGUI>().text = buildingPrefab.GetComponent<Building>().description;
+
+            if (buildingPrefab.GetComponent<Spawner>())
+            {
+                transform.Find("Card Description").GetComponent<TextMeshProUGUI>().text = "Spawns a creep every " + buildingPrefab.GetComponent<Spawner>().spawnInterval + " seconds.";
+            }
+            else
+            {
+                transform.Find("Card Description").GetComponent<TextMeshProUGUI>().text = buildingPrefab.GetComponent<Building>().description;
+            }
         }
-        else
+        else if (spellPrefab)
         {
             value = spellPrefab.name;
 
@@ -92,7 +100,11 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
                 transform.Find("Manacost Background").GetChild(0).GetComponent<TextMeshProUGUI>().text = spellPrefab.GetComponent<Spell>().cost.ToString();
             }
 
-            transform.Find("Card Description").GetComponent<TextMeshProUGUI>().text = "Spell description here";
+            transform.Find("Card Description").GetComponent<TextMeshProUGUI>().text = "Spawn a " + spellPrefab.name + ".";
+        }
+        else
+        {
+            value = gameObject.name;
         }
 
         transform.Find("Card Title").GetComponent<TextMeshProUGUI>().text = value;

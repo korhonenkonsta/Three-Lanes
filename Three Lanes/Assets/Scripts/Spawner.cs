@@ -91,11 +91,14 @@ public class Spawner : MonoBehaviour
             {
                 if (GetComponent<Item>())
                 {
-                    BuildArea b = owner.allBuildAreas[0];
-                    if (b)
+                    if (owner.allBuildAreas.Count > 0)
                     {
-                        Transform t = b.transform;
-                        Spawn(prefabToSpawn, t.position + t.forward * 0.4f + t.up * 0.5f, t.rotation, owner, b.currentLane, 0);
+                        BuildArea b = owner.allBuildAreas[0];
+                        if (b)
+                        {
+                            Transform t = b.transform;
+                            Spawn(prefabToSpawn, t.position + t.forward * 0.4f + t.up * 0.5f, t.rotation, owner, b.currentLane, 0);
+                        }
                     }
                 }
                 else

@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
     public int rewardsPickedCount;
     public int rewardDraftAmount = 3;
 
+    private bool showInventory;
+
     //Singleton
     public static GameManager Instance { get; private set; }
 
@@ -388,6 +390,22 @@ public class GameManager : MonoBehaviour
             else
             {
                 timeScaleValue = 1f;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.I))
+        {
+            showInventory = !showInventory;
+
+            if (showInventory)
+            {
+                player1.inventory.gameObject.GetComponent<CanvasGroup>().alpha = 1f;
+                player1.inventory.gameObject.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            }
+            else
+            {
+                player1.inventory.gameObject.GetComponent<CanvasGroup>().alpha = 0f;
+                player1.inventory.gameObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
             }
         }
 
