@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public Deck deck;
     public DiscardPile discardPile;
     public Hand hand;
+    public Inventory inventory;
 
     public int resources;
     public int startingResources;

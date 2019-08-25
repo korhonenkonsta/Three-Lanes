@@ -12,14 +12,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject player2Prefab;
 
-    public Hand player1Hand;
     public Hand player2Hand;
-
-    public Deck player1Deck;
     public Deck player2Deck;
-
-    public DiscardPile player1DiscardPile;
     public DiscardPile player2DiscardPile;
+    public Inventory player2Inventory;
 
     public GameObject playerInfoPanel;
     public TextMeshProUGUI playe2AIText;
@@ -176,6 +172,9 @@ public class GameManager : MonoBehaviour
         UpdateScoreTexts();
         CreateBases();
         CreateBuildAreas(15);
+
+        player1.inventory.InitSpawners();
+        player2.inventory.InitSpawners();
     }
 
     public void CreatePlayer2()
@@ -191,9 +190,13 @@ public class GameManager : MonoBehaviour
         player2.hand.owner = player2;
         player2.deck = player2Deck;
         player2.deck.owner = player2;
+        player2.inventory = player2Inventory;
+        player2.inventory.owner = player2;
+
         player2.gameObject.AddComponent<AI>().p = player2;
 
         player2.deck.AddChildCardsToList();
+        player2.inventory.AddChildItemsToList();
         player2.hand.DrawHand(player2.hand.handSize);
         player2.hand.StartDrawing();
 
@@ -203,6 +206,7 @@ public class GameManager : MonoBehaviour
         }
        
         player1.deck.AddChildCardsToList();
+        player1.inventory.AddChildItemsToList();
         player1.hand.DrawHand(player1.hand.handSize);
         player1.hand.StartDrawing();
 
@@ -228,8 +232,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-    
-
     /// <summary>
     /// Reset the round, which includes:
     ///     Bases,
@@ -248,6 +250,9 @@ public class GameManager : MonoBehaviour
 
         player1.roundExtraResources = 0;
         player2.roundExtraResources = 0;
+
+        player1.inventory.InitSpawners();
+        player2.inventory.InitSpawners();
     }
 
     public void SearchAndDestroyTag()

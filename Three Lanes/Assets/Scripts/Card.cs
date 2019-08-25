@@ -95,13 +95,8 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
             transform.Find("Card Description").GetComponent<TextMeshProUGUI>().text = "Spell description here";
         }
 
-        
-
-
         transform.Find("Card Title").GetComponent<TextMeshProUGUI>().text = value;
         
-
-
         //Fetch the mesh renderer component from the GameObject
         //Fetch the original color of the GameObject
         img = GetComponent<Image>();

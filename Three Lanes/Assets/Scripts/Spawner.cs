@@ -41,7 +41,7 @@ public class Spawner : MonoBehaviour
 
     public void Init()
     {
-        if (GetComponent<Building>() || GetComponent<Unit>())
+        if (GetComponent<Building>() || GetComponent<Unit>() || GetComponent<Item>())
         {
             if (coroutine != null)
             {
@@ -89,7 +89,19 @@ public class Spawner : MonoBehaviour
             }
             else
             {
-                Spawn(prefabToSpawn, transform.position + transform.forward * 0.4f, transform.rotation, owner, currentLane, 0);
+                if (GetComponent<Item>())
+                {
+                    BuildArea b = owner.allBuildAreas[0];
+                    if (b)
+                    {
+                        Transform t = b.transform;
+                        Spawn(prefabToSpawn, t.position + t.forward * 0.4f + t.up * 0.5f, t.rotation, owner, b.currentLane, 0);
+                    }
+                }
+                else
+                {
+                    Spawn(prefabToSpawn, transform.position + transform.forward * 0.4f, transform.rotation, owner, currentLane, 0);
+                }
             }
             
             spawnCount++;
