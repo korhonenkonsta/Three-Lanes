@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public DiscardPile player2DiscardPile;
 
     public GameObject playerInfoPanel;
+    public TextMeshProUGUI playe2AIText;
 
     public TextMeshProUGUI player1ScoreText;
     public TextMeshProUGUI player2ScoreText;
@@ -55,8 +56,9 @@ public class GameManager : MonoBehaviour
     public List<GameObject> allCardPrefabs = new List<GameObject>();
     public Transform rewardsLayoutGroup;
     public int rewardCount = 3;
-
-    //public GameObject buildingToBuild;
+    //public List<GameObject> rewards = new List<GameObject>();
+    public int rewardsPickedCount;
+    public int rewardDraftAmount = 3;
 
     //Singleton
     public static GameManager Instance { get; private set; }
@@ -122,8 +124,20 @@ public class GameManager : MonoBehaviour
             Destroy(rewardsLayoutGroup.GetChild(i).gameObject);
         }
 
-        rewardsLayoutGroup.parent.gameObject.SetActive(false);
-        LoadNextScene();
+        //DeleteRewards();
+
+        rewardsPickedCount++;
+
+        if (rewardsPickedCount < rewardDraftAmount)
+        {
+            GiveRewards();
+        }
+        else
+        {
+            rewardsPickedCount = 0;
+            rewardsLayoutGroup.parent.gameObject.SetActive(false);
+            LoadNextScene();
+        }
     }
 
     public void GiveRewards()
@@ -133,9 +147,20 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < rewardCount; i++)
         {
             GameObject reward = Instantiate(allCardPrefabs[Random.Range(0, allCardPrefabs.Count)], Vector3.zero, Quaternion.identity);
+            //rewards.Add(reward);
             reward.transform.SetParent(rewardsLayoutGroup);
         }
     }
+
+    //public void DeleteRewards()
+    //{
+    //    foreach (var r in rewards)
+    //    {
+    //        Destroy(r);
+    //    }
+
+    //    rewards.Clear();
+    //}
 
     public void StartMatch()
     {
@@ -166,15 +191,21 @@ public class GameManager : MonoBehaviour
         player2.hand.owner = player2;
         player2.deck = player2Deck;
         player2.deck.owner = player2;
-        player2.deck.AddChildCardsToList();
         player2.gameObject.AddComponent<AI>().p = player2;
 
-        player2.hand.DrawHand(5);
+        player2.deck.AddChildCardsToList();
+        player2.hand.DrawHand(player2.hand.handSize);
         player2.hand.StartDrawing();
 
+        if (player1.winCount > 0)
+        {
+            player1.hand.DiscardAll();
+        }
+       
         player1.deck.AddChildCardsToList();
-        player1.hand.DrawHand(5);
+        player1.hand.DrawHand(player1.hand.handSize);
         player1.hand.StartDrawing();
+
         player1.startingResources = player1.resources;
 
     }
@@ -183,6 +214,8 @@ public class GameManager : MonoBehaviour
     {
         SearchAndDestroyTag();
         SearchAndDestroyTagPermanent();
+        player1.hand.StopAllCoroutines();
+        player2.hand.StopAllCoroutines();
 
         if (loser == player1)
         {
@@ -246,7 +279,6 @@ public class GameManager : MonoBehaviour
 
     public void CreateBases()
     {
-        print("bases created");
         player1.baseCount = 3;
         player2.baseCount = 3;
 
@@ -337,19 +369,9 @@ public class GameManager : MonoBehaviour
             player2.LoseRound();
         }
 
-        if (Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            player1.roundScore++;
-            UpdateScoreTexts();
-            ResetRound();
-        }
-
         if (Input.GetKeyUp(KeyCode.UpArrow))
         {
-            foreach (GameObject c in player1.hand.cards)
-            {
-                //c.GetComponent<Card>().buildingPrefab;
-            }
+            player1.roundExtraResources += 5;
         }
 
         if (Input.GetKeyUp(KeyCode.Space))

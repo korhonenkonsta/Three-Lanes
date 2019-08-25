@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public int baseCount;
     public int roundScore;
+    public int winCount;
 
     public Player opponent;
     public GameManager gm;
@@ -81,6 +82,8 @@ public class Player : MonoBehaviour
 
         if (opponent.roundScore >= 2)
         {
+            opponent.winCount++;
+            opponent.roundExtraResources = 0;
             gm.GameOver(this);
         }
         else
@@ -91,6 +94,13 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (roundExtraResources >= 20)
+        {
+            if (opponent)
+            {
+                opponent.LoseRound();
+            }
+        }
         
     }
 }

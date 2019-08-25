@@ -41,6 +41,22 @@ public class Hand : MonoBehaviour
         }
     }
 
+    public void DiscardAll()
+    {
+        int cardCount = cards.Count;
+        for (int i = cardCount - 1; i >= 0; i--)
+        {
+            if (cards[i].GetComponent<Card>().selectedForDiscard)
+            {
+                cards[i].transform.SetParent(owner.discardPile.transform);
+                cards[i].GetComponent<Card>().ToggleDiscard();
+                owner.discardPile.cards.Add(cards[i]);
+
+                cards.Remove(cards[i]);
+            }
+        }
+    }
+
     public void DiscardMarkedAndDrawReplacements()
     {
         int discardCount = 0;
@@ -76,35 +92,38 @@ public class Hand : MonoBehaviour
 
     public void DrawHand(int amount)
     {
-        if (owner.deck.transform.childCount >= amount)
+        if (owner)
         {
-            if (amount > handSize - cards.Count)
-            {
-                DrawAmountOfCards(handSize - cards.Count);
-            }
-            else
-            {
-                DrawAmountOfCards(amount);
-            }
-        }
-        else
-        {
-            //Shuffle discardpile to drawpile, then draw
-            foreach (GameObject card in owner.discardPile.cards)
-            {
-                owner.deck.cards.Add(card);
-                card.transform.SetParent(owner.deck.transform);
-            }
-
-            owner.discardPile.cards.Clear();
-
             if (owner.deck.transform.childCount >= amount)
             {
-                DrawAmountOfCards(amount);
+                if (amount > handSize - cards.Count)
+                {
+                    DrawAmountOfCards(handSize - cards.Count);
+                }
+                else
+                {
+                    DrawAmountOfCards(amount);
+                }
             }
             else
             {
-                DrawAmountOfCards(owner.deck.cards.Count);
+                //Shuffle discardpile to drawpile, then draw
+                foreach (GameObject card in owner.discardPile.cards)
+                {
+                    owner.deck.cards.Add(card);
+                    card.transform.SetParent(owner.deck.transform);
+                }
+
+                owner.discardPile.cards.Clear();
+
+                if (owner.deck.transform.childCount >= amount)
+                {
+                    DrawAmountOfCards(amount);
+                }
+                else
+                {
+                    DrawAmountOfCards(owner.deck.cards.Count);
+                }
             }
         }
     }
