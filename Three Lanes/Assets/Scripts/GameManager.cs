@@ -50,9 +50,10 @@ public class GameManager : MonoBehaviour
     public float timeScaleValue = 1f;
 
     public List<GameObject> allCardPrefabs = new List<GameObject>();
+    public List<GameObject> allItemPrefabs = new List<GameObject>();
+    public List<GameObject> tempAllCardPrefabs = new List<GameObject>();
     public Transform rewardsLayoutGroup;
     public int rewardCount = 3;
-    //public List<GameObject> rewards = new List<GameObject>();
     public int rewardsPickedCount;
     public int rewardDraftAmount = 3;
 
@@ -91,7 +92,7 @@ public class GameManager : MonoBehaviour
         if (scene.name == "Reward")
         {
             playerInfoPanel.SetActive(false);
-            GiveRewards();
+            GiveRewards(allCardPrefabs);
         }
 
         SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -114,21 +115,34 @@ public class GameManager : MonoBehaviour
 
     public void PickReward(Transform button)
     {
-        player1.deck.cards.Add(rewardsLayoutGroup.GetChild(button.GetSiblingIndex()).gameObject);
-        rewardsLayoutGroup.GetChild(button.GetSiblingIndex()).gameObject.transform.SetParent(player1.deck.transform);
+        GameObject pickedReward = rewardsLayoutGroup.GetChild(button.GetSiblingIndex()).gameObject;
+
+        if (pickedReward.GetComponent<Item>())
+        {
+            player1.inventory.items.Add(pickedReward);
+            pickedReward.transform.SetParent(player1.inventory.transform);
+        }
+        else
+        {
+            player1.deck.cards.Add(pickedReward);
+            pickedReward.transform.SetParent(player1.deck.transform);
+        }
+        
 
         for (int i = 0; i < rewardsLayoutGroup.childCount; i++)
         {
             Destroy(rewardsLayoutGroup.GetChild(i).gameObject);
         }
 
-        //DeleteRewards();
-
         rewardsPickedCount++;
 
-        if (rewardsPickedCount < rewardDraftAmount)
+        if (rewardsPickedCount < rewardDraftAmount - 1)
         {
-            GiveRewards();
+            GiveRewards(allCardPrefabs);
+        }
+        else if(rewardsPickedCount < rewardDraftAmount)
+        {
+            GiveRewards(allItemPrefabs);
         }
         else
         {
@@ -138,27 +152,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GiveRewards()
+    public void GiveRewards(List<GameObject> rewardPrefabs)
     {
         rewardsLayoutGroup.parent.gameObject.SetActive(true);
+        
+        tempAllCardPrefabs.Clear();
 
+        foreach (GameObject g in rewardPrefabs)
+        {
+            tempAllCardPrefabs.Add(g);
+        }
+
+        int randomIndex = 0;
         for (int i = 0; i < rewardCount; i++)
         {
-            GameObject reward = Instantiate(allCardPrefabs[Random.Range(0, allCardPrefabs.Count)], Vector3.zero, Quaternion.identity);
-            //rewards.Add(reward);
+            randomIndex = Random.Range(0, rewardPrefabs.Count);
+            GameObject reward = Instantiate(rewardPrefabs[randomIndex], Vector3.zero, Quaternion.identity);
             reward.transform.SetParent(rewardsLayoutGroup);
+            rewardPrefabs.Remove(rewardPrefabs[randomIndex]);
+        }
+
+        rewardPrefabs.Clear();
+
+        foreach (GameObject g in tempAllCardPrefabs)
+        {
+            rewardPrefabs.Add(g);
         }
     }
-
-    //public void DeleteRewards()
-    //{
-    //    foreach (var r in rewards)
-    //    {
-    //        Destroy(r);
-    //    }
-
-    //    rewards.Clear();
-    //}
 
     public void StartMatch()
     {

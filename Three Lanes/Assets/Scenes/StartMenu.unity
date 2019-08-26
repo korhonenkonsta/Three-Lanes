@@ -6714,6 +6714,11 @@ MonoBehaviour:
   - {fileID: 7726382549994804919, guid: 4af6e1015032c0e4fa75b7e62eb0488d, type: 3}
   - {fileID: 1593180980661346708, guid: 8ff7f6eab4cbd4a4aa691251df0c394c, type: 3}
   - {fileID: 1593180980661346708, guid: 77c2f7b6a035a8442bf341d17bc9f15a, type: 3}
+  allItemPrefabs:
+  - {fileID: 182648280105212620, guid: c0d0bc65e2b1b8541a67fcdd6f720afc, type: 3}
+  - {fileID: 182648280105212620, guid: c0d0bc65e2b1b8541a67fcdd6f720afc, type: 3}
+  - {fileID: 182648280105212620, guid: c0d0bc65e2b1b8541a67fcdd6f720afc, type: 3}
+  tempAllCardPrefabs: []
   rewardsLayoutGroup: {fileID: 2133490838}
   rewardCount: 3
   rewardsPickedCount: 0
@@ -12533,11 +12538,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1077505993}
     m_Modifications:
-    - target: {fileID: 182648280105212620, guid: c0d0bc65e2b1b8541a67fcdd6f720afc,
-        type: 3}
-      propertyPath: m_Name
-      value: Item Spawner Creep
-      objectReference: {fileID: 0}
     - target: {fileID: 182648280127529474, guid: c0d0bc65e2b1b8541a67fcdd6f720afc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12642,6 +12642,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 182648280105212620, guid: c0d0bc65e2b1b8541a67fcdd6f720afc,
+        type: 3}
+      propertyPath: m_Name
+      value: Item Spawner Creep
       objectReference: {fileID: 0}
     - target: {fileID: 3106306624864294674, guid: c0d0bc65e2b1b8541a67fcdd6f720afc,
         type: 3}
