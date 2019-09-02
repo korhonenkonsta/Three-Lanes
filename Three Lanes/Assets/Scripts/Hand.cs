@@ -7,8 +7,11 @@ public class Hand : MonoBehaviour
     public Player owner;
     public List<GameObject> cards = new List<GameObject>();
 
+    public Queue<GameObject> discardQueue = new Queue<GameObject>();
+
     public int handSize = 7;
-    public float drawInterval = 10;
+    public float drawInterval = 10f;
+    public float nextDrawTime;
 
     void Start()
     {
@@ -41,22 +44,6 @@ public class Hand : MonoBehaviour
         }
     }
 
-    public void DiscardAll()
-    {
-        int cardCount = cards.Count;
-        for (int i = cardCount - 1; i >= 0; i--)
-        {
-            if (cards[i].GetComponent<Card>().selectedForDiscard)
-            {
-                cards[i].transform.SetParent(owner.discardPile.transform);
-                cards[i].GetComponent<Card>().ToggleDiscard();
-                owner.discardPile.cards.Add(cards[i]);
-
-                cards.Remove(cards[i]);
-            }
-        }
-    }
-
     public void DiscardMarkedAndDrawReplacements()
     {
         int discardCount = 0;
@@ -76,6 +63,31 @@ public class Hand : MonoBehaviour
 
         DrawHand(discardCount);
         DrawHand(handSize - cards.Count);
+    }
+
+    public void DiscardAll()
+    {
+        int cardCount = cards.Count;
+        for (int i = cardCount - 1; i >= 0; i--)
+        {
+            if (cards[i].GetComponent<Card>().selectedForDiscard)
+            {
+                cards[i].transform.SetParent(owner.discardPile.transform);
+                cards[i].GetComponent<Card>().ToggleDiscard();
+                owner.discardPile.cards.Add(cards[i]);
+
+                cards.Remove(cards[i]);
+            }
+        }
+    }
+
+    public void DiscardCard(GameObject cardObject)
+    {
+        cardObject.transform.SetParent(owner.discardPile.transform);
+        cardObject.GetComponent<Card>().selectedForDiscard = false;
+
+        owner.discardPile.cards.Add(cardObject);
+        cards.Remove(cardObject);
     }
 
     public void ShuffleHandToDeck()
@@ -130,7 +142,7 @@ public class Hand : MonoBehaviour
 
     void DrawAmountOfCards(int amount)
     {
-        if (amount <= 0)
+        if (amount <= 0 && owner.deck.cards.Count > 0)
         {
             return;
         }
@@ -162,6 +174,12 @@ public class Hand : MonoBehaviour
 
     void Update()
     {
-        
+
+        if (discardQueue.Count > 0 && Time.time > nextDrawTime)
+        {
+            nextDrawTime = Time.time + drawInterval;
+            DiscardCard(discardQueue.Dequeue());
+            DrawAmountOfCards(1);
+        }
     }
 }

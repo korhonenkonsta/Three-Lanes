@@ -1748,7 +1748,8 @@ MonoBehaviour:
   owner: {fileID: 0}
   cards: []
   handSize: 6
-  drawInterval: 10
+  drawInterval: 1
+  nextDrawTime: 0
 --- !u!114 &369777903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11980,7 +11981,8 @@ MonoBehaviour:
   owner: {fileID: 388200787}
   cards: []
   handSize: 6
-  drawInterval: 5
+  drawInterval: 1
+  nextDrawTime: 0
 --- !u!224 &2024586204 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4830953934020483718, guid: eac20eae716e2324cac15776ca39abb8,
@@ -12538,6 +12540,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1077505993}
     m_Modifications:
+    - target: {fileID: 182648280105212620, guid: c0d0bc65e2b1b8541a67fcdd6f720afc,
+        type: 3}
+      propertyPath: m_Name
+      value: Item Spawner Creep
+      objectReference: {fileID: 0}
     - target: {fileID: 182648280127529474, guid: c0d0bc65e2b1b8541a67fcdd6f720afc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12642,11 +12649,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 182648280105212620, guid: c0d0bc65e2b1b8541a67fcdd6f720afc,
-        type: 3}
-      propertyPath: m_Name
-      value: Item Spawner Creep
       objectReference: {fileID: 0}
     - target: {fileID: 3106306624864294674, guid: c0d0bc65e2b1b8541a67fcdd6f720afc,
         type: 3}
@@ -13114,6 +13116,7 @@ MonoBehaviour:
   cards: []
   handSize: 5
   drawInterval: 10
+  nextDrawTime: 0
 --- !u!114 &2133490840
 MonoBehaviour:
   m_ObjectHideFlags: 0

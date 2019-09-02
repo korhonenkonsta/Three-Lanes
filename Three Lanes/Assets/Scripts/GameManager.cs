@@ -220,7 +220,7 @@ public class GameManager : MonoBehaviour
         player2.deck.AddChildCardsToList();
         player2.inventory.AddChildItemsToList();
         player2.hand.DrawHand(player2.hand.handSize);
-        player2.hand.StartDrawing();
+        //player2.hand.StartDrawing();
 
         if (player1.winCount > 0)
         {
@@ -230,7 +230,7 @@ public class GameManager : MonoBehaviour
         player1.deck.AddChildCardsToList();
         player1.inventory.AddChildItemsToList();
         player1.hand.DrawHand(player1.hand.handSize);
-        player1.hand.StartDrawing();
+        //player1.hand.StartDrawing();
 
         player1.startingResources = player1.resources;
 

@@ -46,7 +46,10 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
     public void ToggleDiscard()
     {
+        owner.hand.discardQueue.Enqueue(gameObject);
+
         selectedForDiscard = !selectedForDiscard;
+
         if (selectedForDiscard)
         {
             img.color = m_DiscardColor;

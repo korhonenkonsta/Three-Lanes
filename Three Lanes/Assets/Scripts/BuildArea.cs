@@ -46,10 +46,12 @@ public class BuildArea : MonoBehaviour
             //    buildingTemp.GetComponent<ResourceGenerator>().Init(owner, b);
             //}
 
-            d.transform.SetParent(owner.discardPile.transform);
+            owner.hand.DiscardCard(d.gameObject);
+            owner.hand.discardQueue.Enqueue(d.gameObject);
+            //d.transform.SetParent(owner.discardPile.transform);
             d.parentToReturnTo = owner.discardPile.transform;
-            owner.discardPile.cards.Add(c.gameObject);
-            owner.hand.cards.Remove(c.gameObject);
+            //owner.discardPile.cards.Add(c.gameObject);
+            //owner.hand.cards.Remove(c.gameObject);
 
             owner.availableBuildAreas.Remove(this);
         }
