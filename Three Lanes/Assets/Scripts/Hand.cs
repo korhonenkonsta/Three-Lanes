@@ -61,8 +61,8 @@ public class Hand : MonoBehaviour
             }
         }
 
-        DrawHand(discardCount);
-        DrawHand(handSize - cards.Count);
+        DrawHandShuffleIfNeeded(discardCount);
+        DrawHandShuffleIfNeeded(handSize - cards.Count);
     }
 
     public void DiscardAll()
@@ -85,6 +85,7 @@ public class Hand : MonoBehaviour
     {
         cardObject.transform.SetParent(owner.discardPile.transform);
         cardObject.GetComponent<Card>().selectedForDiscard = false;
+        cardObject.GetComponent<Card>().ToggleColor();
 
         owner.discardPile.cards.Add(cardObject);
         cards.Remove(cardObject);
@@ -102,10 +103,11 @@ public class Hand : MonoBehaviour
         }
     }
 
-    public void DrawHand(int amount)
+    public void DrawHandShuffleIfNeeded(int amount)
     {
         if (owner)
         {
+            print(owner);
             if (owner.deck.transform.childCount >= amount)
             {
                 if (amount > handSize - cards.Count)
@@ -142,7 +144,7 @@ public class Hand : MonoBehaviour
 
     void DrawAmountOfCards(int amount)
     {
-        if (amount <= 0 && owner.deck.cards.Count > 0)
+        if (amount <= 0 /*&& owner.deck.cards.Count > 0*/)
         {
             return;
         }
@@ -175,11 +177,27 @@ public class Hand : MonoBehaviour
     void Update()
     {
 
-        if (discardQueue.Count > 0 && Time.time > nextDrawTime)
+        if (discardQueue.Count > 0)
+        {
+            if (Time.time > nextDrawTime)
+            {
+                nextDrawTime = Time.time + drawInterval;
+                if (discardQueue.Peek().GetComponent<Card>().selectedForDiscard)
+                {
+                    DiscardCard(discardQueue.Dequeue());
+                }
+                else
+                {
+                    discardQueue.Dequeue();
+                }
+                
+                DrawHandShuffleIfNeeded(1);
+                print("Deck card count:" +owner.deck.cards.Count);
+            }
+        }
+        else
         {
             nextDrawTime = Time.time + drawInterval;
-            DiscardCard(discardQueue.Dequeue());
-            DrawAmountOfCards(1);
         }
     }
 }

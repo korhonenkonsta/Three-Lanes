@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -46,10 +47,21 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
     public void ToggleDiscard()
     {
-        owner.hand.discardQueue.Enqueue(gameObject);
+        if (owner.hand.discardQueue.Contains(gameObject))
+        {
+            owner.hand.discardQueue = new Queue<GameObject>(owner.hand.discardQueue.Where(p => p != gameObject));
+        }
+        else
+        {
+            owner.hand.discardQueue.Enqueue(gameObject);
+        }
 
         selectedForDiscard = !selectedForDiscard;
+        ToggleColor();
+    }
 
+    public void ToggleColor()
+    {
         if (selectedForDiscard)
         {
             img.color = m_DiscardColor;

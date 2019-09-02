@@ -124,10 +124,12 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                             StartCoroutine(spell.GetComponent<Explosion>().LightFuse(c.owner));
                         }
 
-                        transform.SetParent(c.owner.discardPile.transform);
+                        c.owner.hand.DiscardCard(gameObject);
+                        c.owner.hand.discardQueue.Enqueue(gameObject);
+                        //transform.SetParent(c.owner.discardPile.transform);
                         parentToReturnTo = c.owner.discardPile.transform;
-                        c.owner.discardPile.cards.Add(c.gameObject);
-                        c.owner.hand.cards.Remove(c.gameObject);
+                        //c.owner.discardPile.cards.Add(c.gameObject);
+                        //c.owner.hand.cards.Remove(c.gameObject);
                     }
                 }
             }

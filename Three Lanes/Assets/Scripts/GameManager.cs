@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            player1.deck.cards.Add(pickedReward);
+            //player1.deck.cards.Add(pickedReward); NOT NEEDED CURRENTLY, ALREADY ADDED AT START OF MATCH
             pickedReward.transform.SetParent(player1.deck.transform);
         }
         
@@ -219,7 +219,7 @@ public class GameManager : MonoBehaviour
 
         player2.deck.AddChildCardsToList();
         player2.inventory.AddChildItemsToList();
-        player2.hand.DrawHand(player2.hand.handSize);
+        player2.hand.DrawHandShuffleIfNeeded(player2.hand.handSize);
         //player2.hand.StartDrawing();
 
         if (player1.winCount > 0)
@@ -229,7 +229,7 @@ public class GameManager : MonoBehaviour
        
         player1.deck.AddChildCardsToList();
         player1.inventory.AddChildItemsToList();
-        player1.hand.DrawHand(player1.hand.handSize);
+        player1.hand.DrawHandShuffleIfNeeded(player1.hand.handSize);
         //player1.hand.StartDrawing();
 
         player1.startingResources = player1.resources;
@@ -431,8 +431,8 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.R))
         {
-            player1.hand.DrawHand(3);
-            player2.hand.DrawHand(3);
+            player1.hand.DrawHandShuffleIfNeeded(3);
+            player2.hand.DrawHandShuffleIfNeeded(3);
         }
 
         if (player1ResourcesText && player2ResourcesText && player1 && player2)
