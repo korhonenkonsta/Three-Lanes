@@ -13,6 +13,11 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     public GameObject spellPrefab;
     public Player owner;
 
+    public enum Type {All, Building, Spell};
+    public Type cardType;
+    public enum SubType {All, Factory, Generator, Summon, Effect};
+    public SubType subType;
+
     public bool selectedForDiscard;
 
     //When the mouse hovers over the GameObject, it turns to this color (red)

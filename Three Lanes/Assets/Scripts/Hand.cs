@@ -6,6 +6,7 @@ public class Hand : MonoBehaviour
 {
     public Player owner;
     public List<GameObject> cards = new List<GameObject>();
+    public List<GameObject> tempCards = new List<GameObject>();
 
     public Queue<GameObject> discardQueue = new Queue<GameObject>();
 
@@ -159,19 +160,56 @@ public class Hand : MonoBehaviour
         }
     }
 
-    public GameObject SelectRandomCard()
+    public GameObject SelectRandomCard(Card.Type type = Card.Type.All, Card.SubType subType = Card.SubType.All)
     {
-        //Add card type as parameter
         if (cards.Count > 0)
         {
-            int index = Random.Range(0, cards.Count - 1);
-            return cards[index];
+            if (type != Card.Type.All)
+            {
+                tempCards.Clear();
+
+                if (subType != Card.SubType.All)
+                {
+                    foreach (GameObject cardObject in cards)
+                    {
+                        if (cardObject.GetComponent<Card>().subType == subType)
+                        {
+                            tempCards.Add(cardObject);
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (GameObject cardObject in cards)
+                    {
+                        if (cardObject.GetComponent<Card>().cardType == type)
+                        {
+                            tempCards.Add(cardObject);
+                        }
+                    }
+                }
+                
+                if (tempCards.Count > 0)
+                {
+                    int index = Random.Range(0, tempCards.Count - 1);
+                    return tempCards[index];
+                }
+                else
+                {
+                    return null;
+                }
+                
+            }
+            else
+            {
+                int index = Random.Range(0, cards.Count - 1);
+                return cards[index];
+            }
         }
         else
         {
             return null;
         }
-        
     }
 
     void Update()
@@ -192,7 +230,6 @@ public class Hand : MonoBehaviour
                 }
                 
                 DrawHandShuffleIfNeeded(1);
-                print("Deck card count:" +owner.deck.cards.Count);
             }
         }
         else

@@ -7,6 +7,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 107266, guid: 43bd9bca3c5a51140888431876cf4997, type: 3}
+      propertyPath: m_Name
+      value: Card Creep
+      objectReference: {fileID: 0}
+    - target: {fileID: 7462253428403042960, guid: 43bd9bca3c5a51140888431876cf4997,
+        type: 3}
+      propertyPath: buildingPrefab
+      value: 
+      objectReference: {fileID: 413902281368187581, guid: 1d11e5d4737e5ae408fd109f6563e1e8,
+        type: 3}
+    - target: {fileID: 7462253428403042960, guid: 43bd9bca3c5a51140888431876cf4997,
+        type: 3}
+      propertyPath: cardType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7462253428403042960, guid: 43bd9bca3c5a51140888431876cf4997,
+        type: 3}
+      propertyPath: subType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 22420428, guid: 43bd9bca3c5a51140888431876cf4997, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -91,10 +111,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 107266, guid: 43bd9bca3c5a51140888431876cf4997, type: 3}
-      propertyPath: m_Name
-      value: Card Creep
-      objectReference: {fileID: 0}
     - target: {fileID: 11437358, guid: 43bd9bca3c5a51140888431876cf4997, type: 3}
       propertyPath: m_Color.r
       value: 0.9716981
@@ -107,11 +123,5 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.068752214
       objectReference: {fileID: 0}
-    - target: {fileID: 7462253428403042960, guid: 43bd9bca3c5a51140888431876cf4997,
-        type: 3}
-      propertyPath: buildingPrefab
-      value: 
-      objectReference: {fileID: 413902281368187581, guid: 1d11e5d4737e5ae408fd109f6563e1e8,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43bd9bca3c5a51140888431876cf4997, type: 3}

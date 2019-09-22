@@ -8,6 +8,9 @@ public class AI : MonoBehaviour
     public bool doBuild = true;
     public float buildInterval = 5;
 
+    public enum AIType {Rush, Defend, Econ};
+    public AIType type;
+
     void Start()
     {
         StartCoroutine(ContinuousBuild());
@@ -35,8 +38,27 @@ public class AI : MonoBehaviour
 
     public void BuildRandom()
     {
-        //Need to differentiate between card types, to select only buildings
-        GameObject cardObj = p.hand.SelectRandomCard();
+        GameObject cardObj = null;
+        switch (type)
+        {
+            case AIType.Rush:
+                cardObj = p.hand.SelectRandomCard(Card.Type.Building, Card.SubType.Factory);
+                break;
+            case AIType.Defend:
+                cardObj = p.hand.SelectRandomCard(Card.Type.Building);
+                break;
+            case AIType.Econ:
+                cardObj = p.hand.SelectRandomCard(Card.Type.Building, Card.SubType.Generator);
+                break;
+            default:
+                break;
+        }
+
+        if (!cardObj)
+        {
+            cardObj = p.hand.SelectRandomCard(Card.Type.Building);
+        }
+
         if (!cardObj)
         {
             print("No cards found in hand");

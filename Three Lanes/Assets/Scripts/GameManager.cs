@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -199,6 +200,13 @@ public class GameManager : MonoBehaviour
         player2.inventory.InitSpawners();
     }
 
+    static T GetRandomEnum<T>()
+    {
+        System.Array A = System.Enum.GetValues(typeof(T));
+        T V = (T)A.GetValue(Random.Range(0, A.Length));
+        return V;
+    }
+
     public void CreatePlayer2()
     {
         player2 = Instantiate(player2Prefab, transform.position, transform.rotation).GetComponent<Player>();
@@ -216,6 +224,8 @@ public class GameManager : MonoBehaviour
         player2.inventory.owner = player2;
 
         player2.gameObject.AddComponent<AI>().p = player2;
+        player2.GetComponent<AI>().type = GetRandomEnum<AI.AIType>();
+        playe2AIText.text = "Opponent: " + player2.GetComponent<AI>().type;
 
         player2.deck.AddChildCardsToList();
         player2.inventory.AddChildItemsToList();
