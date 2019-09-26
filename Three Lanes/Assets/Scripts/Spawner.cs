@@ -43,16 +43,19 @@ public class Spawner : MonoBehaviour
     {
         if (GetComponent<Building>() || GetComponent<Unit>() || GetComponent<Item>())
         {
-            if (coroutine != null)
+            if (owner)
             {
-                StopCoroutine(coroutine);
+                if (coroutine != null)
+                {
+                    StopCoroutine(coroutine);
+                }
+
+                coroutine = ContinuousSpawn();
+                StartCoroutine(coroutine);
+
+                nextSpawnTime = Time.time + spawnInterval;
+                fill = 0;
             }
-
-            coroutine = ContinuousSpawn();
-            StartCoroutine(coroutine);
-
-            nextSpawnTime = Time.time + spawnInterval;
-            fill = 0;
         }
     }
 
@@ -178,6 +181,17 @@ public class Spawner : MonoBehaviour
                     }
                 }
 
+                foreach (GameObject item in owner.inventory.items)
+                {
+                    if (item.name == "Item Creeps Explode(Clone)")
+                    {
+                        print("WOOOOOOOOOOO");
+                        Explosion explosion = tempUnit.gameObject.AddComponent<Explosion>();
+                        explosion.explosionEffect = Resources.Load("EnergyExplosion") as GameObject;
+                    }
+                }
+
+                //Add to list
                 owner.opponent.enemyUnitsAll.Add(tempUnit.transform);
 
                 if (currentLane.laneNumber == 1)

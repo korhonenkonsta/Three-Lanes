@@ -1,39 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4808083670366841022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182648280105212620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a49475cf3ba930478fc1484a013d34a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGenerator: 0
-  resourceAmount: 1
-  prefabToSpawn: {fileID: 1502950728977524122, guid: c60b8dab3dfb9cf4ea34ce41b356a2c4,
-    type: 3}
-  doSpawn: 1
-  spawnInterval: 5
-  spawnIntervalStep: 1
-  spawnIntervalMin: 1
-  hasWindup: 0
-  owner: {fileID: 0}
-  currentLane: {fileID: 0}
-  resourcePopupPrefab: {fileID: 0}
-  height: 1
-  nextSpawnTime: 0
-  coolDownBarForeground: {fileID: 0}
-  fill: 0
-  remainingBarForeground: {fileID: 0}
-  isTemporary: 0
-  spawnCount: 0
-  spawnCountBeforeDestroy: 10
-  isGlobal: 0
---- !u!1001 &5725508370802217229
+--- !u!1001 &3843459189344593925
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -43,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 5619914144962628545, guid: cd26696d70be84244b7bc4d608e9ad84,
         type: 3}
       propertyPath: m_Name
-      value: Item Spawner Creep
+      value: Item Creeps Explode
       objectReference: {fileID: 0}
     - target: {fileID: 5619914144982987535, guid: cd26696d70be84244b7bc4d608e9ad84,
         type: 3}
@@ -147,9 +114,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd26696d70be84244b7bc4d608e9ad84, type: 3}
---- !u!1 &182648280105212620 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5619914144962628545, guid: cd26696d70be84244b7bc4d608e9ad84,
-    type: 3}
-  m_PrefabInstance: {fileID: 5725508370802217229}
-  m_PrefabAsset: {fileID: 0}
