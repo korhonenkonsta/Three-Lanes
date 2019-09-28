@@ -188,6 +188,10 @@ public class Spawner : MonoBehaviour
                         Explosion explosion = tempUnit.gameObject.AddComponent<Explosion>();
                         explosion.explosionEffect = Resources.Load("EnergyExplosion") as GameObject;
                     }
+                    else if (item.name == "Item +1 Regen All Units(Clone)")
+                    {
+                        tempUnit.gameObject.GetComponent<Health>().hpRegen++;
+                    }
                 }
 
                 //Add to list

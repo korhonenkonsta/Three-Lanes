@@ -59,6 +59,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         else
         {
             owner.hand.discardQueue.Enqueue(gameObject);
+            transform.SetParent(owner.discardPile.transform);//NEW, QUICK DISCARD
         }
 
         selectedForDiscard = !selectedForDiscard;

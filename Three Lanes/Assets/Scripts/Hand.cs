@@ -54,7 +54,7 @@ public class Hand : MonoBehaviour
             if (cards[i].GetComponent<Card>().selectedForDiscard)
             {
                 discardCount++;
-                cards[i].transform.SetParent(owner.discardPile.transform);
+                //cards[i].transform.SetParent(owner.discardPile.transform); //NEW, Done in card class when right click
                 cards[i].GetComponent<Card>().ToggleDiscard();
                 owner.discardPile.cards.Add(cards[i]);
 

@@ -8,13 +8,14 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	public Transform parentToReturnTo = null;
 	public Transform placeholderParent = null;
     public new Camera camera;
-
+    Vector3 startingScale;
 
     GameObject placeholder = null;
 
     public void Start()
     {
         camera = Camera.main;
+        startingScale = GetComponent<RectTransform>().localScale;
     }
 
     public void OnBeginDrag(PointerEventData eventData) {
@@ -143,7 +144,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 		GetComponent<CanvasGroup>().blocksRaycasts = true;
 
 		Destroy(placeholder);
-        GetComponent<RectTransform>().localScale = new Vector3(1f, 1f);
+        GetComponent<RectTransform>().localScale = startingScale;
     }
 	
 	

@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     public int hp;
     public int maxHp;
     public int hpRegen;
+    public float nextRegenTime;
+    public float regenInterval = 3f;
     public int armor;
     public Image healthBarForeground;
     public Player owner;
@@ -95,31 +97,16 @@ public class Health : MonoBehaviour
         }
     }
 
-    //void OnCollisionEnter(Collision col)
-    //{
-    //    if (col.gameObject.GetComponent<Health>())
-    //    {
-    //        //Units
-    //        if (GetComponent<Unit>() && col.gameObject.GetComponent<Unit>())
-    //        {
-    //            if (GetComponent<Unit>().owner != col.gameObject.GetComponent<Unit>().owner)
-    //            {
-    //                col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
-    //                print("units from dif owners collided");
-    //            }
-    //        }
-    //        else
-    //        {
-    //            print("non-unit health changed");
-    //            col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
-    //        }
-    //    }
-
-    //    //audioSource.Play();
-    //}
-
     void Update()
     {
-        
+        if (hp == maxHp)
+        {
+            nextRegenTime = Time.time + regenInterval;
+        }
+        else if (Time.time > nextRegenTime)
+        {
+            nextRegenTime = Time.time + regenInterval;
+            hp += hpRegen;
+        }
     }
 }

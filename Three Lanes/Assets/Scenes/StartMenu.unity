@@ -2558,6 +2558,200 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369777900}
   m_CullTransparentMesh: 0
+--- !u!1001 &370219157
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1994020368}
+    m_Modifications:
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 141.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 135
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419494009326, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_Name
+      value: Card Creep Factory
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640697868981781552, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640697868981781552, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640697868981781552, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640697868981781552, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640697868981781552, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674415821497773268, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674415821497773268, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674415821497773268, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674415821497773268, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674415821497773268, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419505824874, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.14001465
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744359428321243104, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744359428321243104, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744359428321243104, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2744359428321243104, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 22af00f2fa1e93d48a5b445358687ac9, type: 3}
 --- !u!1 &388200785 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7192916869546518366, guid: 4e710320abba1054faa3db57088ad76a,
@@ -4074,195 +4268,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 575249660}
   m_CullTransparentMesh: 0
---- !u!1001 &744205761
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1994020368}
-    m_Modifications:
-    - target: {fileID: 5608661854112054496, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_Name
-      value: Card Creep Windup
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 135
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5608661854100758884, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.14001465
-      objectReference: {fileID: 0}
-    - target: {fileID: 7225687999489159486, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 7225687999489159486, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7225687999489159486, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7225687999489159486, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7225687999489159486, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3941299591243618778, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 3941299591243618778, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3941299591243618778, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3941299591243618778, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3941299591243618778, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3871631412082514670, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3871631412082514670, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3871631412082514670, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3871631412082514670, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7a1cfe807eac7734693b98eb124c3e88, type: 3}
 --- !u!1 &754394496
 GameObject:
   m_ObjectHideFlags: 0
@@ -5229,11 +5234,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1774169976}
     m_Modifications:
-    - target: {fileID: 7726382549994804919, guid: b72d4ffe793993f42895bda705fdaf5a,
-        type: 3}
-      propertyPath: m_Name
-      value: Card Resource Generator Global
-      objectReference: {fileID: 0}
     - target: {fileID: 7726382549980687993, guid: b72d4ffe793993f42895bda705fdaf5a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5338,6 +5338,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726382549994804919, guid: b72d4ffe793993f42895bda705fdaf5a,
+        type: 3}
+      propertyPath: m_Name
+      value: Card Resource Generator Global
       objectReference: {fileID: 0}
     - target: {fileID: 1179425073847710605, guid: b72d4ffe793993f42895bda705fdaf5a,
         type: 3}
@@ -5509,7 +5514,7 @@ PrefabInstance:
     - target: {fileID: 7726382549980687993, guid: fe493c7a362d6094bad718499ef8f5f8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7726382549980687993, guid: fe493c7a362d6094bad718499ef8f5f8,
         type: 3}
@@ -5661,11 +5666,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1774169976}
     m_Modifications:
-    - target: {fileID: 6807991419494009326, guid: 22af00f2fa1e93d48a5b445358687ac9,
-        type: 3}
-      propertyPath: m_Name
-      value: Card Creep Factory
-      objectReference: {fileID: 0}
     - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5770,6 +5770,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419494009326, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_Name
+      value: Card Creep Factory
       objectReference: {fileID: 0}
     - target: {fileID: 8640697868981781552, guid: 22af00f2fa1e93d48a5b445358687ac9,
         type: 3}
@@ -6111,11 +6116,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1463070229}
     m_Modifications:
-    - target: {fileID: 7726382549994804919, guid: 06dc46b587085e04e8a2df49447fbe77,
-        type: 3}
-      propertyPath: m_Name
-      value: Card Resource Generator Windup
-      objectReference: {fileID: 0}
     - target: {fileID: 7726382549980687993, guid: 06dc46b587085e04e8a2df49447fbe77,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6220,6 +6220,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726382549994804919, guid: 06dc46b587085e04e8a2df49447fbe77,
+        type: 3}
+      propertyPath: m_Name
+      value: Card Resource Generator Windup
       objectReference: {fileID: 0}
     - target: {fileID: 1179425073847710605, guid: 06dc46b587085e04e8a2df49447fbe77,
         type: 3}
@@ -6715,7 +6720,7 @@ PrefabInstance:
     - target: {fileID: 1593180980647942490, guid: 8cf42b3744ec1e746ac6c5c75fd7a5cc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1593180980647942490, guid: 8cf42b3744ec1e746ac6c5c75fd7a5cc,
         type: 3}
@@ -6861,11 +6866,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1774169976}
     m_Modifications:
-    - target: {fileID: 7726382549994804919, guid: 06dc46b587085e04e8a2df49447fbe77,
-        type: 3}
-      propertyPath: m_Name
-      value: Card Resource Generator Windup
-      objectReference: {fileID: 0}
     - target: {fileID: 7726382549980687993, guid: 06dc46b587085e04e8a2df49447fbe77,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6970,6 +6970,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726382549994804919, guid: 06dc46b587085e04e8a2df49447fbe77,
+        type: 3}
+      propertyPath: m_Name
+      value: Card Resource Generator Windup
       objectReference: {fileID: 0}
     - target: {fileID: 1179425073847710605, guid: 06dc46b587085e04e8a2df49447fbe77,
         type: 3}
@@ -7431,7 +7436,7 @@ MonoBehaviour:
   - {fileID: 1593180980661346708, guid: 8ff7f6eab4cbd4a4aa691251df0c394c, type: 3}
   - {fileID: 1593180980661346708, guid: 77c2f7b6a035a8442bf341d17bc9f15a, type: 3}
   allItemPrefabs:
-  - {fileID: 182648280105212620, guid: c0d0bc65e2b1b8541a67fcdd6f720afc, type: 3}
+  - {fileID: 7779257990661998479, guid: c018e48b45298c34eb3a63ddf1149021, type: 3}
   - {fileID: 182648280105212620, guid: c0d0bc65e2b1b8541a67fcdd6f720afc, type: 3}
   - {fileID: 8695122564359955396, guid: b448a643075e8494c93d90f0f9c6c338, type: 3}
   tempAllCardPrefabs: []
@@ -8376,6 +8381,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1774169976}
     m_Modifications:
+    - target: {fileID: 567071365077235754, guid: 4bec47e3ae05da54f91d37ed81b22f3e,
+        type: 3}
+      propertyPath: m_Name
+      value: Card Creep Fast
+      objectReference: {fileID: 0}
     - target: {fileID: 567071365063950564, guid: 4bec47e3ae05da54f91d37ed81b22f3e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8480,11 +8490,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 567071365077235754, guid: 4bec47e3ae05da54f91d37ed81b22f3e,
-        type: 3}
-      propertyPath: m_Name
-      value: Card Creep Fast
       objectReference: {fileID: 0}
     - target: {fileID: 3336481953019999732, guid: 4bec47e3ae05da54f91d37ed81b22f3e,
         type: 3}
@@ -8817,11 +8822,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1463070229}
     m_Modifications:
-    - target: {fileID: 6807991419494009326, guid: 22af00f2fa1e93d48a5b445358687ac9,
-        type: 3}
-      propertyPath: m_Name
-      value: Card Creep Factory
-      objectReference: {fileID: 0}
     - target: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8926,6 +8926,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807991419494009326, guid: 22af00f2fa1e93d48a5b445358687ac9,
+        type: 3}
+      propertyPath: m_Name
+      value: Card Creep Factory
       objectReference: {fileID: 0}
     - target: {fileID: 8640697868981781552, guid: 22af00f2fa1e93d48a5b445358687ac9,
         type: 3}
@@ -9343,6 +9348,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7c35ce44245dee418ad5905ca57d87a, type: 3}
+--- !u!224 &1468750678 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6807991419505914144, guid: 22af00f2fa1e93d48a5b445358687ac9,
+    type: 3}
+  m_PrefabInstance: {fileID: 370219157}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1487922639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9350,11 +9361,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1774169976}
     m_Modifications:
-    - target: {fileID: 5608661854112054496, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_Name
-      value: Card Creep Windup
-      objectReference: {fileID: 0}
     - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9459,6 +9465,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608661854112054496, guid: 7a1cfe807eac7734693b98eb124c3e88,
+        type: 3}
+      propertyPath: m_Name
+      value: Card Creep Windup
       objectReference: {fileID: 0}
     - target: {fileID: 5608661854100758884, guid: 7a1cfe807eac7734693b98eb124c3e88,
         type: 3}
@@ -9710,12 +9721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c0fe3aa73d26d4ca84b4c24726d5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &1524338456 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
-    type: 3}
-  m_PrefabInstance: {fileID: 744205761}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1525081871 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1593180980647942490, guid: 8cf42b3744ec1e746ac6c5c75fd7a5cc,
@@ -9729,6 +9734,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1463070229}
     m_Modifications:
+    - target: {fileID: 567071365077235754, guid: 4bec47e3ae05da54f91d37ed81b22f3e,
+        type: 3}
+      propertyPath: m_Name
+      value: Card Creep Fast
+      objectReference: {fileID: 0}
     - target: {fileID: 567071365063950564, guid: 4bec47e3ae05da54f91d37ed81b22f3e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9833,11 +9843,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 567071365077235754, guid: 4bec47e3ae05da54f91d37ed81b22f3e,
-        type: 3}
-      propertyPath: m_Name
-      value: Card Creep Fast
       objectReference: {fileID: 0}
     - target: {fileID: 3336481953019999732, guid: 4bec47e3ae05da54f91d37ed81b22f3e,
         type: 3}
@@ -11075,11 +11080,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1463070229}
     m_Modifications:
-    - target: {fileID: 7726382549994804919, guid: b72d4ffe793993f42895bda705fdaf5a,
-        type: 3}
-      propertyPath: m_Name
-      value: Card Resource Generator Global
-      objectReference: {fileID: 0}
     - target: {fileID: 7726382549980687993, guid: b72d4ffe793993f42895bda705fdaf5a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11185,6 +11185,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7726382549994804919, guid: b72d4ffe793993f42895bda705fdaf5a,
+        type: 3}
+      propertyPath: m_Name
+      value: Card Resource Generator Global
+      objectReference: {fileID: 0}
     - target: {fileID: 1179425073847710605, guid: b72d4ffe793993f42895bda705fdaf5a,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -11275,11 +11280,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1463070229}
     m_Modifications:
-    - target: {fileID: 5608661854112054496, guid: 7a1cfe807eac7734693b98eb124c3e88,
-        type: 3}
-      propertyPath: m_Name
-      value: Card Creep Windup
-      objectReference: {fileID: 0}
     - target: {fileID: 5608661854100800558, guid: 7a1cfe807eac7734693b98eb124c3e88,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11384,6 +11384,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608661854112054496, guid: 7a1cfe807eac7734693b98eb124c3e88,
+        type: 3}
+      propertyPath: m_Name
+      value: Card Creep Windup
       objectReference: {fileID: 0}
     - target: {fileID: 5608661854100758884, guid: 7a1cfe807eac7734693b98eb124c3e88,
         type: 3}
@@ -12029,11 +12034,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1994020368}
     m_Modifications:
-    - target: {fileID: 7726382549994804919, guid: b72d4ffe793993f42895bda705fdaf5a,
-        type: 3}
-      propertyPath: m_Name
-      value: Card Resource Generator Global
-      objectReference: {fileID: 0}
     - target: {fileID: 7726382549980687993, guid: b72d4ffe793993f42895bda705fdaf5a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12072,7 +12072,7 @@ PrefabInstance:
     - target: {fileID: 7726382549980687993, guid: b72d4ffe793993f42895bda705fdaf5a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7726382549980687993, guid: b72d4ffe793993f42895bda705fdaf5a,
         type: 3}
@@ -12133,6 +12133,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726382549994804919, guid: b72d4ffe793993f42895bda705fdaf5a,
+        type: 3}
+      propertyPath: m_Name
+      value: Card Resource Generator Global
       objectReference: {fileID: 0}
     - target: {fileID: 1179425073847710605, guid: b72d4ffe793993f42895bda705fdaf5a,
         type: 3}
@@ -12456,10 +12461,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 391926720}
-  - {fileID: 1524338456}
   - {fileID: 1538157297}
   - {fileID: 785442736}
   - {fileID: 354571792}
+  - {fileID: 1468750678}
   m_Father: {fileID: 533253824}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12556,7 +12561,7 @@ MonoBehaviour:
   owner: {fileID: 388200787}
   cards: []
   tempCards: []
-  handSize: 6
+  handSize: 5
   drawInterval: 2
   nextDrawTime: 0
 --- !u!1001 &2081737210
