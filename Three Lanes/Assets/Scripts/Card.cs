@@ -124,7 +124,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         }
         else
         {
-            value = gameObject.name;
+            value = gameObject.name.Remove(gameObject.name.Length - 7);
         }
 
         transform.Find("Card Title").GetComponent<TextMeshProUGUI>().text = value;

@@ -51,12 +51,8 @@ public class Unit : MonoBehaviour
             {
                 if (owner != col.gameObject.GetComponent<Unit>().owner)
                 {
-                    if (GetComponent<Explosion>())
-                    {
-                        GetComponent<Health>().OnDeath();
-                    }
                     //Spear vs fast bonus
-                    else if (GetComponent<Spear>() && !col.gameObject.GetComponent<Spear>())
+                    if (GetComponent<Spear>() && !col.gameObject.GetComponent<Spear>())
                     {
                         if (col.gameObject.GetComponent<Unit>().speed > speed)
                         {
@@ -82,6 +78,13 @@ public class Unit : MonoBehaviour
                     else
                     {
                         col.gameObject.GetComponent<Health>().ChangeHealth(-damage);
+                        if (GetComponent<Explosion>())
+                        {
+                            if (GetComponent<Explosion>().explodeOnContact)
+                            {
+                                GetComponent<Health>().OnDeath();
+                            }
+                        }
                     }
                 }
             }

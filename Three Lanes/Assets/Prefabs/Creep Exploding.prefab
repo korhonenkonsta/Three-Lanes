@@ -16,6 +16,7 @@ MonoBehaviour:
     type: 3}
   radius: 10
   damage: 2
+  explodeOnContact: 1
   fuseTime: 1
 --- !u!1001 &4154836752297599053
 PrefabInstance:

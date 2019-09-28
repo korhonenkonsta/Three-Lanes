@@ -108,7 +108,6 @@ public class Hand : MonoBehaviour
     {
         if (owner)
         {
-            print(owner);
             if (owner.deck.transform.childCount >= amount)
             {
                 if (amount > handSize - cards.Count)

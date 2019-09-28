@@ -185,7 +185,6 @@ public class Spawner : MonoBehaviour
                 {
                     if (item.name == "Item Creeps Explode(Clone)")
                     {
-                        print("WOOOOOOOOOOO");
                         Explosion explosion = tempUnit.gameObject.AddComponent<Explosion>();
                         explosion.explosionEffect = Resources.Load("EnergyExplosion") as GameObject;
                     }

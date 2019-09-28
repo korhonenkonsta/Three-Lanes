@@ -7,6 +7,7 @@ public class Explosion : MonoBehaviour
     public GameObject explosionEffect;
     public float radius = 10f;
     public int damage = 1;
+    public bool explodeOnContact;
 
     public float fuseTime = 1f;
 
