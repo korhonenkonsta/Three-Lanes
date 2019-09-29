@@ -7439,6 +7439,7 @@ MonoBehaviour:
   - {fileID: 7779257990661998479, guid: c018e48b45298c34eb3a63ddf1149021, type: 3}
   - {fileID: 182648280105212620, guid: c0d0bc65e2b1b8541a67fcdd6f720afc, type: 3}
   - {fileID: 8695122564359955396, guid: b448a643075e8494c93d90f0f9c6c338, type: 3}
+  - {fileID: 5419921771615171919, guid: 6965df0bc85045e43bc8d05eb7a4157d, type: 3}
   tempAllCardPrefabs: []
   rewardsLayoutGroup: {fileID: 2133490838}
   rewardCount: 3

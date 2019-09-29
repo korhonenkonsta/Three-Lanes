@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a49475cf3ba930478fc1484a013d34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGenerator: 0
+  resourceAmount: 1
   prefabToSpawn: {fileID: 1502950728977524122, guid: c60b8dab3dfb9cf4ea34ce41b356a2c4,
     type: 3}
   doSpawn: 1
@@ -21,6 +23,16 @@ MonoBehaviour:
   hasWindup: 0
   owner: {fileID: 0}
   currentLane: {fileID: 0}
+  resourcePopupPrefab: {fileID: 0}
+  height: 1
+  nextSpawnTime: 0
+  coolDownBarForeground: {fileID: 0}
+  fill: 0
+  remainingBarForeground: {fileID: 0}
+  isTemporary: 0
+  spawnCount: 0
+  spawnCountBeforeDestroy: 10
+  isGlobal: 0
 --- !u!1001 &48760773545226293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,6 +123,11 @@ PrefabInstance:
     - target: {fileID: 3757239484670792408, guid: c60b8dab3dfb9cf4ea34ce41b356a2c4,
         type: 3}
       propertyPath: hp
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757239484670792408, guid: c60b8dab3dfb9cf4ea34ce41b356a2c4,
+        type: 3}
+      propertyPath: maxHp
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2703752721756324955, guid: c60b8dab3dfb9cf4ea34ce41b356a2c4,

@@ -192,6 +192,10 @@ public class Spawner : MonoBehaviour
                     {
                         tempUnit.gameObject.GetComponent<Health>().hpRegen++;
                     }
+                    else if (item.name == "Item +1 Hp All Units(Clone)")
+                    {
+                        tempUnit.gameObject.GetComponent<Health>().ChangeMaxHp(1);
+                    }
                 }
 
                 //Add to list

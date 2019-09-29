@@ -21,7 +21,12 @@ public class Health : MonoBehaviour
 
     void Start()
     {
-        maxHp = hp;
+        hp = maxHp;
+    }
+
+    public void ChangeMaxHp(int amount)
+    {
+        maxHp += amount;
     }
 
     public void ChangeHealth(int amount)

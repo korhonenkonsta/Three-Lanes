@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
 
         if (pickedReward.GetComponent<Item>())
         {
-            player1.inventory.items.Add(pickedReward);
+            //player1.inventory.items.Add(pickedReward); NOT NEEDED CURRENTLY, ALREADY ADDED AT START OF MATCH
             pickedReward.transform.SetParent(player1.inventory.transform);
         }
         else

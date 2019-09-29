@@ -59,6 +59,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -138,8 +139,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
-  maxHp: 0
+  maxHp: 1
   hpRegen: 0
+  nextRegenTime: 0
+  regenInterval: 3
   armor: 0
   healthBarForeground: {fileID: 0}
   owner: {fileID: 0}
@@ -164,6 +167,7 @@ MonoBehaviour:
   shield: 0
   shieldRegen: 0
   speed: 10
+  cost: 0
   currentLane: {fileID: 0}
   multiLaneTargetSearch: 0
   isBullet: 1
