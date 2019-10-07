@@ -63,8 +63,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: -4515822180617692266, guid: 4af3d864a1279a04fb98f3a564225869,
     type: 3}
   m_Type: 3
@@ -134,6 +132,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -184,8 +183,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 9
-  maxHp: 0
+  maxHp: 9
   hpRegen: 0
+  nextRegenTime: 0
+  regenInterval: 3
   armor: 0
   healthBarForeground: {fileID: 423359522128150354}
   owner: {fileID: 0}
@@ -369,8 +370,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 1085880888020134689, guid: 4af3d864a1279a04fb98f3a564225869,
     type: 3}
   m_Type: 0
