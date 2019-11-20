@@ -210,8 +210,8 @@ public class GameManager : MonoBehaviour
     public void CreatePlayer2()
     {
         player2 = Instantiate(player2Prefab, transform.position, transform.rotation).GetComponent<Player>();
-        player2.resources = 20;
-        player2.startingResources = player2.resources;
+        player2.startingResources = 20;
+        player2.resources = player2.startingResources;
         player2.opponent = player1;
         player2.gm = this;
         player2.discardPile = player2DiscardPile;
@@ -242,7 +242,7 @@ public class GameManager : MonoBehaviour
         player1.hand.DrawHandShuffleIfNeeded(player1.hand.handSize);
         //player1.hand.StartDrawing();
 
-        player1.startingResources = player1.resources;
+        player1.resources = player1.startingResources;
 
     }
 

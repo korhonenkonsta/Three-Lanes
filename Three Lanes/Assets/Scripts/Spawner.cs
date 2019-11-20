@@ -104,6 +104,18 @@ public class Spawner : MonoBehaviour
                         }
                     }
                 }
+                else if (prefabToSpawn.GetComponent<Unit>())
+                {
+                    print(prefabToSpawn.name);
+                    if (prefabToSpawn.name == "Mine")
+                    {
+                        Spawn(prefabToSpawn, transform.position - transform.forward * 0.4f, transform.rotation, owner, currentLane, 0);
+                    }
+                    else
+                    {
+                        Spawn(prefabToSpawn, transform.position + transform.forward * 0.4f, transform.rotation, owner, currentLane, 0);
+                    }
+                }
                 else
                 {
                     Spawn(prefabToSpawn, transform.position + transform.forward * 0.4f, transform.rotation, owner, currentLane, 0);
